@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    =========================================================================
+    WAKE UP MISSION - PAGE ACTIVITÉS (activites.html)
+    =========================================================================
+    Site vitrine : inscriptions via liens Google Forms externes (config.js).
+    Visuels : déposer les images dans assets/images/ (voir config.js → IMAGES)
+    =========================================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Activités et événements de Wake Up Mission — RM5, Awakening Experience Service, Ronde de Veille, Full Prayer Service et plus encore." />
+
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Activités & Événements — Wake Up Mission</title>
+</head>
+<body>
+
+  <header id="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+        
+      </a>
+
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien">Notre Mission</a>
+        <a href="activites.html" class="nav-lien actif">Activités</a>
+        <a href="formations.html" class="nav-lien">Formation</a>
+        <a href="ressources.html" class="nav-lien">Ressources</a>
+        <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+      </nav>
+
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay-mobile" id="overlay-mobile"></div>
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien">Notre Mission</a>
+    <a href="activites.html" class="nav-lien actif">Activités</a>
+    <a href="formations.html" class="nav-lien">Formation</a>
+    <a href="ressources.html" class="nav-lien">Ressources</a>
+    <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+  </nav>
+
+  <main id="haut-page">
+  <section class="fond-sombre entete-activites" aria-labelledby="titre-activites">
+    <div class="carousel-slide" aria-hidden="true"></div>
+    <div class="carousel-slide carousel-slide-2" aria-hidden="true"></div>
+    <div class="carousel-slide carousel-slide-3" aria-hidden="true"></div>
+    <div class="carousel-slide carousel-slide-4" aria-hidden="true"></div>
+    <div class="entete-overlay" aria-hidden="true"></div>
+    <div class="section-conteneur entete-activites-contenu">
+      <span class="section-label">Événements &amp; Programmes</span>
+      <h1 class="section-titre" id="titre-activites">
+        <span class="accent">Activités</span> Wake Up Mission
+      </h1>
+      <p class="section-intro">
+        Découvrez nos conférences, retraites, services de prière et programmes de formation.
+        Rejoignez une communauté d'âmes réveillées en action.
+      </p>
+    </div>
+  </section>
+
+  <!-- RM5 — Événement vedette -->
+  <section id="rm5" class="fond-sombre" aria-labelledby="titre-rm5" data-animer>
+    <div class="section-conteneur">
+
+      <div class="activites-section-entete">
+        <span class="section-label">Événement vedette</span>
+      </div>
+
+      <div class="activite-vedette">
+
+        <div class="activite-vedette-visuel">
+          <img src="Image/RM5_NEW.jpg" alt="Affiche Revêtement Mental 5 (RM5)" class="activite-vedette-image" loading="lazy" />
+        </div>
+
+        <div class="activite-vedette-contenu">
+          <span class="badge-vedette">Inscrivez-vous dès maintenant !</span>
+          <h2 id="titre-rm5">Revêtement Mental 5 (RM5)</h2>
+          <p>
+            La 5ème édition de notre conférence de transformation est enfin là.
+            RM5 est une expérience immersive de renouvellement du mental, d'activation spirituelle
+            et de repositionnement de l'identité de l'âme réveillée.
+          </p>
+
+          <div class="activite-meta-info">
+            <span><span class="icone-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span> <strong>Date :</strong> 24 &amp; 25 octobre 2026</span>
+            <span><span class="icone-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span> <strong>Lieu :</strong> #Showbuzz (la méga conférence), puis Hilton Hotel (le banquet financier)</span>
+            <span><span class="icone-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> <strong>Durée :</strong> Après-midi complète</span>
+            <span><span class="icone-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V7a2 2 0 00-2-2z"/><line x1="9" y1="3" x2="9" y2="7"/><line x1="15" y1="3" x2="15" y2="7"/></svg></span> <strong>Inscriptions :</strong> Ouvertes dès maintenant, via les liens ci-dessous !</span>
+          </div>
+
+          <div class="activite-vedette-actions">
+            <a href="https://ticket.streameex.com/event/rm5-conference" target="_blank" rel="noopener noreferrer" class="btn btn-aqua">
+              S'inscrire au #RM5 — J1 Conférence →
+            </a>
+            <a href="https://ticket.streameex.com/event/rm5-banquet-financier-jour2" target="_blank" rel="noopener noreferrer" class="btn btn-secondaire">
+              Réserver — J2 Banquet financier →
+            </a>
+            <a href="https://whatsapp.com/channel/0029VaKUHvOHwXbCToImi23K" target="_blank" rel="noopener noreferrer" class="btn btn-contour-violet">
+              Restez informés avec notre chaîne WhatsApp →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="fond-sombre-2" aria-labelledby="titre-partenariat-rm5" data-animer>
+    <div class="section-conteneur">
+      <div class="partenariat-rm5">
+        <img class="partenariat-rm5-image" src="Partnership.jpg" alt="Appel aux partenaires et sponsors du Banquet financier RM5" loading="lazy" />
+        <div class="partenariat-rm5-contenu">
+          <span class="partenariat-rm5-label">Partenariat RM5</span>
+          <h2 class="partenariat-rm5-titre" id="titre-partenariat-rm5">Associez votre impact à celui de WUM</h2>
+          <p class="partenariat-rm5-texte">
+            Nous ouvrons la porte aux entreprises, réseaux et créateurs qui souhaitent contribuer concrètement au Banquet financier RM5.
+            <strong>Votre réseau, vos ressources, votre impact.</strong>
+          </p>
+          <div class="partenariat-rm5-actions">
+            <a href="https://wa.me/243835620138?text=Bonjour%20WUM%2C%20je%20souhaite%20devenir%20partenaire%20du%20RM5." target="_blank" rel="noopener noreferrer" class="btn btn-aqua">
+              Devenir partenaire →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rm-club" class="fond-sombre" aria-labelledby="titre-rm-club" data-animer>
+    <div class="section-conteneur">
+      <div class="activites-section-entete">
+        <span class="section-label">Programme phare</span>
+      </div>
+      <div class="activite-vedette activite-vedette-rm-club">
+        <div class="activite-vedette-visuel">
+          <img src="Image/RM_Club_Artwork.jpg" alt="RM Club, programme de croissance communautaire" class="activite-vedette-image" loading="lazy" />
+        </div>
+        <div class="activite-vedette-contenu">
+          <span class="badge-vedette">Rejoignez la communauté !</span>
+          <h2 id="titre-rm-club">RM Club</h2>
+          <p>
+            Le RM Club est la communauté vivante de croyants engagés dans la transformation quotidienne. Au cœur des
+            <strong>Cercles de Croissance</strong>, chaque membre trouve un lieu de partage, de prière et de développement spirituel en profondeur.
+          </p>
+          <div class="activite-meta-info">
+            <span><strong>Réunion :</strong> Hebdomadaire — 2026</span>
+            <span><strong>Format :</strong> Présentiel</span>
+            <span><strong>Cible :</strong> Membres et ami·e·s engagé·e·s</span>
+            <span><strong>Ressources :</strong> Guide officiel, Cercles de Croissance</span>
+          </div>
+          <div class="activite-vedette-actions">
+            <a href="RM_Club.html" class="btn btn-aqua">Voir plus d'infos et les activités du RM Club →</a>
+            <a href="What%20is%20the%20RM%20Club.pdf" download class="btn btn-secondaire">Télécharger le Guide →</a>
+            <a href="https://whatsapp.com/channel/0029VaKUHvOHwXbCToImi23K" target="_blank" rel="noopener noreferrer" class="btn btn-contour-violet">Infoline WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autres activités -->
+  <section id="autres-activites" class="fond-sombre-2" aria-labelledby="titre-autres-activites" data-animer>
+    <div class="section-conteneur">
+
+      <span class="section-label">Nos Programmes</span>
+      <h2 class="section-titre" id="titre-autres-activites">Toutes nos Activités</h2>
+      <p class="section-intro">
+        Au-delà de RM5, WUM propose un riche programme d'activités spirituelles
+        et de formations pratiques tout au long de l'année.
+      </p>
+
+      <div class="activites-grille">
+
+        <div class="activite-carte" id="aes">
+          <img src="Image/AES.png" alt="Awakening Experience Service" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Service Régulier</span>
+            <h3 class="activite-titre">Awakening Experience Service</h3>
+            <p class="activite-description">
+              Un temps de culte immersif pour vivre une rencontre profonde avec Dieu.
+              Le service d'éveil combine prière, enseignement et adoration.
+            </p>
+            <div class="activite-infos">
+              <span>Mensuel</span>
+              <span>En ligne & présentiel</span>
+            </div>
+            <a href="#" class="btn btn-primaire lien-clubhouse" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Rejoindre sur Clubhouse →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="rdv">
+          <img src="Image/Ronde.png" alt="Ronde de Veille" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Prière & Intercession</span>
+            <h3 class="activite-titre">Ronde de Veille</h3>
+            <p class="activite-description">
+              Des veillées de prière nocturne pour former des intercesseurs au cœur
+              de la vision de WUM. Engagement profond requis.
+            </p>
+            <div class="activite-infos">
+              <span>Hebdomadaire</span>
+              <span>En ligne</span>
+            </div>
+            <a href="#" class="btn btn-primaire lien-clubhouse" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Rejoindre sur Clubhouse →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="fps">
+          <img src="Image/FPS.png" alt="Full Prayer Service" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Prière Globale</span>
+            <h3 class="activite-titre">Full Prayer Service (FPS)</h3>
+            <p class="activite-description">
+              Des sessions d'intercession intense pour les nations et la transformation
+              des sociétés. Rejoignez des milliers de croyants en prière.
+            </p>
+            <div class="activite-infos">
+              <span>Mensuel</span>
+              <span>En ligne</span>
+            </div>
+            <a href="#" class="btn btn-primaire lien-clubhouse" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Rejoindre sur Clubhouse →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="rdr">
+          <img src="Image/WUM_ID_3.png" alt="Revival Day Retreat" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Retraite Spirituelle</span>
+            <h3 class="activite-titre">Revival Day Retreat (RDR)</h3>
+            <p class="activite-description">
+              Une retraite d'une journée complète pour se déposer et rencontrer Dieu
+              dans le silence et la profondeur.
+            </p>
+            <div class="activite-infos">
+              <span>Trimestriel</span>
+              <span>Présentiel</span>
+            </div>
+            <a href="#" class="btn btn-primaire lien-clubhouse" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Rejoindre sur Clubhouse →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="rm-podcast">
+          <img src="Image/RM_Podcast.png" alt="RM Le Podcast" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Podcast</span>
+            <h3 class="activite-titre">RM Le Podcast</h3>
+            <p class="activite-description">
+              Des enseignements audio hebdomadaires sur l'éveil spirituel, le leadership
+              chrétien et la transformation sociale.
+            </p>
+            <div class="activite-infos">
+              <span>Chaque semaine</span>
+              <span>Toutes plateformes</span>
+            </div>
+            <!-- TODO : Ajouter le lien officiel de la chaîne YouTube RM Podcast (config.js) -->
+            <a href="#" class="btn btn-primaire lien-youtube-podcast" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Visionner le Podcast →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="click-up-motion">
+          <img src="Image/click_up_motion.png" alt="Click Up Motion" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Formation</span>
+            <h3 class="activite-titre">Click Up Motion</h3>
+            <p class="activite-description">
+              Un atelier de formation à la productivité et à la gestion de projet
+              pour les leaders et serviteurs de WUM.
+            </p>
+            <div class="activite-infos">
+              <span>Sur demande</span>
+              <span>En ligne</span>
+            </div>
+            <a href="#" class="btn btn-primaire lien-adhesion" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              S'inscrire →
+            </a>
+          </div>
+        </div>
+
+        <div class="activite-carte" id="rm-club-carte">
+          <img src="Image/RM_Club_Artwork.jpg" alt="RM Club" class="activite-carte-image" loading="lazy" />
+          <div class="activite-carte-corps">
+            <span class="activite-badge">Programme phare</span>
+            <h3 class="activite-titre">RM Club</h3>
+            <p class="activite-description">
+              La communauté vivante des membres engagés. Des Cercles de Croissance
+              hebdomadaires pour partager, prier et grandir ensemble selon la vision de WUM.
+            </p>
+            <div class="activite-infos">
+              <span>Hebdomadaire</span>
+              <span>Présentiel</span>
+            </div>
+            <a href="RM_Club.html" class="btn btn-primaire" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">
+              Découvrir le RM Club →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="partenariat" class="fond-clair activites-partenariat" aria-labelledby="titre-partenariat" data-animer>
+    <div class="section-conteneur activites-partenariat-contenu">
+      <span class="section-label">Partenariat &amp; engagement</span>
+      <h2 class="section-titre" id="titre-partenariat">Transformer des vies ensemble</h2>
+      <p class="section-intro">
+        Nous ne cherchons pas des donateurs, mais des <strong>partenaires de réveil</strong>.
+        Chaque contribution est un levier pour transformer des vies, former des leaders
+        et déclencher un changement sociétal durable.
+      </p>
+      <p class="activites-partenariat-phrase">
+        Ce que vous soutenez aujourd'hui devient la génération qui demain transformera la société.
+      </p>
+      <a href="https://wa.me/243835620138?text=Bonjour%20WUM%20!%20Je%20souhaiterais%20en%20savoir%20plus%20sur%20les%20possibilit%C3%A9s%20de%20partenariat." target="_blank" rel="noopener noreferrer" class="btn btn-aqua">
+        Nous soutenir →
+      </a>
+    </div>
+  </section>
+
+  <section class="fond-sombre section-photo" style="text-align:center; padding: 5rem 2rem; background: url('Image/IMG_6030.JPG'); background-size: cover; background-position: center;" aria-label="Rejoindre WUM" data-animer>
+    <span class="section-label">Rejoins le mouvement</span>
+    <h2 class="section-titre">Deviens un acteur du réveil</h2>
+    <p class="section-intro">
+      Ne sois pas seulement spectateur. Rejoins la communauté WUM et contribue activement
+      à la transformation de ton milieu.
+    </p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="rejoindre.html" class="btn btn-aqua lien-adhesion" id="btn-rejoindre-activites">Devenir membre</a>
+      <a href="formations.html" class="btn btn-secondaire">Voir les formations →</a>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+          
+        </div>
+        <p>Mouvement mondial d'éveil spirituel, de formation de leaders et de transformation sociale.</p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="#" class="lien-adhesion">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#" class="lien-instagram" data-instagram-handle>@mywake_up</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <a href="#" class="lien-whatsapp-footer">WhatsApp WUM</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-flottant" aria-label="Contacter WUM sur WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

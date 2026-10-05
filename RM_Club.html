@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RM Club — Le cercle privé de croissance continue de Wake Up Mission. Transformez votre mentalité, clarifiez votre mission, déployez votre utilité sociale." />
+  <meta name="keywords" content="RM Club, Wake Up Mission, WUM, revêtement mental, utilité sociale, cercle de croissance, leadership, communauté" />
+  <meta name="author" content="Wake Up Mission" />
+  <meta property="og:title" content="RM Club | Wake Up Mission — Le cercle de croissance" />
+  <meta property="og:description" content="Le cercle privé de croissance continue de Wake Up Mission. Mentalité, Mission, Utilité sociale." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    :root {
+      --bg-dark: #0b0b12;
+      --bg-dark-2: #12121a;
+      --bg-soft: #f4f4fa;
+      --panel: #161621;
+      --white: #ffffff;
+      --text: #111217;
+      --text-soft: #54586c;
+      --violet: #4d41d9;
+      --violet-2: #803db4;
+      --aqua: #71f4b3;
+      --line: rgba(255,255,255,0.08);
+      --muted: #dfe1ee;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: #0b0b12;
+      color: #f4f4fa;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    p { margin: 0; }
+    h1, h2, h3, h4 { margin: 0; font-family: 'Outfit', sans-serif; }
+
+    .container {
+      width: min(1200px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 11, 18, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .header-container {
+      width: min(1200px, calc(100% - 2rem));
+      margin: 0 auto;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+    .nav-bureau {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .nav-lien {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .nav-lien:hover, .nav-lien.actif { color: #fff; }
+    .btn-nav-cta, .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-nav-cta, .btn-aqua-liquide,
+    .btn-primaire {
+      background: linear-gradient(135deg, var(--aqua), #a9f8c7);
+      color: #101319;
+      box-shadow: 0 12px 35px rgba(113,244,179,0.28);
+    }
+    .btn-secondaire {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+    .btn-contour {
+      border-color: rgba(255,255,255,0.22);
+      background: transparent;
+      color: #fff;
+    }
+    .btn:hover, .btn-nav-cta:hover { transform: translateY(-2px); }
+
+    .toggle-mobile {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      padding: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+    .toggle-mobile span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .menu-mobile {
+      display: none;
+      position: fixed;
+      top: 76px;
+      right: 1rem;
+      width: min(320px, calc(100% - 2rem));
+      padding: 1rem;
+      background: rgba(18,18,26,0.97);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      z-index: 80;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .menu-mobile.show { display: flex; }
+    .menu-mobile .nav-lien, .menu-mobile .btn-nav-cta {
+      display: block;
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+    }
+    .menu-mobile .btn-nav-cta { margin-top: 0.3rem; }
+
+    .entete-rmclub {
+      position: relative;
+      margin-top: 0;
+      padding: clamp(2.5rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 8vw, 5rem);
+      background:
+        linear-gradient(rgba(7,7,10,0.55), rgba(7,7,10,0.75)),
+        linear-gradient(180deg, #0a0a14 0%, #07070a 60%, #0a0a14 100%);
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(113,244,179,0.08);
+    }
+    .entete-rmclub::before,
+    .entete-rmclub::after,
+    .entete-rmclub .carousel-slide {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(1);
+      will-change: opacity, transform;
+    }
+    .entete-rmclub::before {
+      background-image: url('Image/RM_Club_logo.jpeg');
+      background-position: center center;
+      animation: slide-1 17.64s ease-in-out infinite;
+      opacity: 1;
+    }
+    .entete-rmclub .carousel-slide {
+      background-image: url('Image/RM_Club_logo.jpeg');
+      background-position: center center;
+      animation: slide-2 17.64s ease-in-out infinite;
+      animation-delay: 5.88s;
+    }
+    .entete-rmclub::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('Image/RM_Club_logo.jpeg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(1);
+      animation: slide-3 17.64s ease-in-out infinite;
+      animation-delay: 11.76s;
+    }
+    .entete-rmclub .halo-aqua {
+      position: absolute;
+      bottom: -180px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 240px;
+      border-radius: 50%;
+      background: #71F4B3;
+      filter: blur(120px);
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .entete-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(7,7,10,0.78) 0%, rgba(7,7,10,0.55) 40%, rgba(7,7,10,0.32) 70%, rgba(7,7,10,0) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .entete-rmclub .section-conteneur {
+      position: relative;
+      z-index: 3;
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .section-titre {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+    }
+    .section-intro {
+      color: #dfe1ee;
+      font-size: 1.08rem;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+    }
+    .btn-pdf {
+      border: 2px solid rgba(255,255,255,0.95) !important;
+      background: rgba(255,255,255,0.18) !important;
+      box-shadow: 0 0 20px rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.4) !important;
+      font-weight: 600 !important;
+      color: #fff !important;
+    }
+    .btn-pdf:hover {
+      border-color: var(--aqua) !important;
+      background: rgba(113,244,179,0.25) !important;
+      box-shadow: 0 0 25px rgba(113,244,179,0.5), 0 6px 20px rgba(0,0,0,0.5) !important;
+      transform: translateY(-2px) !important;
+    }
+    .rmclub-infoline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 1.3rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.92rem;
+    }
+    .rmclub-infoline a {
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      opacity: 0.95;
+    }
+    .rmclub-infoline svg { flex-shrink: 0; }
+    .infoline-separateur { opacity: 0.5; }
+
+    @keyframes slide-1 {
+      0% { opacity: 1; transform: scale(1.00); }
+      50% { opacity: 1; transform: scale(1.08); }
+      66.67% { opacity: 0; transform: scale(1.10); }
+      97.22% { opacity: 0; transform: scale(1.00); }
+      100% { opacity: 1; transform: scale(1.00); }
+    }
+    @keyframes slide-2 {
+      0% { opacity: 0; transform: scale(1.00); }
+      16.67% { opacity: 1; transform: scale(1.06); }
+      50% { opacity: 1; transform: scale(1.10); }
+      66.67% { opacity: 0; transform: scale(1.10); }
+      100% { opacity: 0; transform: scale(1.00); }
+    }
+    @keyframes slide-3 {
+      0% { opacity: 0; transform: scale(1.00); }
+      16.67% { opacity: 1; transform: scale(1.06); }
+      33.33% { opacity: 1; transform: scale(1.10); }
+      50% { opacity: 0; transform: scale(1.10); }
+      97.22% { opacity: 0; transform: scale(1.00); }
+      100% { opacity: 0; transform: scale(1.00); }
+    }
+
+    .section-fond-b {
+      background: linear-gradient(180deg, #14131e 0%, #0d0d15 100%);
+      color: #f4f4fa;
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+    .consulting-section {
+      background:
+        linear-gradient(180deg, rgba(11, 11, 18, 0.72), rgba(11, 11, 18, 0.82)),
+        url('Image/RM_Club_Img1.jpeg') center/cover no-repeat;
+      color: #f4f4fa;
+    }
+    .section-fond-a {
+      background: #f4f4fa;
+      color: var(--text);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+    .section-fond-a .section-label { color: var(--violet); }
+    .section-fond-a .section-titre { color: var(--text); }
+    .section-fond-a .section-intro { color: var(--text-soft); }
+    .section-conteneur {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    .leitmotiv {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    .leitmotiv p {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.25rem, 2vw, 2rem);
+      line-height: 1.45;
+      color: #f4f4fa;
+    }
+    .leitmotiv .auteur {
+      display: block;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: var(--aqua);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .piliers-grille {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 2.2rem;
+    }
+    .pilier-carte {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(77,65,217,0.12);
+      border-radius: 22px;
+      padding: 1.5rem 1.4rem 1.35rem;
+      box-shadow: 0 18px 45px rgba(17,18,23,0.05);
+    }
+    .pilier-numero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(77,65,217,0.12), rgba(128,61,180,0.1));
+      color: var(--violet);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      margin-bottom: 1rem;
+    }
+    .pilier-titre {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+    .pilier-carte p {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .espaces-liste {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .espace-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 1.2rem 1.1rem;
+    }
+    .espace-icone {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(77,65,217,0.18), rgba(113,244,179,0.14));
+      color: var(--aqua);
+      border-radius: 14px;
+    }
+    .espace-texte {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .espace-texte strong {
+      font-size: 1.02rem;
+      color: #fff;
+    }
+    .espace-texte span {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .meetup-grille {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    .meetup-carte {
+      background: rgba(17,18,23,0.04);
+      border: 1px solid rgba(17,18,23,0.08);
+      border-radius: 22px;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+    }
+    .meetup-carte .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(77,65,217,0.08);
+      color: var(--violet);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+    .meetup-carte .nom {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .meetup-carte .desc {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .formules-grille {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 2.2rem;
+    }
+    .formule-carte {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .formule-nom {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .formule-prix {
+      font-size: 2.05rem;
+      line-height: 1;
+      color: var(--aqua);
+      font-weight: 900;
+      font-family: 'Outfit', sans-serif;
+    }
+    .formule-prix small {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+    .formule-profil {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+      min-height: 64px;
+    }
+    .formule-avantages {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+    .formule-avantages li::before {
+      content: '✓';
+      color: var(--aqua);
+      margin-right: 0.55rem;
+      font-weight: 800;
+    }
+    .formule-carte .btn {
+      margin-top: auto;
+    }
+
+    .sessions-grille {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 2.2rem;
+    }
+    .session-carte {
+      background: rgba(17,18,23,0.02);
+      border: 1px solid rgba(17,18,23,0.08);
+      border-radius: 22px;
+      padding: 1.45rem 1.3rem;
+    }
+    .session-num {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(77,65,217,0.08);
+      color: var(--violet);
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .session-titre {
+      color: var(--text);
+      font-size: 1.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .session-carte p {
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+    .session-themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+    .session-themes span {
+      display: inline-flex;
+      background: rgba(77,65,217,0.07);
+      color: var(--violet);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .session-livrable {
+      color: var(--violet) !important;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .engagement-grille {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 2rem;
+    }
+    .engagement-carte {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 1.5rem 1.2rem;
+    }
+    .engagement-carte h3 {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+    .engagement-carte ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      color: rgba(255,255,255,0.82);
+    }
+    .engagement-carte ul li::before {
+      content: '•';
+      margin-right: 0.7rem;
+      color: var(--aqua);
+      font-weight: 900;
+    }
+    .engagement-carte.attendu {
+      background: rgba(113,244,179,0.05);
+      border-color: rgba(113,244,179,0.2);
+    }
+    .engagement-carte.evite {
+      background: rgba(255,255,255,0.02);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .cta-panel {
+      position: relative;
+      background: linear-gradient(135deg, rgba(20,19,30,0.95) 0%, rgba(30,25,55,0.95) 100%);
+      border: 1px solid rgba(184,179,255,0.30);
+      border-radius: 24px;
+      padding: clamp(1.5rem, 4vw, 2.8rem) clamp(1.25rem, 4vw, 2.4rem);
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 6px 24px rgba(77,65,217,0.25);
+      overflow: hidden;
+      color: #f4f4fa;
+    }
+    .cta-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 32px;
+      right: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #4d41d9 30%, #71f4b3 70%, transparent);
+      border-radius: 0 0 2px 2px;
+    }
+    .cta-panel .section-label { color: var(--aqua); }
+    .cta-panel .section-titre { color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+    .cta-panel .section-intro { color: rgba(244,244,250,0.92); }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .qr-bloc {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem auto 0;
+      max-width: 460px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(184,179,255,0.30);
+      border-radius: 20px;
+      padding: 1rem 1.1rem;
+    }
+    .qr-bloc img {
+      width: 150px;
+      height: 150px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: #fff;
+    }
+    .qr-texte {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      color: rgba(244,244,250,0.85);
+    }
+    .qr-texte strong {
+      color: var(--aqua);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .qr-texte span {
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      background: #0b0b12;
+      color: rgba(255,255,255,0.8);
+      padding: 3rem 0 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-grille {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1.3fr;
+      gap: 2rem;
+    }
+    .footer-marque, .footer-liens, .footer-contact { color: rgba(255,255,255,0.8); }
+    .footer-marque p, .footer-contact p { line-height: 1.8; }
+    .footer-liens h4, .footer-contact h4 { color: #fff; margin-bottom: 0.9rem; }
+    .footer-liens ul {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; gap: 0.5rem;
+    }
+    .footer-liens a, .footer-contact a { color: rgba(255,255,255,0.8); }
+    .slogan {
+      display: inline-block;
+      margin-top: 0.7rem;
+      color: #71f4b3;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .footer-bas {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 2rem auto 0;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-bas a { color: rgba(255,255,255,0.7); }
+    .icone-reseau {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+    .icone-reseau svg { flex-shrink: 0; }
+
+    @media (max-width: 980px) {
+      .piliers-grille,
+      .formules-grille,
+      .meetup-grille,
+      .sessions-grille,
+      .engagement-grille,
+      .footer-grille {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-grille { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-bureau { display: none; }
+      .toggle-mobile { display: inline-flex; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .hero-cta .btn, .cta-actions .btn { width: 100%; }
+      .piliers-grille,
+      .espaces-liste,
+      .formules-grille,
+      .meetup-grille,
+      .sessions-grille,
+      .engagement-grille { grid-template-columns: 1fr; }
+      .qr-bloc { flex-direction: column; }
+      .qr-bloc img { width: 120px; height: 120px; }
+      .footer-bas { flex-direction: column; }
+      .entete-rmclub::before,
+      .entete-rmclub::after,
+      .entete-rmclub .carousel-slide { animation-duration: 6.62s; }
+      .entete-rmclub .carousel-slide { animation-delay: 2.21s; }
+      .entete-rmclub::after { animation-delay: 4.41s; }
+    }
+  </style>
+
+  <title>RM Club | Wake Up Mission — Le cercle de croissance</title>
+</head>
+<body>
+  <header id="site-header" class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+      </a>
+
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien">Notre Mission</a>
+        <a href="activites.html" class="nav-lien">Activités</a>
+        <a href="formations.html" class="nav-lien">Formation</a>
+        <a href="ressources.html" class="nav-lien">Ressources</a>
+        <a href="rejoindre.html" class="btn-nav-cta">S'inscrire au #RM5</a>
+      </nav>
+
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien">Notre Mission</a>
+    <a href="activites.html" class="nav-lien">Activités</a>
+    <a href="formations.html" class="nav-lien">Formation</a>
+    <a href="ressources.html" class="nav-lien">Ressources</a>
+    <a href="rejoindre.html" class="btn-nav-cta">S'inscrire au #RM5</a>
+  </nav>
+
+  <main>
+    <section class="entete-rmclub" aria-labelledby="titre-rmclub">
+      <div class="carousel-slide" aria-hidden="true"></div>
+      <div class="halo-aqua" aria-hidden="true"></div>
+      <div class="entete-overlay" aria-hidden="true"></div>
+      <div aria-hidden="true" style="position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(113,244,179,0.55) 20%, rgba(184,179,255,0.55) 50%, rgba(113,244,179,0.55) 80%, transparent 100%); box-shadow:0 0 12px rgba(113,244,179,0.35); z-index:4;"></div>
+
+      <div class="section-conteneur">
+        <span class="section-label">Le Clubhouse de WUM</span>
+        <h1 id="titre-rmclub" class="section-titre">
+          Rejoins-nous au <span style="color:#71f4b3;">RM Club</span> !
+        </h1>
+        <p class="section-intro" style="color:#ECECF4;">
+          Le cercle privé de croissance continue du mouvement, où chaque membre
+          transforme sa mentalité, clarifie sa mission et déploie son utilité sociale
+          au sein d’une communauté fraternelle, structurée et ambitieuse.
+          Un espace d’élite pour penser grand, agir juste et grandir ensemble.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-aqua-liquide">
+            S'inscrire au RM Club →
+          </a>
+          <a href="Wum_1.pdf" download class="btn btn-pdf">
+            Télécharger le guide PDF
+          </a>
+        </div>
+
+        <div class="rmclub-infoline">
+          <a href="https://whatsapp.com/channel/0029VaKUHvOHwXbCToImi23K" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+            Infoline WhatsApp
+          </a>
+          <span class="infoline-separateur" aria-hidden="true">•</span>
+          <a href="https://www.instagram.com/wum_rmclub?igsh=MWlxNnR0d2VkY3B4bg%3D%3D" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+            RM Club Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-b" aria-label="Leitmotiv du RM Club" style="padding-top: clamp(1.75rem, 5vw, 2.5rem); padding-bottom: clamp(1.75rem, 5vw, 2.5rem);">
+      <div class="section-conteneur" style="max-width: 900px; padding-top: 0;">
+        <div class="leitmotiv">
+          <p>
+            « Nous croyons qu’une société change lorsque des personnes changent.
+            C’est pourquoi le RM Club forme des jeunes qui choisissent de transformer leur mentalité,
+            de découvrir leur mission et de devenir une réponse concrète aux défis de leur génération. »
+          </p>
+          <span class="auteur">— Vision WUM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-a" aria-labelledby="titre-piliers">
+      <div class="section-conteneur">
+        <div style="text-align:center;">
+          <span class="section-label">Le triangle de croissance</span>
+          <h2 class="section-titre" id="titre-piliers">Trois piliers, un seul mouvement</h2>
+          <p class="section-intro">
+            Le RM Club s’articule autour de trois dimensions indissociables : transformer
+            sa mentalité, clarifier sa mission, déployer son utilité sociale.
+          </p>
+        </div>
+
+        <div class="piliers-grille">
+          <div class="pilier-carte">
+            <div class="pilier-numero">01</div>
+            <h3 class="pilier-titre">Transformation mentale</h3>
+            <p>
+              Briser les croyances limitantes, maîtriser les frameworks avancés du Revêtement Mental,
+              exercices de productivité et de mind pattern, visualisation et analyse des croyances diffuses.
+            </p>
+          </div>
+
+          <div class="pilier-carte">
+            <div class="pilier-numero">02</div>
+            <h3 class="pilier-titre">Clarification de mission</h3>
+            <p>
+              Trouver son cap, définir son positionnement, aligner ses actions avec un sens profond.
+              Parce que refuser de vivre sans cap, c’est choisir la plénitude.
+            </p>
+          </div>
+
+          <div class="pilier-carte">
+            <div class="pilier-numero">03</div>
+            <h3 class="pilier-titre">Utilité sociale</h3>
+            <p>
+              Passer de l’intention à l’action. Expérimenter ses compétences managériales
+              et entrepreneuriales en situation réelle, au service d’un impact collectif.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-b" aria-labelledby="titre-espaces">
+      <div class="section-conteneur">
+        <div style="text-align:center;">
+          <span class="section-label">Ce qui t’attend</span>
+          <h2 class="section-titre" id="titre-espaces">Nos espaces, ton carrefour d’élite</h2>
+          <p class="section-intro" style="margin-bottom:0.5rem;">
+            Le RM Club met à disposition un cadre propice à l’excellence :
+            un véritable incubateur de leadership où tu grandis avec d’autres ambitieux.
+          </p>
+        </div>
+
+        <div class="espaces-liste">
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2L4 5v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V5l-8-3zm-1 14l-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9l-7 7z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Coaching de haute performance</strong>
+              <span>Accompagnement sur mesure pour briser tes croyances limitantes et débloquer ton potentiel.</span>
+            </div>
+          </div>
+
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13.18L4.21 12 12 7.82 19.79 12 12 16.18zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Ateliers &amp; Masterclass</strong>
+              <span>Développement personnel, art oratoire, efficacité professionnelle : la pratique avant tout.</span>
+            </div>
+          </div>
+
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Projets collaboratifs</strong>
+              <span>Une plateforme d’expérimentation pour tester tes compétences en situation réelle.</span>
+            </div>
+          </div>
+
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H18V0h-2v2H8V0H6v2H4.5C3.11 2 2.01 3.11 2.01 4.5L2 19.5C2 20.89 3.11 22 4.5 22h15c1.39 0 2.5-1.11 2.5-2.5v-15C22 3.11 20.89 2 19.5 2zM20 19.5c0 .28-.22.5-.5.5h-15c-.28 0-.5-.22-.5-.5V8h16v11.5z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Rencontres de redevabilité</strong>
+              <span>Un suivi rigoureux pour s’assurer du respect de tes objectifs individuels et collectifs.</span>
+            </div>
+          </div>
+
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Réseautage d’élite</strong>
+              <span>Croiser les réseaux, échanger des opportunités et collaborer avec des profils complémentaires.</span>
+            </div>
+          </div>
+
+          <div class="espace-item">
+            <div class="espace-icone">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path></svg>
+            </div>
+            <div class="espace-texte">
+              <strong>Bibliothèque de frameworks</strong>
+              <span>Accès aux outils mentaux et stratégiques utilisés par les meilleurs.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-a" aria-labelledby="titre-meetup">
+      <div class="section-conteneur">
+        <div style="text-align:center;">
+          <span class="section-label">Meet Up Room</span>
+          <h2 class="section-titre" id="titre-meetup">Où et quand nous nous retrouvons</h2>
+          <p class="section-intro" style="margin-bottom:0.5rem;">
+            La transformation durable requiert de la régularité. Nos espaces de rencontre
+            maintiennent une dynamique constante pour que tu progresses, semaine après semaine.
+          </p>
+        </div>
+
+        <div class="meetup-grille">
+          <div class="meetup-carte">
+            <div class="num">×1</div>
+            <div class="nom">Brunch Camp</div>
+            <div class="desc">Par semestre · Retraite immersive d’élite</div>
+          </div>
+          <div class="meetup-carte">
+            <div class="num">×1</div>
+            <div class="nom">Meetup Room 1 &amp; 2</div>
+            <div class="desc">Par mois · Sessions de redevabilité et coaching</div>
+          </div>
+          <div class="meetup-carte">
+            <div class="num">×1</div>
+            <div class="nom">Room 3 · Stratégie</div>
+            <div class="desc">Par mois · Décisions et orientations du cercle</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-b" aria-labelledby="titre-formules">
+      <div class="section-conteneur">
+        <div style="text-align:center;">
+          <span class="section-label">Cartes de membres</span>
+          <h2 class="section-titre" id="titre-formules">Quatre formules, un engagement progressif</h2>
+          <p class="section-intro" style="margin-bottom:0.5rem;">
+            Le parcours s’adapte à l’évolution de tes ambitions et responsabilités.
+            Choisis le niveau qui te correspond aujourd’hui, évolue quand tu es prêt.
+          </p>
+        </div>
+
+        <div class="formules-grille">
+          <div class="formule-carte">
+            <div class="formule-nom">Standard</div>
+            <div class="formule-prix">15<small> USD / mois</small></div>
+            <p class="formule-profil">Pour les étudiants et jeunes en phase de découverte.</p>
+            <ul class="formule-avantages">
+              <li>Intégration à la communauté</li>
+              <li>Accès au cercle privé</li>
+              <li>Accès au « Taskgroup » (ateliers de base)</li>
+            </ul>
+            <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-contour">Choisir Standard</a>
+          </div>
+
+          <div class="formule-carte">
+            <div class="formule-nom">Silver</div>
+            <div class="formule-prix">25<small> USD / mois</small></div>
+            <p class="formule-profil">Pour les jeunes professionnels en début de carrière.</p>
+            <ul class="formule-avantages">
+              <li>Accès au cercle privé</li>
+              <li>Accès au coaching personnel</li>
+              <li>Accès prioritaire aux événements</li>
+            </ul>
+            <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-contour">Choisir Silver</a>
+          </div>
+
+          <div class="formule-carte">
+            <div class="formule-nom">Gold</div>
+            <div class="formule-prix">50<small> USD / mois</small></div>
+            <p class="formule-profil">Pour les entrepreneurs et leaders de projets lancés.</p>
+            <ul class="formule-avantages">
+              <li>Tous les avantages de Silver</li>
+              <li>Privilège Gold</li>
+              <li>Participation au lead du cercle</li>
+            </ul>
+            <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-aqua-liquide">Choisir Gold</a>
+          </div>
+
+          <div class="formule-carte">
+            <div class="formule-nom">Premium</div>
+            <div class="formule-prix">100+<small> USD / mois</small></div>
+            <p class="formule-profil">Pour les profils d’élite, décideurs et contributeurs majeurs.</p>
+            <ul class="formule-avantages">
+              <li>Tout Gold inclus</li>
+              <li>Accompagnement VIP sur mesure</li>
+              <li>Participation aux stratégies et décisions</li>
+              <li>Veto premium</li>
+            </ul>
+            <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-contour">Choisir Premium</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-a" aria-labelledby="titre-cercle">
+      <div class="section-conteneur">
+        <div style="text-align:center;">
+          <span class="section-label">Cercle de Croissance · Session d'Août 2026</span>
+          <h2 class="section-titre" id="titre-cercle">La Psychologie de la Valeur</h2>
+          <p class="section-intro" style="margin-bottom:0.5rem;">
+            Un programme d’immersion stratégique de 4 semaines pour transformer
+            ta valeur réelle en valeur perçue, démontrée et rémunérée.
+          </p>
+          <div style="display:inline-flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; margin-top:1.3rem; padding:0.95rem 1.4rem; background:rgba(77,65,217,0.06); border:1px solid rgba(77,65,217,0.18); border-radius:14px;">
+            <span style="font-size:0.85rem; color:#121218;"><strong style="color:#4D41D9;">4 semaines</strong> · 4 sessions stratégiques</span>
+            <span style="font-size:0.85rem; color:#121218;"><strong style="color:#4D41D9;">1h30 – 2h</strong> par session</span>
+            <span style="font-size:0.85rem; color:#121218;"><strong style="color:#4D41D9;">Présentiel</strong></span>
+          </div>
+        </div>
+
+        <div class="sessions-grille">
+          <div class="session-carte">
+            <div class="session-num">Session 01</div>
+            <h3 class="session-titre">Valeur réelle vs valeur perçue</h3>
+            <p>
+              Comprendre l’écart entre ce que tu vaux et ce que le marché perçoit.
+              Paradoxe de la valeur, biais de perception, audit de la valeur perçue.
+            </p>
+            <div class="session-themes">
+              <span>Paradoxe</span><span>Biais</span><span>Audit</span>
+            </div>
+            <p class="session-livrable">Livrable : Fiche d’audit de la valeur perçue</p>
+          </div>
+
+          <div class="session-carte">
+            <div class="session-num">Session 02</div>
+            <h3 class="session-titre">Preuves, confiance &amp; personal branding</h3>
+            <p>
+              Construire une crédibilité visible qui attire les opportunités.
+              Marque personnelle, preuves qui construisent la confiance, positionnement différenciant.
+            </p>
+            <div class="session-themes">
+              <span>Marque</span><span>Preuves</span><span>Positionnement</span>
+            </div>
+            <p class="session-livrable">Livrable : Fiche de positionnement stratégique</p>
+          </div>
+
+          <div class="session-carte">
+            <div class="session-num">Session 03</div>
+            <h3 class="session-titre">Réseaux, communication &amp; capital social</h3>
+            <p>
+              Utiliser les connexions et la communication pour amplifier ta valeur.
+              Capital social stratégique, visibilité auprès des bonnes personnes.
+            </p>
+            <div class="session-themes">
+              <span>Capital social</span><span>Visibilité</span><span>Connexions</span>
+            </div>
+            <p class="session-livrable">Livrable : Plan de développement du capital social</p>
+          </div>
+
+          <div class="session-carte">
+            <div class="session-num">Session 04</div>
+            <h3 class="session-titre">Le capital réputationnel</h3>
+            <p>
+              Construire un actif qui continue à travailler pour toi dans le temps.
+              L’actif ultime, preuve sociale &amp; recommandation, plan de valorisation à 360°.
+            </p>
+            <div class="session-themes">
+              <span>Actif</span><span>Preuve sociale</span><span>Valorisation 360°</span>
+            </div>
+            <p class="session-livrable">Livrable : Plan de valorisation stratégique 12 mois</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-b consulting-section" aria-labelledby="titre-engagement">
+      <div class="section-conteneur" style="max-width: 920px;">
+        <div style="text-align:center;">
+          <span class="section-label">Consulting · Niveau d’engagement</span>
+          <h2 class="section-titre" id="titre-engagement">Une culture de responsabilité et de réciprocité</h2>
+          <p class="section-intro" style="margin-bottom:0.5rem;">
+            L’investissement n’est pas uniquement financier, il est avant tout humain
+            et comportemental. Voici ce que nous attendons — et ce que nous évitons.
+          </p>
+        </div>
+
+        <div class="engagement-grille">
+          <div class="engagement-carte attendu">
+            <h3>Ce que nous attendons</h3>
+            <ul>
+              <li>S’engager activement dans le cercle</li>
+              <li>Partager avec authenticité</li>
+              <li>Donner des retours constructifs</li>
+              <li>Produire les livrables</li>
+              <li>Appliquer les enseignements</li>
+            </ul>
+          </div>
+          <div class="engagement-carte evite">
+            <h3>Ce que nous évitons</h3>
+            <ul>
+              <li>Trop de théorie, peu d’application</li>
+              <li>Aucun livrable produit</li>
+              <li>Interventions sans valorisation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-fond-a" id="rejoindre-rmclub" aria-labelledby="titre-cta-rmclub">
+      <div class="section-conteneur" style="max-width: 760px;">
+        <div class="cta-panel">
+          <span class="section-label">Prêt à passer au niveau supérieur ?</span>
+          <h2 class="section-titre" id="titre-cta-rmclub">Rejoins le RM Club</h2>
+          <p class="section-intro">
+            Si tu souhaites rejoindre le RM Club et faire partie de notre communauté dynamique,
+            remplis le formulaire officiel. L’aventure commence ici.
+          </p>
+
+          <div class="cta-actions">
+            <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-aqua-liquide">
+              Remplir le formulaire d’adhésion →
+            </a>
+            <a href="Wum_1.pdf" download class="btn btn-pdf">
+              Télécharger le guide
+            </a>
+          </div>
+
+          <div class="qr-bloc">
+            <img src="Image/RM_Club_Artwork.jpg" alt="QR code pour rejoindre le RM Club" width="200" height="200" />
+            <div class="qr-texte">
+              <strong>Scanne le QR code</strong>
+              <span>Accès direct au formulaire d’adhésion depuis ton smartphone.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer aria-label="Pied de page">
+    <div class="footer-grille">
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+        </div>
+        <p>
+          Un mouvement mondial d'éveil spirituel, de formation de leaders
+          et de transformation sociale. Enracinés dans la Parole, engagés pour la société.
+        </p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités & Événements</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="rejoindre.html">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#">@mywake_up</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <a href="#">WhatsApp WUM</a>
+        </p>
+        <br />
+        <p style="font-size:0.82rem;">
+          Pour toute question ou demande de partenariat,<br />
+          contactez-nous via WhatsApp ou Instagram.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+      <p>
+        <a href="#" style="margin-right:1rem;">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const toggle = document.getElementById('toggle-menu-mobile');
+    const menu = document.getElementById('menu-mobile');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('show');
+      });
+    }
+  </script>
+</body>
+</html>

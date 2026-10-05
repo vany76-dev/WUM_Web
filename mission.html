@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    =========================================================================
+    WAKE UP MISSION - PAGE MISSION (mission.html)
+    =========================================================================
+    
+    Cette page décrit la mission de WUM, la structure des équipes
+    et le système de soutien de l'organisation.
+    
+    CONTENU :
+      1. La déclaration de mission
+      2. Les 3 types de membres (Staff, Prayer Band, Spontaneous)
+      3. Le système de soutien et les valeurs
+    =========================================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="La Mission de Wake Up Mission — Structure des équipes, niveaux d'engagement et système de soutien de l'organisation." />
+
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Notre Mission — Wake Up Mission</title>
+</head>
+<body>
+
+  <!-- ===========================
+       HEADER — BARRE DE NAVIGATION (sans doublon)
+       =========================== -->
+  <header id="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+        
+      </a>
+
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien actif">Notre Mission</a>
+        <a href="activites.html" class="nav-lien">Activités</a>
+        <a href="formations.html" class="nav-lien">Formation</a>
+        <a href="ressources.html" class="nav-lien">Ressources</a>
+        <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+      </nav>
+
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay-mobile" id="overlay-mobile"></div>
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien actif">Notre Mission</a>
+    <a href="activites.html" class="nav-lien">Activités</a>
+    <a href="formations.html" class="nav-lien">Formation</a>
+    <a href="ressources.html" class="nav-lien">Ressources</a>
+    <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+  </nav>
+
+
+  <main>
+    <section class="fond-sombre section-photo" style="margin-top: 70px; padding: 6rem 2rem 4rem; background: url('Image/WUM_ID.png'); background-size: cover; background-position: center;" aria-labelledby="titre-mission">
+      <div class="section-conteneur" style="max-width: 880px; text-align: center;">
+        <span class="section-label">Notre raison d'être</span>
+        <h1 id="titre-mission" class="section-titre" style="font-size: clamp(2rem, 5vw, 3.2rem);">
+          La Mission de Wake Up Mission
+        </h1>
+
+        <blockquote style="font-size: 1.12rem; line-height: 1.9; color: rgba(240,240,246,0.9); font-weight: 300; text-align: left; margin: 2.5rem 0 0; background: rgba(77, 65, 217, 0.08); border: 1px solid rgba(77, 65, 217, 0.2); padding: 2.25rem 2.5rem; border-radius: 16px; border-left: 4px solid var(--aqua-marine);">
+          <p>
+            WUM est un mouvement d'éveil spirituel dont la mission est de conduire chaque âme à une rencontre authentique avec Dieu,
+            à travers la Parole, la prière et la formation, afin que chaque vie réveillée devienne socialement utile pour le Royaume de Dieu
+            et pour la société.
+          </p>
+          <footer style="margin-top: 1rem; font-size: 0.85rem; color: var(--aqua-marine); font-weight: 700;">
+            — "So that every awakened life becomes socially useful for the Kingdom and society."
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="fond-clair" style="padding: 5rem 2rem;" aria-labelledby="titre-mission-principale">
+      <div class="section-conteneur">
+        <span class="section-label" style="color: var(--bleu-principal);">Ce que nous faisons</span>
+        <h2 class="section-titre" id="titre-mission-principale" style="color: var(--texte-sombre);">
+          Une mission conçue pour réveiller, former et transformer
+        </h2>
+        <p class="section-intro" style="color: #555565; max-width: 780px; margin: 0 auto 2.5rem;">
+          La mission de WUM vise à accompagner les croyants et les leaders dans une vie plus profonde, plus utile et plus alignée
+          sur la vision du Royaume. Elle s'appuie sur trois leviers : l'éveil spirituel, la formation et l'impact social.
+        </p>
+
+        <div class="grille-3">
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/IMG_1538.JPG');">
+            <div class="carte-icone" style="background: rgba(77,65,217,0.18); color: var(--aqua-marine);">✦</div>
+            <h3>Éveil spirituel</h3>
+            <p>
+              Nous aidons chacun à se réveiller à la présence de Dieu, à la vérité de la Parole et à une vie de foi plus consciente,
+              plus profonde et plus durable.
+            </p>
+          </div>
+
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/Les_RElations.png');">
+            <div class="carte-icone" style="background: rgba(128,61,180,0.18); color: var(--aqua-marine);">✦</div>
+            <h3>Formation & leadership</h3>
+            <p>
+              Nous formons des disciples et des leaders capables de servir avec intégrité, discernement, clarté de vision et impact
+              dans leur famille, leur église et leur environnement.
+            </p>
+          </div>
+
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/IMG_2362.jpg');">
+            <div class="carte-icone" style="background: rgba(113,244,179,0.18); color: var(--aqua-marine);">✦</div>
+            <h3>Transformation sociale</h3>
+            <p>
+              Un esprit réveillé doit devenir utile à la société. Nous accompagnons des vies qui servent, influencent positivement et
+              portent la lumière du Royaume dans leur contexte.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sombre" style="padding: 6rem 2rem;" aria-labelledby="titre-equipes">
+      <div class="section-conteneur">
+        <span class="section-label">Organisation</span>
+        <h2 class="section-titre" id="titre-equipes" style="color: #fff;">
+          Structure de l'équipe
+        </h2>
+        <p class="section-intro" style="color: #e4e4ec; max-width: 760px; margin: 0 auto 2.5rem;">
+          WUM est organisé autour de trois niveaux d'engagement, chacun avec ses responsabilités et son niveau d'implication dans la mission.
+        </p>
+
+        <div class="grille-3">
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/IMG_1538.JPG');">
+            <div class="carte-icone" style="background: rgba(77,65,217,0.18); color: var(--aqua-marine);">01</div>
+            <h3>Staff WUM</h3>
+            <p>
+              Les membres du Staff sont les serviteurs permanents du mouvement, entièrement dédiés à la vision. Ils portent la charge
+              opérationnelle et spirituelle du quotidien et assurent la continuité de la mission.
+            </p>
+          </div>
+
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/Les_RElations.png');">
+            <div class="carte-icone" style="background: rgba(128,61,180,0.18); color: var(--aqua-marine);">02</div>
+            <h3>Prayer Band</h3>
+            <p>
+              Les membres de la Prayer Band sont les intercesseurs et accompagnateurs du mouvement. Ils soutiennent la vision par la prière,
+              l'encouragement et la présence active dans les activités de WUM.
+            </p>
+          </div>
+
+          <div class="carte carte-sur-photo" style="--carte-bg: url('../Image/ID WUM - 11.png');">
+            <div class="carte-icone" style="background: rgba(113,244,179,0.18); color: var(--aqua-marine);">03</div>
+            <h3>Membres spontanés</h3>
+            <p>
+              Les membres spontanés sont les participants aux événements, les personnes en chemin vers un engagement plus profond, et les
+              premiers signes d'un réveil personnel qui peut devenir une aventure de foi plus large.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-clair" style="padding: 6rem 2rem; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,244,250,0.96));" aria-labelledby="titre-positionnement">
+      <div class="section-conteneur" style="max-width: 980px;">
+        <span class="section-label" style="color: var(--bleu-principal);">Notre positionnement</span>
+        <h2 class="section-titre" id="titre-positionnement" style="color: var(--texte-sombre);">
+          WUM ne remplace pas ton église locale
+        </h2>
+
+        <div style="display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem; align-items: start; margin-top: 2rem;">
+          <div style="width: 110px; height: 110px; border-radius: 20px; overflow: hidden; background: rgba(77,65,217,0.06); display:flex; align-items:center; justify-content:center; border:1px solid rgba(77,65,217,0.12);">
+            <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="width: 100%; height: 100%; object-fit: contain; padding: 0.75rem;" />
+          </div>
+          <div>
+            <p class="section-intro" style="color: #505062; text-align: left; margin: 0 0 1rem;">
+              Wake Up Mission est un mouvement d'éveil spirituel, de formation de leaders et de transformation sociale. Il ne se substitue pas à l'église locale,
+              au pastorat ou à la membership ecclésiale qui vous accueille.
+            </p>
+
+            <p style="color: #2f2f3d; line-height: 1.8; margin: 0 0 0.75rem;">
+              Ta foi en Christ reste centrale. WUM vient compléter ton cheminement par :
+            </p>
+
+            <ul style="margin: 0 0 1rem 1.25rem; color: #2f2f3d; line-height: 1.8;">
+              <li>un réveil psycho-spirituel plus profond ;</li>
+              <li>une formation de leadership chrétien ancrée dans la Parole ;</li>
+              <li>un accompagnement communautaire et des opportunités d'impact concret ;</li>
+              <li>des ressources pour renouveler ton mental, ta relation avec Dieu et ton service.</li>
+            </ul>
+
+            <p style="margin: 0; padding-left: 1rem; border-left: 3px solid var(--aqua-marine); color: #2f2f3d; line-height: 1.8;">
+              Si tu appartiens déjà à une église, continue d'y être engagé(e). WUM est conçu pour compléter, pas pour remplacer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sombre" style="padding: 6rem 2rem;" aria-labelledby="titre-valeurs">
+      <div class="section-conteneur">
+        <span class="section-label">Ce qui nous guide</span>
+        <h2 class="section-titre" id="titre-valeurs">Nos valeurs</h2>
+        <p class="section-intro" style="color: #e4e4ec; max-width: 700px; margin: 0 auto 2.5rem;">
+          Quatre piliers fondamentaux orientent chaque décision et chaque activité de WUM.
+        </p>
+
+        <div class="grille-2">
+          <div class="carte carte-valeur carte-sur-photo" style="--carte-bg: url('../Image/IMG_2362.jpg');">
+            <h3>La Parole avant tout</h3>
+            <p>
+              WUM est fondé sur la conviction que la transformation durable ne vient que par la révélation de la Parole de Dieu.
+              Chaque programme, chaque activité est ancré dans les Écritures.
+            </p>
+          </div>
+
+          <div class="carte carte-valeur carte-sur-photo" style="--carte-bg: url('../Image/Authenticité .png');">
+            <h3>L'Authenticité</h3>
+            <p>
+              Nous valorisons la transparence, l'honnêteté et l'intégrité dans toutes nos interactions. Un réveil authentique ne peut
+              naître que d'une démarche honnête devant Dieu et les hommes.
+            </p>
+          </div>
+
+          <div class="carte carte-valeur carte-sur-photo" style="--carte-bg: url('../Image/Utilite_Social.png');">
+            <h3>L'Utilité sociale</h3>
+            <p>
+              L'éveil spirituel n'est pas une fin en soi. WUM forme des citoyens engagés qui transforment leur famille, leur quartier et
+              leur société avec les principes du Royaume de Dieu.
+            </p>
+          </div>
+
+          <div class="carte carte-valeur carte-sur-photo" style="--carte-bg: url('../Image/complementaire.jpeg');">
+            <h3>La Complémentarité</h3>
+            <p>
+              WUM ne remplace pas l'Église locale. Nous accompagnons et renforçons chaque croyant dans son propre contexte ecclésial,
+              en apportant une dimension d'éveil, de formation et de service.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-clair" style="padding: 6rem 2rem; background: linear-gradient(180deg, rgba(7,7,10,0.45), rgba(7,7,10,0.45)), url('Image/Wake_Up.png'); background-size: cover; background-position: center;" aria-labelledby="titre-programmes-mission">
+      <div class="section-conteneur" style="max-width: 760px; text-align: center;">
+        <span class="section-label">Programmes & Activation</span>
+        <h2 class="section-titre" id="titre-programmes-mission" style="color: #fff;">
+          Découvre tous les programmes de WUM
+        </h2>
+        <p class="section-intro" style="color: rgba(255,255,255,0.8); margin-bottom: 2rem;">
+          WUM propose des programmes structurés pour t'accompagner dans ton réveil spirituel, ta formation et ton impact social.
+        </p>
+
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="activites.html" class="btn btn-aqua">Voir tous les programmes</a>
+          <a href="rejoindre.html" class="btn btn-secondaire">Rejoindre WUM</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-wum" style="padding: 5rem 2rem;" aria-labelledby="titre-faq">
+      <div class="section-conteneur" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-label">Questions fréquentes</span>
+          <h2 class="section-titre" id="titre-faq">Ce que les gens demandent souvent</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <details class="faq-box" open>
+            <summary>WUM remplace-t-il mon église locale ?</summary>
+            <div class="faq-contenu">
+              <div>
+                <p>
+                  Non, absolument pas. WUM est un mouvement complémentaire qui ne se substitue pas à l'église locale, au pastorat ou à ta communauté ecclésiale.
+                  Si tu appartiens à une église, continue d'y être engagé(e). WUM vient enrichir ta marche spirituelle et ton impact, pas la remplacer.
+                </p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-box">
+            <summary>Comment me rendre disponible pour WUM ?</summary>
+            <div class="faq-contenu">
+              <div>
+                <p>
+                  Tu peux participer à nos activités, te connecter à notre communauté et rejoindre la dynamique WUM via notre formulaire d'adhésion.
+                  Chacun contribue selon ses capacités, son appel et sa disponibilité.
+                </p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-box">
+            <summary>Quelle est la base biblique de WUM ?</summary>
+            <div class="faq-contenu">
+              <div>
+                <p>
+                  WUM est fondé sur la Bible, la Parole de Dieu. Notre approche repose sur le réveil spirituel, la formation de leadership chrétien,
+                  et l'action sociale. Chaque programme est ancré dans les Écritures.
+                </p>
+                <p style="margin-top: 1rem; color: var(--aqua-marine); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Nos versets principaux</p>
+                <p><strong>Ésaïe 60 : 1-3</strong><br>« Lève-toi, sois éclairée, car ta lumière arrive... »</p>
+                <p><strong>Jean 8 : 12</strong><br>« Je suis la lumière du monde; celui qui me suit ne marchera pas dans les ténèbres... »</p>
+                <p><strong>Romains 13 : 11-14</strong><br>« C'est l'heure de vous réveiller enfin du sommeil... »</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-box">
+            <summary>Qui peut participer aux activités de WUM ?</summary>
+            <div class="faq-contenu">
+              <div>
+                <p>
+                  Toute personne désireuse de grandir spirituellement, d'être formée, d'apprendre à servir et de vivre dans un cadre de foi,
+                  de discipleship, de communauté et d'impact social peut participer à nos activités et à notre évolution de vie.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-sombre-2" style="text-align:center; padding: 5rem 2rem;">
+      <span class="section-label">Passe à l'action</span>
+      <h2 class="section-titre">Fais partie de la mission</h2>
+      <p class="section-intro" style="max-width: 700px; margin: 0 auto 2rem;">
+        Découvre comment rejoindre l'équipe, participer aux activités ou simplement te connecter à la communauté WUM.
+      </p>
+
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="rejoindre.html" class="btn btn-aqua">Rejoindre WUM</a>
+        <a href="activites.html" class="btn btn-secondaire">Voir les activités →</a>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+          
+        </div>
+        <p>Mouvement mondial d'éveil spirituel, de formation de leaders et de transformation sociale.</p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="rejoindre.html">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#" class="lien-instagram" data-instagram-handle>@mywake_up</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <a href="#" class="lien-whatsapp-footer">WhatsApp WUM</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-flottant" id="btn-whatsapp-flottant" aria-label="Contacter WUM sur WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/app.js"></script>
+  <script>
+    const lienWA = document.querySelector('.lien-whatsapp-footer');
+    if (lienWA) {
+      lienWA.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://wa.me/+243991740858?text=' + encodeURIComponent("Bonjour WUM !"), '_blank', 'noopener');
+      });
+    }
+  </script>
+
+</body>
+</html>

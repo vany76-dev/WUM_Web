@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    =========================================================================
+    WAKE UP MISSION - PAGE RESSOURCES (ressources.html)
+    =========================================================================
+    
+    Cette page présente la bibliothèque spirituelle de WUM et les 20 signes
+    du réveil psycho-spirituel.
+    
+    CONTENU :
+      1. Citation fondatrice sur l'éveil
+      2. Les 20 Signes de l'Éveil (cartes retournables interactives)
+      3. Section Podcast RM
+    
+    LES 20 SIGNES :
+      Les données des signes se trouvent dans le tableau SIGNES_DATA
+      dans le bloc <script> en bas de cette page.
+      Pour modifier un signe : trouver son numéro dans SIGNES_DATA et
+      changer son 'title' ou sa 'desc'.
+    =========================================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ressources Wake Up Mission — Découvrez les 20 Signes indicateurs d'un véritable réveil psycho-spirituel et la bibliothèque WUM." />
+  <meta name="keywords" content="WUM ressources, 20 signes réveil, signes éveil spirituel, bibliothèque WUM" />
+
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Ressources & 20 Signes — Wake Up Mission</title>
+</head>
+<body>
+
+  <!-- ===========================
+       HEADER — BARRE DE NAVIGATION (sans doublon)
+       =========================== -->
+  <header id="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+        
+      </a>
+
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien">Notre Mission</a>
+        <a href="activites.html" class="nav-lien">Activités</a>
+        <a href="formations.html" class="nav-lien">Formation</a>
+        <a href="ressources.html" class="nav-lien actif">Ressources</a>
+        <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+      </nav>
+
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay-mobile" id="overlay-mobile"></div>
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien">Notre Mission</a>
+    <a href="activites.html" class="nav-lien">Activités</a>
+    <a href="formations.html" class="nav-lien">Formation</a>
+    <a href="ressources.html" class="nav-lien actif">Ressources</a>
+    <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+  </nav>
+
+
+  <!-- ===========================
+       EN-TÊTE DE PAGE — CITATION FONDATRICE
+       =========================== -->
+  <main id="haut-page">
+  <section id="les-20-signes" class="fond-sombre section-photo ressources-hero" aria-labelledby="titre-ressources">
+    <div class="section-conteneur ressources-hero-contenu">
+      <span class="section-label">Bibliothèque Mentale & Spirituelle</span>
+      <h1 id="titre-ressources" class="section-titre">
+        Les 20 Signes de l'Éveil
+      </h1>
+
+      <blockquote class="ressources-citation">
+        <p>
+          "Celui qui expérimente un éveil spirituel et psychologique verra toujours l'œuvre que Dieu
+          lui a donné de faire ; le pouvoir par lequel il doit l'accomplir ; et les temps, les lieux
+          et les opportunités de faire les choses par lesquelles Dieu peut obtenir le plus de gloire,
+          sa propre âme le plus d'émanation, et son prochain le plus d'édification."
+        </p>
+      </blockquote>
+
+      <p class="ressources-consigne">
+        Cliquez sur chaque carte pour révéler l'explication de chaque signe indicateur du réveil.
+      </p>
+
+    </div>
+  </section>
+
+
+  
+
+
+  <!-- ===========================
+       SECTION : GRILLE INTERACTIVE DES 20 SIGNES
+       Cartes retournables (flip cards) au clic.
+       
+       NOTE : Les données des signes sont dans le tableau SIGNES_DATA
+       en bas de cette page dans le bloc <script>.
+       =========================== -->
+  <section class="fond-clair ressources-signes" aria-labelledby="titre-signes-20">
+    <div class="section-conteneur">
+
+      <span class="section-label">Cliquez pour découvrir</span>
+      <h2 class="section-titre" id="titre-signes-20">
+        Carrelage interactif des signes
+      </h2>
+      <p class="section-intro">
+        Cliquez sur chaque carte pour révéler l'explication et la manifestation concrète
+        de chaque signe indicateur de réveil.
+      </p>
+
+      <!-- Conteneur des 20 cartes (rempli par JavaScript) -->
+      <div class="signes-grille-20" id="signes-container" aria-live="polite">
+        <!-- Rempli dynamiquement par le script ci-dessous -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : PODCAST RM
+       =========================== -->
+  <section id="podcast" class="fond-sombre ressources-podcast" aria-labelledby="titre-podcast">
+    <div class="section-conteneur">
+
+      <span class="section-label">Ressource Audio</span>
+      <h2 class="section-titre" id="titre-podcast">RM Le Podcast</h2>
+      <p class="section-intro">
+        Des enseignements audio hebdomadaires sur l'éveil spirituel, le leadership chrétien
+        et la transformation sociale. Disponible sur toutes les grandes plateformes.
+      </p>
+
+      <div class="grille-3 ressources-podcast-grille">
+
+        <!-- Spotify — lien pas encore disponible -->
+        <div class="carte" style="text-align:center;">
+          <div class="carte-visuel" style="height:120px; margin:-2.25rem -2rem 1.5rem; border-radius:18px 18px 0 0; overflow:hidden;">
+            <img src="Image/WUM_ID_Spotify.png" alt="RM Le Podcast sur Spotify" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <h3>Spotify</h3>
+          <p>Abonnez-vous sur Spotify pour ne jamais manquer un épisode de RM Le Podcast.</p>
+          <br/>
+          <span class="btn btn-primaire btn-indisponible" style="font-size:0.82rem; padding:0.6rem 1.4rem; display:inline-block;">
+            Écouter sur Spotify
+          </span>
+        </div>
+
+        <!-- Apple Podcasts — lien pas encore disponible -->
+        <div class="carte" style="text-align:center;">
+          <div class="carte-visuel" style="height:120px; margin:-2.25rem -2rem 1.5rem; border-radius:18px 18px 0 0; overflow:hidden;">
+            <img src="Image/WUM_ID_Apple.png" alt="RM Le Podcast sur Apple Podcasts" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <h3>Apple Podcasts</h3>
+          <p>Retrouvez RM Le Podcast sur Apple Podcasts pour iOS et macOS.</p>
+          <br/>
+          <span class="btn btn-primaire btn-indisponible" style="font-size:0.82rem; padding:0.6rem 1.4rem; display:inline-block;">
+            Apple Podcasts
+          </span>
+        </div>
+
+        <!-- YouTube — placeholder -->
+        <div class="carte" style="text-align:center;">
+          <div class="carte-visuel" style="height:120px; margin:-2.25rem -2rem 1.5rem; border-radius:18px 18px 0 0; overflow:hidden;">
+            <img src="Image/WUM_ID_youtube.png" alt="RM Le Podcast sur YouTube" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <h3>YouTube</h3>
+          <p>Les épisodes vidéo de RM Le Podcast sont disponibles sur notre chaîne YouTube.</p>
+          <br/>
+          <!-- TODO : Ajouter le lien officiel de la chaîne YouTube RM Podcast (config.js) -->
+          <a href="#" class="btn btn-primaire lien-youtube-podcast" style="font-size:0.82rem; padding:0.6rem 1.4rem; margin-top:0.5rem;" id="btn-youtube-podcast">
+            Écouter sur YouTube
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="fond-clair ressources-communaute" aria-labelledby="titre-communaute-ressources">
+    <div class="section-conteneur ressources-communaute-contenu">
+      <span class="section-label">Notre communauté</span>
+      <h2 class="section-titre" id="titre-communaute-ressources">Une famille d'âmes éveillées</h2>
+      <p class="section-intro">
+        Sur Instagram, plus de 10 100 personnes nous suivent ; chaque jour,
+        des histoires de réveil et de transformation émergent de notre communauté mondiale.
+      </p>
+
+      <div class="communaute-reseaux">
+        <p class="communaute-reseaux-label">Suivez-nous sur nos réseaux</p>
+        <h3 class="communaute-reseaux-titre">Restez à jour sur nos toutes dernières infos !</h3>
+        <p class="communaute-reseaux-intro">
+          Rejoignez-nous sur Instagram, YouTube et WhatsApp pour ne rien manquer
+          de nos actualités, annonces et rendez-vous.
+        </p>
+        <div class="communaute-reseaux-actions">
+          <a href="#" class="btn btn-aqua lien-instagram" id="btn-instagram-communaute-ressources">
+            Suivre <span data-instagram-handle>@mywake_up</span> →
+          </a>
+          <a href="https://www.youtube.com/@wakeupmission" class="btn btn-secondaire" target="_blank" rel="noopener noreferrer">
+            YouTube WUM
+          </a>
+          <a href="#" class="btn btn-contour-violet lien-whatsapp-footer">
+            Rejoindre notre chaîne WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="fond-sombre-2 ressources-cta" aria-labelledby="titre-ressources-cta">
+    <span class="section-label">Prêt à aller plus loin ?</span>
+    <h2 class="section-titre" id="titre-ressources-cta">Rejoins la Communauté WUM</h2>
+    <p class="section-intro">
+      Ces ressources sont une porte d'entrée. L'aventure complète commence
+      quand tu rejoins officiellement le mouvement.
+    </p>
+    <div class="ressources-cta-actions">
+      <a href="rejoindre.html" class="btn btn-aqua lien-adhesion">Rejoindre WUM</a>
+      <a href="activites.html" class="btn btn-secondaire">Voir les activités →</a>
+    </div>
+  </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+          
+        </div>
+        <p>Mouvement mondial d'éveil spirituel, de formation de leaders et de transformation sociale.</p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="#" class="lien-adhesion">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#" class="lien-instagram" data-instagram-handle>@mywake_up</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <a href="#" class="lien-whatsapp-footer">WhatsApp WUM</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-flottant" id="btn-whatsapp-flottant" aria-label="Contacter WUM sur WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // =========================================================
+    // LES 20 SIGNES DU RÉVEIL - Données
+    // Source : Document "How it Work - WUM 2024.pdf"
+    //
+    // COMMENT MODIFIER UN SIGNE :
+    //   Trouver l'objet avec le bon numéro (num) dans le tableau
+    //   et modifier son 'title' ou sa 'desc'.
+    // =========================================================
+    const SIGNES_DATA = [
+      { num: 1,  title: "La Révélation",                       desc: "Perception immédiate de l'œuvre divine et de la direction spirituelle pour votre vie.", image: null },
+      { num: 2,  title: "L'Amour de Dieu",                    desc: "Ressentir l'amour inconditionnel du Père et le rayonner naturellement autour de soi.", image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&q=80" },
+      { num: 3,  title: "La Repentance Totale",               desc: "Alignement moral et psycho-spirituel sincère, avec désir profond de transformation.", image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=80" },
+      { num: 4,  title: "Le Dégoût du Monde",                 desc: "Détachement sain des illusions, distractions matérielles et fausses valeurs de la société.", image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80" },
+      { num: 5,  title: "Un Désir Brûlant d'Être Seul avec Dieu", desc: "Recherche active de l'intimité, du silence, de la méditation et de la prière individuelle.", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" },
+      { num: 6,  title: "La Foi et l'Espérance",              desc: "Confiance inébranlable dans la souveraineté divine, peu importent les circonstances extérieures.", image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&q=80" },
+      { num: 7,  title: "Le Fellowship",                      desc: "Besoin de communion fraternelle authentique et d'amour partagé avec d'autres croyants.", image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" },
+      { num: 8,  title: "L'Ouverture des Yeux Spirituels",   desc: "Capacité accrue à discerner le plan de Dieu et les dimensions invisibles de la réalité.", image: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600&q=80" },
+      { num: 9,  title: "L'Amour de la Vérité",              desc: "Recherche absolue d'intégrité, de justice et de clarté doctrinale et de droiture.", image: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=600&q=80" },
+      { num: 10, title: "La Délivrance",                      desc: "Libération des fardeaux psychologiques, des chaînes spirituelles et des blessures du passé.", image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&q=80" },
+      { num: 11, title: "La Guérison",                        desc: "Rétablissement psycho-corporel profond et manifestation de la paix de l'âme.", image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&q=80" },
+      { num: 12, title: "Le Discernement",                    desc: "Sagesse spirituelle permettant de distinguer le vrai du faux et le constructif du destructeur.", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80" },
+      { num: 13, title: "La Transformation de la Pensée",    desc: "Renouvellement complet de l'intelligence et dépassement des anciens schémas mentaux limitants.", image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=600&q=80" },
+      { num: 14, title: "La Créativité",                      desc: "Inspiration divine de solutions, d'expressions artistiques ou d'œuvres pratiques au service des autres.", image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&q=80" },
+      { num: 15, title: "L'Harmonie Relationnelle",          desc: "Pacification des relations interpersonnelles, réconciliation et amour fraternel agissant.", image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&q=80" },
+      { num: 16, title: "Les Mystères du Royaume",           desc: "Compréhension profonde des Écritures et révélation intime des secrets du plan divin.", image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80" },
+      { num: 17, title: "L'Élargissement de la Perception",  desc: "Sensibilité spirituelle accrue et vision globale de la mission et des temps actuels.", image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80" },
+      { num: 18, title: "L'Authenticité",                    desc: "Vivre en vérité avec soi-même et devant Dieu, sans masque et avec une transparence totale.", image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&q=80" },
+      { num: 19, title: "La Synchronicité",                  desc: "Conscience des coïncidences divines et orchestration parfaite des temps, des lieux et des opportunités.", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=600&q=80" },
+      { num: 20, title: "La Maîtrise de Soi",               desc: "Tempérance, discipline personnelle et plein épanouissement des fruits du Saint-Esprit.", image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&q=80" }
+    ];
+
+    // Rendre les 20 cartes retournables dans le conteneur HTML
+    document.addEventListener('DOMContentLoaded', () => {
+      const conteneur = document.getElementById('signes-container');
+      if (!conteneur) return;
+
+      SIGNES_DATA.forEach(signe => {
+        // Créer l'élément carte
+        const carte = document.createElement('div');
+        carte.className = 'signe-card-flip';
+        carte.style.setProperty('--signe-index', String(signe.num - 1));
+        carte.setAttribute('role', 'button');
+        carte.setAttribute('tabindex', '0');
+        carte.setAttribute('aria-expanded', 'false');
+        carte.setAttribute('aria-label', `Signe ${signe.num} : ${signe.title} — activer pour voir la description`);
+
+        // Structure HTML de la carte (face + dos)
+        const imageHTML = signe.image
+          ? `<img src="${signe.image}" alt="" class="signe-image-flip" loading="lazy" decoding="async" aria-hidden="true" width="1200" height="675" />`
+          : '';
+
+        carte.innerHTML = `
+          <div class="signe-card-inner">
+            <!-- Face avant : numéro + titre -->
+            <div class="signe-face">
+              ${imageHTML}
+              <div class="signe-face-contenu">
+                <span class="signe-numero-flip">${String(signe.num).padStart(2, '0')}</span>
+                <h3 class="signe-titre-flip">${signe.title}</h3>
+                <span class="signe-indice-flip">Cliquer pour découvrir →</span>
+              </div>
+            </div>
+            <!-- Face arrière : description complète -->
+            <div class="signe-dos">
+              <div class="signe-dos-titre">${signe.title}</div>
+              <p class="signe-desc-flip">${signe.desc}</p>
+            </div>
+          </div>
+        `;
+
+        function basculerCarte() {
+          const estRetournee = carte.classList.toggle('retournee');
+          carte.setAttribute('aria-expanded', String(estRetournee));
+        }
+
+        carte.addEventListener('click', basculerCarte);
+        carte.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            basculerCarte();
+          }
+        });
+
+        conteneur.appendChild(carte);
+      });
+    });
+
+  </script>
+
+</body>
+</html>

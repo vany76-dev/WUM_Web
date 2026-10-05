@@ -1,0 +1,2929 @@
+/* ==========================================================================
+   WAKE UP MISSION - FEUILLE DE STYLE PRINCIPALE (style.css)
+   ==========================================================================
+   
+   ORGANISATION :
+   1. Variables CSS (couleurs, polices, transitions)
+   2. Reset & Base
+   3. Header & Navigation
+   4. Hero Section
+   5. Sections & Layout
+   6. Composants (boutons, cartes, badges)
+   7. Timeline
+   8. 5 Signes du Wake Up
+   9. Activités & Billetterie
+   10. Formulaires
+   11. Onglets (Tabs)
+   12. Module Onboarding
+   13. Tableau de Bord
+   14. Footer
+   15. Bouton WhatsApp flottant
+   16. Modal RM5
+   17. Responsive Mobile
+   
+   PALETTE OFFICIELLE (Source : identité_visuelle.pdf, page 50) :
+   - Bleu principal  : #4D41D9
+   - Violet          : #803DB4
+   - Aqua Marine     : #71F4B3  (anciennement #5CFFB0)
+   - Noir            : #000000
+   - Gris clair      : #D4D6D5
+   - Blanc           : #FFFFFF
+   
+   POUR MODIFIER LES COULEURS : changer uniquement les variables :root
+   POUR AJOUTER UNE SECTION : suivre le modèle section/section-container
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   1. VARIABLES CSS - Charte graphique officielle WUM
+   Modifier ici pour changer l'ensemble du design du site.
+   ------------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Nexa:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* --- Couleurs principales (officielle identité visuelle WUM) --- */
+  --bleu-principal: #4D41D9;      /* Couleur bleue principale du logo */
+  --violet: #803DB4;              /* Violet secondaire */
+  --aqua-marine: #71F4B3;         /* Couleur vive d'accentuation (anciennement #5CFFB0) */
+  --noir: #000000;
+  --gris-clair: #D4D6D5;
+  --blanc: #FFFFFF;
+
+  /* --- Fonds des sections --- */
+  --fond-sombre: #07070A;         /* Fond très sombre (dark mode) */
+  --fond-sombre-2: #0F0F18;      /* Fond légèrement plus clair pour les cartes */
+  --fond-clair: #FFFFFF;          /* Fond blanc pour sections claires */
+
+  /* --- Textes --- */
+  --texte-clair: #F0F0F6;         /* Texte sur fond sombre */
+  --texte-sombre: #121218;        /* Texte sur fond clair */
+  --texte-secondaire: #8A8A9A;    /* Légendes, sous-titres */
+
+  /* --- Dégradés --- */
+  --gradient-bleu-violet: linear-gradient(135deg, #4D41D9 0%, #803DB4 100%);
+  --gradient-sombre: linear-gradient(180deg, #07070A 0%, #0F0F18 100%);
+  --gradient-aqua: linear-gradient(135deg, #71F4B3 0%, #4D41D9 100%);
+  --glass-bg: rgba(13, 13, 25, 0.80);
+  --glass-border: rgba(77, 65, 217, 0.25);
+  --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  --overlay-photo: rgba(7, 7, 10, 0.74);
+  --verre-sombre: rgba(12, 12, 22, 0.48);
+  --verre-clair: rgba(255, 255, 255, 0.58);
+  --texte-footer: #8A8A9A;
+  --blanc: #FFFFFF;
+  --bleu-principal: #4D41D9;
+  --police-titre: 'Outfit', sans-serif;
+
+  /* --- Typographies --- */
+  /* Police display condensée pour les titres (SemiBold à Black) */
+  --police-titre: 'Outfit', sans-serif;
+  /* Police douce pour le texte courant (Nexa selon charte WUM) */
+  --police-corps: 'Nexa', sans-serif;
+
+  /* --- Transitions --- */
+  --transition-lisse: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-rapide: all 0.18s ease;
+
+  /* --- Espacements standard --- */
+  --max-largeur: 1200px;
+  --padding-section: 6rem 2rem;
+}
+
+
+/* ------------------------------------------------------------------
+   2. RESET & BASE
+   Styles de réinitialisation et valeurs par défaut globales.
+   ------------------------------------------------------------------ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--police-corps);
+  background-color: var(--fond-sombre);
+  /* Background image removed per request */
+  background-image: none;
+  color: var(--texte-clair);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Titres : utilisation de la police Outfit pour toute la hiérarchie */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-rapide);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ------------------------------------------------------------------
+   3. HEADER & NAVIGATION
+   Barre de navigation fixe avec effet glassmorphism.
+   
+   COMMENT MODIFIER :
+   - Changer la hauteur : modifier padding dans .header-container
+   - Changer la couleur de fond : modifier --glass-bg
+   - Ajouter/supprimer des liens : modifier les HTML des nav
+   ------------------------------------------------------------------ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+  transition: var(--transition-lisse);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+  padding: 0.85rem 2rem;
+}
+
+/* --- Logo et nom de la structure --- */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nom affiché à côté du logo — uniquement "Wake Up Mission" */
+.logo-texte {
+  font-family: var(--police-titre);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--blanc);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+/* --- Navigation bureau (desktop) --- */
+.nav-bureau {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-lien {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  color: var(--texte-clair);
+  border-radius: 6px;
+  transition: var(--transition-rapide);
+}
+
+.nav-lien:hover,
+.nav-lien.actif {
+  color: var(--aqua-marine);
+  background: rgba(113, 244, 179, 0.08);
+}
+
+/* Bouton CTA dans la nav */
+.btn-nav-cta {
+  background: var(--gradient-bleu-violet);
+  color: var(--blanc) !important;
+  font-weight: 700;
+  padding: 0.55rem 1.3rem;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  font-family: var(--police-titre);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(77, 65, 217, 0.35);
+  transition: var(--transition-lisse);
+  margin-left: 0.5rem;
+}
+
+.btn-nav-cta:hover {
+  background: transparent;
+  border-color: var(--bleu-principal);
+  color: var(--blanc) !important;
+  box-shadow: 0 4px 20px rgba(77, 65, 217, 0.5);
+  transform: translateY(-2px);
+}
+
+/* --- Bouton bascule menu mobile --- */
+.toggle-mobile {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.toggle-mobile span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--blanc);
+  transition: var(--transition-lisse);
+  transform-origin: center;
+}
+
+/* Animation croix lors de l'ouverture */
+.toggle-mobile.ouvert span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.toggle-mobile.ouvert span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.toggle-mobile.ouvert span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* --- Panneau de navigation mobile ---
+   NOTE: Ce panneau n'est visible qu'en version mobile (max-width: 992px).
+   Il est masqué sur desktop via display:none du .toggle-mobile.
+   ------------------------------------------------------------------ */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #0D0D1A;
+  border-left: 1px solid var(--glass-border);
+  padding: 5.5rem 1.75rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.6);
+  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 999;
+}
+
+.menu-mobile.ouvert {
+  right: 0;
+}
+
+/* Overlay sombre derrière le menu mobile */
+.overlay-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+}
+
+.overlay-mobile.actif {
+  display: block;
+}
+
+.menu-mobile .nav-lien {
+  font-size: 1.05rem;
+  padding: 0.7rem 1rem;
+}
+
+.menu-mobile .btn-nav-cta {
+  margin-left: 0;
+  margin-top: 1rem;
+  text-align: center;
+  display: block;
+}
+
+
+/* ------------------------------------------------------------------
+   4. HERO SECTION - Page d'accueil
+   Bannière principale de plein écran avec vidéo d'ambiance.
+   
+   COMMENT MODIFIER :
+   - Remplacer la vidéo : changer l'attribut src dans <video>
+   - Modifier le texte : éditer le contenu dans index.html
+   - Ajuster l'opacité de la vidéo : modifier opacity dans .hero-video
+   ------------------------------------------------------------------ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  overflow: hidden;
+  background-image: url('../Image/WUM_ID.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Conteneur de la boucle vidéo */
+.hero-video-conteneur {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(1.3) hue-rotate(-10deg);
+}
+
+/* Overlay dégradé sombre par-dessus la vidéo */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(7, 7, 10, 0.72) 0%, rgba(7, 7, 10, 0.92) 100%);
+  z-index: 2;
+}
+
+.hero-contenu {
+  position: relative;
+  z-index: 3;
+  max-width: 820px;
+  text-align: center;
+}
+
+.hero-tagline {
+  display: inline-block;
+  font-family: var(--police-titre);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--aqua-marine);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid rgba(113, 244, 179, 0.3);
+  border-radius: 50px;
+}
+
+.hero-titre {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: var(--blanc);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-titre .accent {
+  background: var(--gradient-bleu-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sous-titre {
+  font-size: 1.15rem;
+  color: rgba(240, 240, 246, 0.8);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Badge Instagram dans le Hero */
+.hero-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 2rem;
+  opacity: 0.65;
+}
+
+.hero-instagram a {
+  font-size: 0.85rem;
+  color: var(--aqua-marine);
+  font-weight: 500;
+}
+
+.hero-instagram a:hover { opacity: 0.8; }
+
+
+/* ------------------------------------------------------------------
+   5. SECTIONS & LAYOUT GÉNÉRAL
+   Chaque section alterne entre fond sombre et fond clair.
+   ------------------------------------------------------------------ */
+section {
+  padding: var(--padding-section);
+  width: 100%;
+}
+
+.section-conteneur {
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Label discret au-dessus du titre de section */
+.section-label {
+  display: block;
+  font-family: var(--police-titre);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.fond-sombre .section-label { color: var(--aqua-marine); }
+.fond-sombre-2 .section-label { color: var(--aqua-marine); }
+.fond-clair .section-label { color: var(--bleu-principal); }
+
+.section-titre {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.fond-sombre .section-titre { color: var(--blanc); }
+.fond-sombre-2 .section-titre { color: var(--blanc); }
+.fond-clair .section-titre { color: var(--texte-sombre); }
+
+.section-intro {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 3.5rem auto;
+  font-size: 1.05rem;
+}
+
+.fond-sombre .section-intro { color: var(--texte-secondaire); }
+.fond-sombre-2 .section-intro { color: var(--texte-secondaire); }
+.fond-clair .section-intro { color: #44444F; }
+
+/* Fond des sections */
+.fond-sombre {
+  background-color: var(--fond-sombre);
+  color: var(--texte-clair);
+}
+
+.fond-sombre-2 {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--fond-sombre-2);
+  background-image: url('../Image/IMG_1357.JPG');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--texte-clair);
+}
+
+.fond-sombre-2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-photo);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fond-sombre-2 > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fond-clair {
+  background-color: var(--fond-clair);
+  color: var(--texte-sombre);
+}
+
+/* Grilles réutilisables */
+.grille-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.grille-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+
+/* ------------------------------------------------------------------
+   6. COMPOSANTS : BOUTONS
+   Tous les boutons du site. Utiliser les classes suivantes :
+   .btn-primaire   = bouton plein (fond bleu-violet)
+   .btn-secondaire = bouton contour (transparent + bordure)
+   .btn-aqua       = bouton aqua marine (pour les CTA importants)
+   ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: var(--police-titre);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: var(--transition-lisse);
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primaire {
+  background: var(--gradient-bleu-violet);
+  color: var(--blanc);
+  box-shadow: 0 4px 20px rgba(77, 65, 217, 0.35);
+}
+
+.btn-primaire:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(77, 65, 217, 0.5);
+  opacity: 0.92;
+}
+
+.btn-secondaire {
+  background: transparent;
+  border-color: rgba(240, 240, 246, 0.35);
+  color: var(--blanc);
+}
+
+.btn-secondaire:hover {
+  border-color: var(--aqua-marine);
+  color: var(--aqua-marine);
+  transform: translateY(-2px);
+}
+
+.btn-aqua {
+  background-color: var(--aqua-marine);
+  color: #03030A;
+  font-weight: 800;
+  box-shadow: 0 4px 20px rgba(113, 244, 179, 0.3);
+}
+
+.btn-aqua:hover {
+  background-color: transparent;
+  border-color: var(--aqua-marine);
+  color: var(--aqua-marine);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(113, 244, 179, 0.4);
+}
+
+.btn-contour-violet {
+  background: transparent;
+  border-color: var(--aqua-marine);
+  color: var(--aqua-marine);
+}
+
+.btn-contour-violet:hover {
+  background: var(--aqua-marine);
+  color: #03030A;
+  transform: translateY(-2px);
+}
+
+
+/* ------------------------------------------------------------------
+   6b. COMPOSANTS : CARTES (Cards)
+   Verre dépoli site-wide : le fond de la carte floute ce qui se trouve derrière.
+   ------------------------------------------------------------------ */
+.carte {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 2.25rem 2rem;
+  border-radius: 18px;
+  transition: var(--transition-lisse);
+  background: var(--verre-sombre);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+}
+
+.carte > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fond-sombre .carte,
+.fond-sombre-2 .carte {
+  background: var(--verre-sombre);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--texte-clair);
+}
+
+.fond-sombre .carte:hover,
+.fond-sombre-2 .carte:hover {
+  transform: translateY(-6px);
+  background: rgba(18, 16, 36, 0.58);
+  border-color: rgba(113, 244, 179, 0.35);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+}
+
+.fond-sombre .carte h3,
+.fond-sombre-2 .carte h3 {
+  color: var(--blanc);
+}
+
+.fond-clair .carte {
+  background: var(--verre-clair);
+  border: 1px solid rgba(77, 65, 217, 0.14);
+  box-shadow: 0 8px 28px rgba(15, 15, 24, 0.08);
+}
+
+.fond-clair .carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(77, 65, 217, 0.12);
+  border-color: rgba(77, 65, 217, 0.28);
+}
+
+.carte-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.fond-sombre .carte-icone,
+.fond-sombre-2 .carte-icone {
+  background: rgba(77, 65, 217, 0.18);
+  color: var(--aqua-marine);
+}
+
+.fond-clair .carte-icone {
+  background: rgba(77, 65, 217, 0.1);
+  color: var(--bleu-principal);
+}
+
+.carte h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.fond-clair .carte h3 { color: var(--texte-sombre); }
+
+.carte p {
+  font-size: 0.92rem;
+  color: var(--texte-secondaire);
+  line-height: 1.7;
+}
+
+.fond-clair .carte p { color: #3F3F4A; }
+
+/* Cartes dont le fond est une photo (flou + overlay 70 %+) */
+.carte-sur-photo {
+  background-color: rgba(7, 7, 10, 0.12) !important;
+  color: var(--blanc);
+  min-height: 100%;
+}
+
+.carte-sur-photo::before {
+  content: '';
+  position: absolute;
+  inset: -28px;
+  z-index: 0;
+  background-image: var(--carte-bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  transform: scale(1.08);
+}
+
+.carte-sur-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(7, 7, 10, 0.38);
+  pointer-events: none;
+}
+
+.carte-sur-photo h3,
+.carte-sur-photo p {
+  color: var(--blanc) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.carte-valeur {
+  color: var(--blanc);
+  min-height: 320px;
+}
+
+.carte-valeur h3,
+.carte-valeur p {
+  color: var(--blanc) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* Overlay 70 %+ sur toute section photo */
+.section-photo {
+  position: relative;
+  isolation: isolate;
+  color: var(--blanc);
+}
+
+.section-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-photo);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-photo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-photo .section-titre,
+.section-photo h1,
+.section-photo h2 {
+  color: var(--blanc);
+}
+
+.section-photo .section-intro {
+  color: var(--texte-secondaire);
+}
+
+
+/* ------------------------------------------------------------------
+   7. TIMELINE - Page vision.html
+   Chronologie verticale interactive.
+   ------------------------------------------------------------------ */
+.timeline {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--bleu-principal) 0%, var(--violet) 100%);
+  opacity: 0.35;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 2.5rem;
+}
+
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; text-align: left; }
+
+.timeline-point {
+  position: absolute;
+  top: 2rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--aqua-marine);
+  border: 3px solid var(--bleu-principal);
+  z-index: 5;
+}
+
+.timeline-item:nth-child(odd) .timeline-point { right: -7px; }
+.timeline-item:nth-child(even) .timeline-point { left: -7px; }
+
+.timeline-date {
+  font-family: var(--police-titre);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--aqua-marine);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-contenu {
+  background: var(--verre-sombre);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+}
+
+.timeline-contenu h3 {
+  font-size: 1.1rem;
+  color: var(--blanc);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-contenu p {
+  font-size: 0.9rem;
+  color: var(--texte-secondaire);
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .timeline::before { left: 20px; }
+  .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 50px; padding-right: 0; }
+  .timeline-point { left: 13px !important; right: auto !important; }
+}
+
+
+/* ------------------------------------------------------------------
+   8. LES 5 SIGNES DU WAKE UP
+   Section centrale de présentation des 5 signes identitaires de WUM.
+   
+   COMMENT MODIFIER :
+   - Les données des signes sont dans index.html (data-attribute) ou dans js/app.js
+   - Pour changer le style des cartes : modifier .signe-carte
+   - Les icônes sont des émojis modifiables directement dans le HTML
+   ------------------------------------------------------------------ */
+.signes-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.signe-carte {
+  position: relative;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(77, 65, 217, 0.2);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  cursor: default;
+  transition: var(--transition-lisse);
+  overflow: hidden;
+}
+
+.signe-carte::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-bleu-violet);
+  opacity: 0;
+  transition: var(--transition-lisse);
+}
+
+.signe-carte:hover {
+  border-color: rgba(77, 65, 217, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(77, 65, 217, 0.15);
+}
+
+.signe-carte:hover::before {
+  opacity: 1;
+}
+
+.signe-numero {
+  font-family: var(--police-titre);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(113, 244, 179, 0.12);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  transition: var(--transition-lisse);
+}
+
+.signe-carte:hover .signe-numero {
+  color: rgba(113, 244, 179, 0.35);
+}
+
+.signe-icone {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.signe-titre {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blanc);
+  margin-bottom: 0.6rem;
+  font-family: var(--police-titre);
+}
+
+.signe-description {
+  font-size: 0.85rem;
+  color: var(--texte-secondaire);
+  line-height: 1.6;
+}
+
+
+/* ------------------------------------------------------------------
+   8b. LES 5 SIGNES DU WAKE UP - VERSION AVEC PHOTOS
+   Cartes avec visuels photographiques pour plus d'impact visuel.
+   Design selon charte WUM : photos noir et blanc, incrustations de couleur.
+   ------------------------------------------------------------------ */
+.signes-grille-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.signe-carte-photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 320px;
+  cursor: default;
+  transition: var(--transition-lisse);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.signe-carte-photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(77, 65, 217, 0.25);
+}
+
+.signe-carte-photo-visuel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.signe-carte-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.2);
+  transition: var(--transition-lisse);
+}
+
+.signe-carte-photo:hover .signe-carte-photo-img {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.05);
+}
+
+.signe-carte-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(7, 7, 10, 0.55) 0%,
+    rgba(7, 7, 10, 0.72) 42%,
+    rgba(7, 7, 10, 0.94) 100%);
+  transition: var(--transition-lisse);
+}
+
+.signe-carte-photo:hover .signe-carte-photo-overlay {
+  background: linear-gradient(180deg,
+    rgba(77, 65, 217, 0.38) 0%,
+    rgba(7, 7, 10, 0.72) 48%,
+    rgba(7, 7, 10, 0.94) 100%);
+}
+
+.signe-carte-photo-contenu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1.5rem;
+  z-index: 2;
+}
+
+.signe-numero {
+  font-family: var(--police-titre);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--aqua-marine);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.signe-titre {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--blanc);
+  margin-bottom: 0.75rem;
+  font-family: var(--police-titre);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.signe-description {
+  font-size: 0.9rem;
+  color: rgba(240, 240, 246, 0.9);
+  line-height: 1.6;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Section spécifique pour les 5 signes dans ressources.html */
+.section-signes-featured {
+  background: linear-gradient(180deg, var(--fond-sombre) 0%, var(--fond-sombre-2) 100%);
+  padding: 6rem 2rem;
+}
+
+
+/* ------------------------------------------------------------------
+   9. ACTIVITÉS & ÉVÉNEMENTS - activites.html
+   Grille de présentation des événements WUM.
+   
+   COMMENT AJOUTER UN ÉVÉNEMENT :
+   - Dupliquer un bloc .activite-carte dans activites.html
+   - Modifier le titre, la description, la date, le lieu et l'image
+   - Changer le lien href du bouton S'inscrire
+   ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------
+   FORMATIONS - Hero, parcours et cartes thématiques
+   ------------------------------------------------------------------ */
+.entete-formation {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 58vh;
+  margin-top: 70px;
+  padding: clamp(4.5rem, 11vw, 7rem) 1.5rem clamp(3rem, 7vw, 5rem);
+  overflow: hidden;
+  place-items: center;
+  text-align: center;
+}
+
+.entete-formation .formation-slide,
+.entete-formation .formation-entete-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.entete-formation .formation-slide {
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  animation: formation-carousel 27s ease-in-out infinite;
+}
+
+.entete-formation .formation-slide:first-child {
+  background-image: url('../Image/WUM_ID.png');
+}
+
+.entete-formation .formation-slide-2 {
+  background-image: url('../Image/ID WUM - 11.png');
+  animation-delay: -9s;
+}
+
+.entete-formation .formation-slide-3 {
+  background-image: url('../Image/IMG_1538.JPG');
+  animation-delay: -18s;
+}
+
+.entete-formation .formation-entete-overlay {
+  z-index: 0;
+  background: linear-gradient(180deg, var(--overlay-photo), var(--fond-sombre));
+}
+
+.formation-hero-contenu {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.formation-hero-contenu > * {
+  animation: formation-entree 0.75s ease both;
+}
+
+.formation-hero-contenu > :nth-child(2) { animation-delay: 0.12s; }
+.formation-hero-contenu > :nth-child(3) { animation-delay: 0.24s; }
+
+.formation-hero-contenu .section-titre {
+  color: var(--blanc);
+}
+
+.formation-hero-contenu .section-intro {
+  margin: 0 auto;
+  color: var(--texte-clair);
+}
+
+@keyframes formation-carousel {
+  0%, 30% { opacity: 1; transform: scale(1); }
+  38%, 100% { opacity: 0; transform: scale(1.08); }
+}
+
+@keyframes formation-entree {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.niveaux-formation {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.niveaux-formation-grille {
+  align-items: stretch;
+}
+
+.niveau-formation {
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid var(--aqua-marine);
+}
+
+.niveau-croissance { border-top-color: var(--bleu-principal); }
+.niveau-leadership { border-top-color: var(--violet); }
+
+.niveau-formation .carte-icone svg,
+.theme-formation .carte-icone svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.niveau-formation-public {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--aqua-marine) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700;
+}
+
+.niveau-croissance .niveau-formation-public { color: var(--bleu-principal) !important; }
+.niveau-leadership .niveau-formation-public { color: var(--violet) !important; }
+
+.themes-formation {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 4vw, 2rem);
+  background:
+    radial-gradient(ellipse at top left, rgba(77, 65, 217, 0.08), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(113, 244, 179, 0.09), transparent 58%),
+    var(--fond-clair);
+}
+
+.themes-formation .section-conteneur {
+  position: relative;
+  z-index: 1;
+}
+
+.themes-formation .grille-2 {
+  gap: 1.75rem;
+}
+
+.theme-formation {
+  border-top: 3px solid var(--aqua-marine) !important;
+  transition: transform var(--transition-lisse), border-color var(--transition-lisse), box-shadow var(--transition-lisse);
+}
+
+.theme-priere { border-top-color: var(--bleu-principal) !important; }
+.theme-leadership { border-top-color: var(--violet) !important; }
+.theme-productivite { border-top-color: var(--aqua-marine) !important; }
+
+.theme-formation .carte-icone {
+  border: 1px solid rgba(77, 65, 217, 0.18);
+  color: var(--bleu-principal);
+}
+
+.theme-priere .carte-icone { color: var(--bleu-principal); }
+.theme-leadership .carte-icone { color: var(--violet); }
+.theme-productivite .carte-icone { color: var(--bleu-principal); }
+
+.theme-formation:hover {
+  transform: translateY(-6px);
+  border-color: var(--bleu-principal);
+  box-shadow: 0 14px 34px rgba(77, 65, 217, 0.14);
+}
+
+.formation-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(3rem, 7vw, 5rem) 1.5rem;
+  background-image: linear-gradient(180deg, var(--overlay-photo), var(--overlay-photo)), url('../Image/IMG_2383.JPG');
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.formation-cta .section-label,
+.formation-cta .section-titre,
+.formation-cta .section-intro {
+  position: relative;
+  z-index: 1;
+}
+
+.formation-cta .section-intro {
+  color: var(--texte-clair);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entete-formation .formation-slide,
+  .formation-hero-contenu > * {
+    animation: none;
+  }
+
+  .entete-formation .formation-slide:not(:first-child) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .niveaux-formation-grille,
+  .themes-formation .grille-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bannière de mise en avant de l'événement vedette (RM5) */
+.entete-activites {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 58vh;
+  margin-top: 70px;
+  padding: clamp(4.5rem, 11vw, 7rem) 1.5rem clamp(3rem, 7vw, 5rem);
+  overflow: hidden;
+  place-items: center;
+  text-align: center;
+}
+
+.entete-activites .carousel-slide,
+.entete-activites .entete-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.entete-activites .carousel-slide {
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  animation: activites-carousel 28s ease-in-out infinite;
+}
+
+.entete-activites .carousel-slide:first-child {
+  background-image: url('../Image/WUM_ID.png');
+  animation-delay: 0s;
+}
+
+.entete-activites .carousel-slide-2 {
+  background-image: url('../Image/RM5_NEW.jpg');
+  animation-delay: 7s;
+}
+
+.entete-activites .carousel-slide-3 {
+  background-image: url('../Image/RM_Club_Artwork.jpg');
+  animation-delay: 14s;
+}
+
+.entete-activites .carousel-slide-4 {
+  background-image: url('../Image/IMG_6030.JPG');
+  animation-delay: 21s;
+}
+
+.entete-activites .entete-overlay {
+  z-index: 0;
+  background: linear-gradient(180deg, var(--overlay-photo), var(--fond-sombre));
+}
+
+.entete-activites-contenu {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.entete-activites-contenu .section-titre {
+  color: var(--blanc);
+}
+
+.entete-activites-contenu .section-intro {
+  margin: 0 auto;
+  color: var(--texte-clair);
+}
+
+@keyframes activites-carousel {
+  0%, 4% { opacity: 1; transform: scale(1); }
+  25%, 100% { opacity: 0; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entete-activites .carousel-slide {
+    animation: none;
+  }
+
+  .entete-activites .carousel-slide:not(:first-child) {
+    display: none;
+  }
+}
+
+.activites-section-entete {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.activite-vedette-actions,
+.partenariat-rm5-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.activite-vedette-actions .btn {
+  text-align: center;
+}
+
+.partenariat-rm5 {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: var(--verre-sombre);
+  box-shadow: var(--glass-shadow);
+}
+
+.partenariat-rm5-image {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.partenariat-rm5-contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.partenariat-rm5-label {
+  margin-bottom: 0.8rem;
+  color: var(--aqua-marine);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.partenariat-rm5-titre {
+  margin-bottom: 0.85rem;
+  color: var(--blanc);
+  font-family: var(--police-titre);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.partenariat-rm5-texte {
+  margin-bottom: 1.4rem;
+  color: var(--texte-clair);
+  line-height: 1.7;
+}
+
+.partenariat-rm5-texte strong,
+.activite-vedette-contenu strong {
+  color: var(--aqua-marine);
+}
+
+.activite-vedette-rm-club {
+  border: 1px solid rgba(113, 244, 179, 0.28);
+  box-shadow: 0 20px 60px rgba(113, 244, 179, 0.12);
+}
+
+.activites-partenariat {
+  padding: clamp(3rem, 7vw, 5.5rem) 1.5rem;
+}
+
+.activites-partenariat-contenu {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.activites-partenariat-contenu .section-titre {
+  margin-bottom: 1rem;
+  color: var(--texte-sombre);
+}
+
+.activites-partenariat-contenu .section-intro {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  color: var(--texte-sombre);
+}
+
+.activites-partenariat-contenu .section-intro strong {
+  color: var(--bleu-principal);
+}
+
+.activites-partenariat-phrase {
+  margin-bottom: 1.5rem;
+  color: var(--texte-sombre);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.activite-vedette {
+  background: var(--gradient-bleu-violet);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 400px;
+  margin-bottom: 4rem;
+  box-shadow: 0 20px 60px rgba(77, 65, 217, 0.35);
+}
+
+.activite-vedette-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.activite-vedette-contenu {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--blanc);
+}
+
+.badge-vedette {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--blanc);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.activite-vedette-contenu h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--blanc);
+}
+
+.activite-vedette-contenu p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.activite-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.activite-meta-info span {
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Grille des autres activités */
+.activites-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.activite-carte {
+  position: relative;
+  isolation: isolate;
+  background: var(--verre-sombre);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: var(--transition-lisse);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+.activite-carte:hover {
+  transform: translateY(-5px);
+  border-color: rgba(77, 65, 217, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.activite-carte-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activite-carte:hover .activite-carte-image {
+  transform: scale(1.03);
+}
+
+.activite-carte-corps {
+  padding: 1.75rem;
+}
+
+.activite-badge {
+  display: inline-block;
+  background: rgba(113, 244, 179, 0.1);
+  color: var(--aqua-marine);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.activite-titre {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blanc);
+  margin-bottom: 0.5rem;
+  font-family: var(--police-titre);
+}
+
+.activite-description {
+  font-size: 0.88rem;
+  color: var(--texte-secondaire);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.activite-infos {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--texte-secondaire);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.activite-infos span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+
+/* ------------------------------------------------------------------
+   10. FORMULAIRES
+   Styles pour tous les formulaires du site (Rejoindre, Billetterie...)
+   ------------------------------------------------------------------ */
+.form-section {
+  max-width: 620px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+}
+
+.form-groupe {
+  margin-bottom: 1.5rem;
+}
+
+.form-etiquette {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--texte-clair);
+}
+
+.form-controle {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--texte-clair);
+  font-family: var(--police-corps);
+  font-size: 0.92rem;
+  transition: var(--transition-rapide);
+}
+
+.form-controle:focus {
+  outline: none;
+  border-color: var(--bleu-principal);
+  background: rgba(77, 65, 217, 0.06);
+  box-shadow: 0 0 0 3px rgba(77, 65, 217, 0.1);
+}
+
+.form-controle::placeholder {
+  color: var(--texte-secondaire);
+}
+
+select.form-controle {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238A8A9A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.case-a-cocher-groupe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.case-a-cocher-etiquette {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--texte-clair);
+  line-height: 1.5;
+}
+
+.case-a-cocher-etiquette input[type="checkbox"] {
+  margin-top: 0.2rem;
+  accent-color: var(--bleu-principal);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------------
+   11. ONGLETS (Tabs) - Page rejoindre.html
+   Système d'onglets pour naviguer entre les différents modules.
+   ------------------------------------------------------------------ */
+.onglets-conteneur {
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+}
+
+.onglets-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.onglet-btn {
+  background: none;
+  border: none;
+  font-family: var(--police-titre);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--texte-secondaire);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-rapide);
+  border-radius: 8px 8px 0 0;
+}
+
+.onglet-btn:hover { color: var(--texte-clair); }
+
+.onglet-btn.actif {
+  color: var(--aqua-marine);
+}
+
+.onglet-btn.actif::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--aqua-marine);
+}
+
+.panneau-onglet { display: none; }
+.panneau-onglet.actif {
+  display: block;
+  animation: apparaitre 0.4s ease forwards;
+}
+
+@keyframes apparaitre {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ------------------------------------------------------------------
+   12. MODULE D'ONBOARDING - Test de personnalité
+   Wizard multi-étapes pour évaluer les profils opérationnels.
+   ------------------------------------------------------------------ */
+.wizard-onboarding {
+  max-width: 680px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--glass-shadow);
+}
+
+/* Barre de progression */
+.barre-progression-ext {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.barre-progression-int {
+  height: 100%;
+  background: var(--gradient-aqua);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.etape-question { display: none; }
+.etape-question.active { display: block; }
+
+.question-texte {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--blanc);
+  font-family: var(--police-titre);
+}
+
+.options-reponse {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.btn-option {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.4rem;
+  border-radius: 12px;
+  color: var(--texte-clair);
+  text-align: left;
+  font-family: var(--police-corps);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: var(--transition-rapide);
+}
+
+.btn-option:hover {
+  background: rgba(77, 65, 217, 0.1);
+  border-color: var(--bleu-principal);
+}
+
+.btn-option.selectionne {
+  background: rgba(77, 65, 217, 0.2);
+  border-color: var(--aqua-marine);
+  box-shadow: 0 0 12px rgba(113, 244, 179, 0.12);
+}
+
+.pied-wizard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ------------------------------------------------------------------
+   13. TABLEAU DE BORD DE MOBILISATION
+   Espace de gestion des tâches et de l'attribution méritocratique.
+   ------------------------------------------------------------------ */
+.dashboard-grille {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .dashboard-grille { grid-template-columns: 1fr; }
+}
+
+.db-panneau {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+.db-titre {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0.75rem;
+  color: var(--blanc);
+}
+
+.taches-liste, .talents-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tache-item {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  transition: var(--transition-rapide);
+}
+
+.tache-item:hover { border-color: rgba(113, 244, 179, 0.2); }
+
+.talent-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.avatar-talent {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gradient-bleu-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blanc);
+  flex-shrink: 0;
+}
+
+.btn-attribuer {
+  background: transparent;
+  border: 1px solid var(--aqua-marine);
+  color: var(--aqua-marine);
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--police-corps);
+  transition: var(--transition-rapide);
+}
+
+.btn-attribuer:hover {
+  background: var(--aqua-marine);
+  color: var(--noir);
+}
+
+
+/* ------------------------------------------------------------------
+   14. FOOTER
+   Pied de page du site avec liens, contact et copyright.
+   
+   COMMENT MODIFIER :
+   - Ajouter un lien : ajouter un <li><a> dans la liste correspondante
+   - Changer l'adresse ou le contact : modifier directement dans le HTML
+   ------------------------------------------------------------------ */
+body > footer {
+  background-color: #03030A;
+  border-top: 1px solid rgba(77, 65, 217, 0.2);
+  padding: 5rem 2rem 2rem 2rem;
+  color: var(--texte-footer);
+}
+
+body > footer p,
+body > footer a,
+.footer-bas p,
+.footer-bas a,
+.footer-contact p,
+.footer-contact a {
+  color: var(--texte-footer);
+}
+
+.footer-grille {
+  max-width: var(--max-largeur);
+  margin: 0 auto 4rem auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .footer-grille { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.footer-marque h4 {
+  font-family: var(--police-titre);
+  font-size: 1.1rem;
+  color: var(--blanc);
+  margin-bottom: 1rem;
+}
+
+.footer-marque p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  max-width: 380px;
+}
+
+.footer-marque .slogan {
+  color: var(--aqua-marine);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 0.75rem;
+  display: block;
+}
+
+.footer-liens h4, .footer-contact h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blanc);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-liens ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-liens ul li a {
+  font-size: 0.88rem;
+  transition: var(--transition-rapide);
+}
+
+.footer-liens ul li a:hover {
+  color: var(--aqua-marine);
+  padding-left: 4px;
+}
+
+.footer-contact p {
+  font-size: 0.88rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-bas {
+  max-width: var(--max-largeur);
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bas p { font-size: 0.8rem; }
+
+
+/* ------------------------------------------------------------------
+   15. BOUTON WHATSAPP FLOTTANT
+   Bouton de contact direct via WhatsApp, visible sur toutes les pages.
+   
+   COMMENT MODIFIER :
+   - Le numéro et le message se trouvent dans js/app.js (fonction initWhatsApp)
+   ------------------------------------------------------------------ */
+.whatsapp-flottant {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 58px;
+  height: 58px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: var(--transition-lisse);
+}
+
+.whatsapp-flottant:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55);
+}
+
+.whatsapp-flottant svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+
+/* ------------------------------------------------------------------
+   16. MODAL D'ANNONCE RM5
+   Fenêtre modale affichée au chargement pour annoncer RM5.
+   
+   COMMENT MODIFIER :
+   - Le texte de la modale : modifier dans index.html (section #modal-rm5)
+   - Pour désactiver la modale : supprimer l'appel dans js/app.js
+   - Le lien d'inscription : modifier href du bouton dans #modal-rm5
+   ------------------------------------------------------------------ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 3, 10, 0.88);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-boite {
+  background: #0D0D1A;
+  border: 1px solid rgba(77, 65, 217, 0.4);
+  border-radius: 22px;
+  max-width: 520px;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  width: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-overlay.visible .modal-boite {
+  transform: scale(1) translateY(0);
+}
+
+.modal-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-contenu {
+  padding: 2rem;
+}
+
+.modal-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--aqua-marine);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.modal-titre {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--blanc);
+  margin-bottom: 0.75rem;
+  font-family: var(--police-titre);
+}
+
+.modal-texte {
+  font-size: 0.92rem;
+  color: var(--texte-secondaire);
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-fermer-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: var(--blanc);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-rapide);
+}
+
+.btn-fermer-modal:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ------------------------------------------------------------------
+   17. BANNIÈRE D'ANNONCE RM5 (dans la page d'accueil)
+   Bandeau persistant en haut de la page d'accueil.
+   ------------------------------------------------------------------ */
+.banniere-rm5 {
+  background: var(--gradient-bleu-violet);
+  text-align: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--blanc);
+  position: relative;
+  z-index: 999;
+  margin-top: 70px; /* hauteur du header */
+}
+
+.banniere-rm5 a {
+  color: var(--blanc);
+  font-weight: 700;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.banniere-rm5 a:hover {
+  text-decoration: underline;
+}
+
+
+/* ------------------------------------------------------------------
+   RESPONSIVE GLOBAL
+   Adaptation pour les écrans mobiles (< 992px et < 768px)
+   ------------------------------------------------------------------ */
+@media (max-width: 992px) {
+  /* Afficher le bouton hamburger, masquer la nav bureau */
+  .toggle-mobile { display: flex; }
+  .nav-bureau { display: none; }
+
+  .activite-vedette {
+    grid-template-columns: 1fr;
+  }
+
+  .activite-vedette-image {
+    height: 250px;
+    order: -1;
+  }
+
+  .activite-vedette-contenu {
+    padding: 2rem;
+  }
+
+  .partenariat-rm5 {
+    grid-template-columns: 1fr;
+  }
+
+  .partenariat-rm5-image {
+    height: 240px;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .activite-vedette-actions,
+  .partenariat-rm5-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .activite-vedette-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding-section: 4rem 1.5rem;
+  }
+
+  .hero-titre { font-size: 2.2rem; }
+  .hero-sous-titre { font-size: 1rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+
+  .grille-3, .grille-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .signes-grille {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grille {
+    grid-template-columns: 1fr;
+  }
+
+  .banniere-rm5 {
+    font-size: 0.8rem;
+    padding: 0.65rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signes-grille {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   18. SIGNES AVEC PHOTOS — Design premium (index + ressources)
+   Remplace les émojis par des visuels photographiques.
+   ------------------------------------------------------------------ */
+.signes-grille-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.signe-carte-photo {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 430px;
+  border: 1px solid rgba(77, 65, 217, 0.25);
+  transition: var(--transition-lisse);
+  background: var(--fond-sombre-2);
+}
+
+.signe-carte-photo:hover {
+  transform: translateY(-6px);
+  border-color: rgba(113, 244, 179, 0.45);
+  box-shadow: 0 20px 50px rgba(77, 65, 217, 0.25);
+}
+
+.signe-carte-photo-visuel {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-bleu-violet);
+}
+
+.signe-carte-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: opacity 0.5s ease, transform 0.6s ease;
+}
+
+.signe-carte-photo:hover .signe-carte-photo-img:not(.image-manquante) {
+  opacity: 0.7;
+  transform: scale(1.04);
+}
+
+.signe-carte-photo-img.image-manquante {
+  display: none;
+}
+
+.signe-carte-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 7, 10, 0.55) 0%, rgba(7, 7, 10, 0.74) 42%, rgba(7, 7, 10, 0.94) 100%);
+}
+
+.signe-carte-photo-contenu {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem 1.5rem;
+  text-align: left;
+}
+
+.signe-carte-photo .signe-numero {
+  font-size: 2rem;
+  color: rgba(113, 244, 179, 0.35);
+  margin-bottom: 0.5rem;
+}
+
+.signe-carte-photo .signe-titre {
+  font-size: 1.15rem;
+  margin-bottom: 0.65rem;
+}
+
+.signe-carte-photo .signe-description {
+  font-size: 0.86rem;
+  color: rgba(240, 240, 246, 0.82);
+}
+
+/* Section 5 signes sur fond clair (ressources) — contraste renforcé */
+.section-signes-featured {
+  background: linear-gradient(160deg, #07070A 0%, #1a1240 50%, #0F0F18 100%);
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-signes-featured::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 50%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(77, 65, 217, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-signes-featured .section-titre,
+.section-signes-featured .signe-titre {
+  color: var(--blanc);
+}
+
+.section-signes-featured .section-intro {
+  color: rgba(240, 240, 246, 0.75);
+}
+
+/* ------------------------------------------------------------------
+   RESSOURCES - Hero, signes interactifs et réseaux
+   ------------------------------------------------------------------ */
+.ressources-hero {
+  position: relative;
+  isolation: isolate;
+  margin-top: 70px;
+  padding: clamp(4rem, 9vw, 6rem) 1.5rem clamp(2.5rem, 6vw, 3.5rem);
+  background-image: url('../Image/Wake_Up_1.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.ressources-hero::before {
+  background: linear-gradient(180deg, rgba(7, 7, 10, 0.42), rgba(7, 7, 10, 0.68));
+}
+
+.ressources-hero-contenu {
+  max-width: 880px;
+  text-align: center;
+}
+
+.ressources-hero .section-titre {
+  color: var(--blanc);
+}
+
+.ressources-citation {
+  margin: 2rem 0;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid var(--aqua-marine);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  color: var(--texte-clair);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.9;
+  text-align: left;
+}
+
+.ressources-consigne {
+  color: var(--texte-clair);
+  font-size: 0.95rem;
+}
+
+.ressources-signes {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.ressources-signes .section-intro {
+  color: var(--texte-sombre);
+}
+
+.signes-grille-20 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 1.25rem;
+}
+
+.signe-card-flip {
+  height: 190px;
+  perspective: 1000px;
+  cursor: pointer;
+  animation: signe-apparaitre 0.45s ease both;
+  animation-delay: calc(var(--signe-index, 0) * 24ms);
+}
+
+@keyframes signe-apparaitre {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signe-card-flip:focus-visible {
+  outline: 3px solid var(--bleu-principal);
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+.signe-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.signe-card-flip.retournee .signe-card-inner {
+  transform: rotateY(180deg);
+}
+
+.signe-face,
+.signe-dos {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.15rem;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.signe-face {
+  position: relative;
+  background-image: url('../Image/WUM_ID_Signes.png');
+  background-position: center;
+  background-size: cover;
+  transition: border-color var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+.signe-face::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(77, 65, 217, 0.76), rgba(128, 61, 180, 0.78));
+  content: '';
+}
+
+.signe-face-contenu {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.signe-image-flip {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signe-card-flip:hover .signe-face {
+  border-color: var(--aqua-marine);
+  box-shadow: 0 10px 28px rgba(77, 65, 217, 0.2);
+}
+
+.signe-dos {
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--bleu-principal), var(--violet));
+  border-color: var(--aqua-marine);
+  color: var(--blanc);
+  text-align: center;
+}
+
+.signe-numero-flip {
+  color: rgba(255, 255, 255, 0.56);
+  font-family: var(--police-titre);
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.signe-titre-flip {
+  color: var(--blanc);
+  font-family: var(--police-titre);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.signe-indice-flip {
+  color: var(--aqua-marine);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.signe-desc-flip {
+  color: var(--texte-clair);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.signe-dos-titre {
+  margin-bottom: 0.5rem;
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.ressources-podcast {
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(1rem, 4vw, 2rem);
+}
+
+.ressources-podcast .carte {
+  text-align: center;
+}
+
+.ressources-podcast .carte-visuel {
+  height: 120px;
+  margin: -2.25rem -2rem 1.5rem;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+}
+
+.ressources-podcast .carte-visuel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ressources-podcast .btn-indisponible {
+  display: inline-block;
+  font-size: 0.82rem;
+  padding: 0.6rem 1.4rem;
+}
+
+.ressources-communaute {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.ressources-communaute-contenu {
+  max-width: 760px;
+  text-align: center;
+}
+
+.ressources-communaute .section-intro {
+  color: var(--texte-sombre);
+}
+
+.communaute-reseaux {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: var(--verre-clair);
+  box-shadow: 0 14px 36px rgba(77, 65, 217, 0.1);
+}
+
+.communaute-reseaux-label {
+  margin-bottom: 0.65rem;
+  color: var(--bleu-principal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.communaute-reseaux-titre {
+  margin-bottom: 0.75rem;
+  color: var(--texte-sombre);
+  font-family: var(--police-titre);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.communaute-reseaux-intro {
+  margin: 0 auto 1.5rem;
+  color: var(--texte-sombre);
+}
+
+.communaute-reseaux-actions,
+.ressources-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ressources-cta {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .signes-grille-20 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .signe-card-flip {
+    height: 185px;
+  }
+
+  .signe-face,
+  .signe-dos {
+    padding: 0.9rem;
+  }
+
+  .signe-titre-flip {
+    font-size: 0.82rem;
+  }
+
+  .signe-desc-flip {
+    font-size: 0.72rem;
+  }
+
+  .communaute-reseaux-actions,
+  .ressources-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signe-card-flip {
+    animation: none;
+  }
+
+  .signe-card-inner {
+    transition: none;
+  }
+}
+
+
+/* ------------------------------------------------------------------
+   19. CARTES AVEC VISUEL — Programmes et activités
+   ------------------------------------------------------------------ */
+.carte-avec-visuel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.carte-visuel {
+  height: 160px;
+  background: var(--gradient-bleu-violet);
+  overflow: hidden;
+}
+
+.carte-visuel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carte-avec-visuel:hover .carte-visuel-img:not(.image-manquante) {
+  transform: scale(1.05);
+}
+
+.carte-visuel-img.image-manquante {
+  display: none;
+}
+
+.carte-avec-visuel .carte-corps {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.carte-numero-niveau {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  font-family: var(--police-titre);
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  background: rgba(77, 65, 217, 0.15);
+  color: var(--aqua-marine);
+  border: 1px solid rgba(77, 65, 217, 0.25);
+}
+
+
+/* ------------------------------------------------------------------
+   20. ICÔNES SVG — Remplacement des émojis dans les métadonnées
+   ------------------------------------------------------------------ */
+.icone-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--aqua-marine);
+}
+
+.icone-meta svg {
+  width: 100%;
+  height: 100%;
+}
+
+.icone-reseau {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icone-reseau svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+
+/* ------------------------------------------------------------------
+   21. BOUTONS DÉSACTIVÉS — Spotify / Apple Podcasts (bientôt)
+   ------------------------------------------------------------------ */
+.btn-indisponible {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+
+.btn-indisponible::after {
+  content: 'Bientôt disponible';
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+  color: var(--texte-secondaire);
+}
+
+
+/* ------------------------------------------------------------------
+   22. PAGE REJOINDRE — Landing simplifiée (redirection externe)
+   ------------------------------------------------------------------ */
+.page-rejoindre-hero {
+  margin-top: 70px;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background: var(--fond-sombre-2);
+}
+
+.rejoindre-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
+.rejoindre-option {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--verre-sombre);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition-lisse);
+  backdrop-filter: blur(18px) saturate(1.35);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
+.rejoindre-option:hover {
+  border-color: rgba(113, 244, 179, 0.35);
+  transform: translateY(-4px);
+}
+
+.rejoindre-option h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--blanc);
+}
+
+.rejoindre-option p {
+  font-size: 0.9rem;
+  color: var(--texte-secondaire);
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+
+
+/* ------------------------------------------------------------------
+   23. MODAL RM5 — Visuel photographique
+   ------------------------------------------------------------------ */
+.modal-rm5-visuel {
+  position: relative;
+  background: var(--fond-sombre);
+  overflow: hidden;
+}
+
+.modal-rm5-visuel img {
+  width: 100%;
+  height: auto;
+  max-height: min(55vh, 520px);
+  object-fit: contain;
+  opacity: 1;
+}
+
+.activite-vedette-visuel {
+  position: relative;
+  min-height: 300px;
+  background: var(--gradient-bleu-violet);
+  overflow: hidden;
+}
+
+.activite-vedette-visuel .activite-vedette-image {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.activite-vedette-visuel .activite-vedette-image.image-manquante {
+  display: none;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .carte,
+  .activite-carte,
+  .rejoindre-option,
+  .timeline-contenu {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(15, 15, 24, 0.94);
+  }
+
+  .fond-clair .carte {
+    background: #ffffff;
+  }
+
+  .carte-sur-photo {
+    background-color: rgba(7, 7, 10, 0.12) !important;
+  }
+
+  .carte-sur-photo::before {
+    filter: none;
+  }
+}

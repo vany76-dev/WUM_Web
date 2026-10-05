@@ -1,0 +1,22 @@
+{
+  "name": "Wake Up Mission",
+  "short_name": "WUM Portal",
+  "description": "Portail officiel de Wake Up Mission (WUM Holding) - Réveil Psycho-Spirituel",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0B0B0C",
+  "theme_color": "#4D41D9",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "LOGO_WUM_PNG-02.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "LOGO_WUM_PNG-01.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

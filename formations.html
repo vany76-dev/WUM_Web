@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    =========================================================================
+    WAKE UP MISSION - PAGE FORMATIONS (formations.html)
+    =========================================================================
+    
+    Cette page présente les programmes de formation de WUM.
+    
+    CONTENU :
+      1. Introduction aux programmes de formation
+      2. Grille des 3 niveaux de formation
+      3. Ressources pour les ouvriers permanents
+    =========================================================================
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Programmes et formations Wake Up Mission — Formation spirituelle, leadership et développement personnel pour les membres de WUM." />
+
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Formation — Wake Up Mission</title>
+</head>
+<body>
+
+  <!-- ===========================
+       HEADER — BARRE DE NAVIGATION (sans doublon)
+       =========================== -->
+  <header id="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+        
+      </a>
+
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien">Notre Mission</a>
+        <a href="activites.html" class="nav-lien">Activités</a>
+        <a href="formations.html" class="nav-lien actif">Formation</a>
+        <a href="ressources.html" class="nav-lien">Ressources</a>
+        <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+      </nav>
+
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay-mobile" id="overlay-mobile"></div>
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien">Notre Mission</a>
+    <a href="activites.html" class="nav-lien">Activités</a>
+    <a href="formations.html" class="nav-lien actif">Formation</a>
+    <a href="ressources.html" class="nav-lien">Ressources</a>
+    <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+  </nav>
+
+
+  <!-- ===========================
+       EN-TÊTE DE PAGE
+       =========================== -->
+  <main id="haut-page">
+  <section class="fond-sombre entete-formation" aria-labelledby="titre-formation">
+    <div class="formation-slide" aria-hidden="true"></div>
+    <div class="formation-slide formation-slide-2" aria-hidden="true"></div>
+    <div class="formation-slide formation-slide-3" aria-hidden="true"></div>
+    <div class="formation-entete-overlay" aria-hidden="true"></div>
+    <div class="section-conteneur formation-hero-contenu">
+      <span class="section-label">Formation &amp; Édification</span>
+      <h1 id="titre-formation" class="section-titre">
+        Nos <span class="accent">programmes</span> &amp; stratégies
+      </h1>
+      <p class="section-intro">
+        Nos programmes de partage biblique et de formation tournent autour des sujets
+        spirituels et psychologiques conducteurs du réveil et des signes qui accompagnent
+        les croyants en chemin.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : LES 3 NIVEAUX DE FORMATION
+       
+       POUR MODIFIER : changer les titres, les descriptions et les icônes.
+       Les niveaux correspondent aux catégories de membres de WUM
+       (Nouveaux contacts, Membres actifs, Ouvriers permanents).
+       =========================== -->
+  <section class="fond-sombre-2 niveaux-formation" aria-labelledby="titre-niveaux" data-animer>
+    <div class="section-conteneur">
+
+      <span class="section-label">Parcours d'Apprentissage</span>
+      <h2 class="section-titre" id="titre-niveaux">Les 3 niveaux de formation</h2>
+      <p class="section-intro">
+        Un parcours progressif adapté à chaque stade du réveil et de l'engagement.
+      </p>
+
+      <div class="grille-3 niveaux-formation-grille">
+
+        <!-- Niveau 1 : Nouveaux Contacts -->
+        <div class="carte niveau-formation niveau-decouverte">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <h3>Niveau 1 — Découverte</h3>
+          <p style="margin-bottom: 1rem;">
+            Pour les nouvelles âmes qui découvrent WUM. Ce parcours présente les fondements
+            de l'éveil, les 5 signes et les bases de la vie spirituelle active.
+          </p>
+          <p class="niveau-formation-public">Pour les nouveaux contacts</p>
+        </div>
+
+        <!-- Niveau 2 : Membres Actifs -->
+        <div class="carte niveau-formation niveau-croissance">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <h3>Niveau 2 — Croissance</h3>
+          <p style="margin-bottom: 1rem;">
+            Approfondissement de la vie de prière, du leadership chrétien et de l'identité
+            de l'âme réveillée. Accès aux conférences RM et aux Rondes de Veille.
+          </p>
+          <p class="niveau-formation-public">Pour les membres actifs</p>
+        </div>
+
+        <!-- Niveau 3 : Ouvriers Permanents -->
+        <div class="carte niveau-formation niveau-leadership">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
+          </div>
+          <h3>Niveau 3 — Leadership</h3>
+          <p style="margin-bottom: 1rem;">
+            Formation avancée pour les ouvriers permanents et leaders de WUM.
+            Gestion de projets, accompagnement pastoral, formation des formateurs.
+          </p>
+          <p class="niveau-formation-public">Pour le Staff WUM</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : PROGRAMME DÉTAILLÉ
+       Thématiques de formation abordées dans les programmes WUM.
+       =========================== -->
+  <section class="fond-clair themes-formation" aria-labelledby="titre-themes" data-animer>
+    <div class="section-conteneur">
+
+      <span class="section-label">Contenu des formations</span>
+      <h2 class="section-titre" id="titre-themes">
+        Les thématiques abordées
+      </h2>
+      <p class="section-intro">
+        Chaque programme de WUM s'articule autour de thèmes bibliques et psychologiques
+        choisis pour leur pertinence dans le parcours de l'éveil.
+      </p>
+
+      <div class="grille-2">
+
+        <div class="carte theme-formation theme-mental">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08 4.24-4.24"/></svg>
+          </div>
+          <h3>Revêtement Mental</h3>
+          <p>
+            Transformation du cadre mental et psychologique par la Parole.
+            Comment penser avec l'intelligence du Christ et briser les schémas
+            de pensée négatifs hérités du monde.
+          </p>
+          <br/>
+          <!-- LIEN VERS ACTIVITÉS : pointe vers la page activités avec ancre RM5 -->
+          <a href="activites.html#rm5" class="btn btn-aqua lien-rm5">
+            S'inscrire au #RM5 →
+          </a>
+        </div>
+
+        <div class="carte theme-formation theme-priere">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21l-6.5-6.5a4.5 4.5 0 116.5-6.5 4.5 4.5 0 116.5 6.5L12 21z"/></svg>
+          </div>
+          <h3>Vie de prière</h3>
+          <p>
+            Formation pratique à la prière intercessive, à la prière en langues,
+            et à la culture d'une vie de communion constante avec le Saint-Esprit.
+          </p>
+          <br/>
+          <!--
+            LIEN CLUBHOUSE pour la formation en prière
+            Remplacer href par le vrai lien Clubhouse quand disponible
+          -->
+          <a href="#" class="lien-clubhouse btn btn-contour-violet" style="font-size:0.82rem; padding:0.6rem 1.4rem;">
+            Rejoindre sur Clubhouse →
+          </a>
+        </div>
+
+        <div class="carte theme-formation theme-leadership">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Leadership &amp; impact social</h3>
+          <p>
+            Comment exercer une influence positive dans son milieu professionnel,
+            familial et communautaire. Leadership serviteur selon les principes du Royaume.
+          </p>
+          <br/>
+          <!--
+            LIEN CLUBHOUSE pour le leadership
+            Remplacer href par le vrai lien Clubhouse
+          -->
+          <a href="#" class="lien-clubhouse btn btn-contour-violet" style="font-size:0.82rem; padding:0.6rem 1.4rem;">
+            Rejoindre sur Clubhouse →
+          </a>
+        </div>
+
+        <div class="carte theme-formation theme-productivite">
+          <div class="carte-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Click Up Motion — Productivité</h3>
+          <p>
+            Formation à la gestion de projet et à la productivité chrétienne.
+            Apprendre à organiser sa vie et ses projets selon les principes de l'excellence
+            et de la diligence biblique.
+          </p>
+          <br/>
+          <a href="activites.html#click-up-motion"
+             class="btn btn-contour-violet">
+            En savoir plus →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA FINAL -->
+  <section class="fond-sombre formation-cta" aria-labelledby="titre-formation-cta" data-animer>
+    <span class="section-label">Commence ta formation</span>
+    <h2 class="section-titre" id="titre-formation-cta">Prêt à te former ?</h2>
+    <p class="section-intro">
+      Rejoins WUM et accède à l'ensemble des ressources de formation,
+      des conférences et des sessions de développement.
+    </p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="#" class="btn btn-aqua lien-adhesion">Rejoindre WUM</a>
+      <a href="ressources.html" class="btn btn-secondaire">Voir les ressources →</a>
+    </div>
+  </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grille">
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+          
+        </div>
+        <p>Mouvement mondial d'éveil spirituel, de formation de leaders et de transformation sociale.</p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="rejoindre.html">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#" class="lien-instagram" data-instagram-handle>@mywake_up</a>
+        </p>
+        <p><a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a></p>
+        <p><a href="#" class="lien-whatsapp-footer">WhatsApp WUM</a></p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="whatsapp-flottant" id="btn-whatsapp-flottant" aria-label="Contacter WUM sur WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const lienWA = document.querySelector('.lien-whatsapp-footer');
+    if (lienWA) {
+      lienWA.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open('https://wa.me/+243991740858?text=' + encodeURIComponent("Bonjour WUM, je voudrais des infos sur les formations."), '_blank', 'noopener');
+      });
+    }
+  </script>
+
+</body>
+</html>

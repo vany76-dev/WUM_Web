@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!--
+    =========================================================================
+    WAKE UP MISSION - PAGE D'ACCUEIL (index.html)
+    =========================================================================
+    
+    SECTIONS DE LA PAGE :
+      1. <head>     : SEO, meta-données, polices, feuilles de style
+      2. <header>   : Barre de navigation fixe (UNE SEULE nav, plus de doublon)
+      3. .banniere-rm5 : Annonce RM5 persistante
+      4. #hero      : Bannière de plein écran avec vidéo d'ambiance
+      5. #signes    : Les 5 Signes du Wake Up (section centrale identitaire)
+      6. #mission   : Résumé de la mission et des activités
+      7. #instagram : Encart réseaux sociaux / communauté
+      8. <footer>   : Pied de page avec liens et contact
+      
+    POUR MODIFIER UN TEXTE : trouver la section correspondante ci-dessous.
+    POUR AJOUTER UNE SECTION : créer un <section> avec la classe .fond-sombre
+    ou .fond-clair, et y inclure un .section-conteneur.
+    =========================================================================
+  -->
+
+  <!-- ===========================
+       SEO & MÉTA-DONNÉES
+       =========================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Wake Up Mission (WUM) — Éveil spirituel, formation de leaders et transformation sociale. Rejoignez une communauté mondiale d'âmes réveillées. Awakened by the Word. Driven by Purpose." />
+  <meta name="keywords"
+    content="Wake Up Mission, WUM, WUM Holding, réveil spirituel, formation leadership, RM5, Revêtement Mental, Ronde de Veille, communauté chrétienne" />
+  <meta name="author" content="Wake Up Mission" />
+  <meta property="og:title" content="Wake Up Mission | Awakened by the Word. Driven by Purpose." />
+  <meta property="og:description"
+    content="Portail officiel de WUM — Éveil spirituel, formation de leaders, et activation sociale." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4D41D9" />
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <title>Wake Up Mission — Awakened by the Word. Driven by Purpose.</title>
+</head>
+<body>
+
+  <!-- ===========================
+       HEADER — NAVIGATION PRINCIPALE
+       (UNE SEULE barre de navigation — la duplication a été supprimée)
+       
+       LIENS : modifier les href pour changer les destinations
+       CTA (Rejoindre WUM) : modifier l'href du .btn-nav-cta
+       =========================== -->
+  <header id="site-header">
+    <div class="header-container">
+
+      <!-- Logo + Nom de la structure -->
+      <a href="index.html" class="logo-link" aria-label="Wake Up Mission - Accueil">
+        <img src="LOGO_WUM_PNG-01.png" alt="Logo Wake Up Mission" class="logo-img" />
+        
+      </a>
+
+      <!-- Navigation bureau (desktop) -->
+      <!-- NOTE : Cette nav est masquée sur mobile et remplacée par le menu hamburger -->
+      <nav class="nav-bureau" aria-label="Navigation principale">
+        <a href="index.html" class="nav-lien actif">Accueil</a>
+        <a href="vision.html" class="nav-lien">Vision</a>
+        <a href="mission.html" class="nav-lien">Notre Mission</a>
+        <a href="activites.html" class="nav-lien">Activités</a>
+        <a href="formations.html" class="nav-lien">Formation</a>
+        <a href="ressources.html" class="nav-lien">Ressources</a>
+        <a href="#" class="btn-nav-cta lien-adhesion" id="btn-rejoindre-nav">Rejoindre WUM</a>
+      </nav>
+
+      <!-- Bouton hamburger (visible uniquement en mobile) -->
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation mobile (panneau coulissant depuis la droite) -->
+  <div class="overlay-mobile" id="overlay-mobile"></div>
+  <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="nav-lien actif">Accueil</a>
+    <a href="vision.html" class="nav-lien">Vision</a>
+    <a href="mission.html" class="nav-lien">Notre Mission</a>
+    <a href="activites.html" class="nav-lien">Activités</a>
+    <a href="formations.html" class="nav-lien">Formation</a>
+    <a href="ressources.html" class="nav-lien">Ressources</a>
+    <a href="#" class="btn-nav-cta lien-adhesion">Rejoindre WUM</a>
+  </nav>
+
+
+  <!-- ===========================
+       BANNIÈRE D'ANNONCE RM5
+       Annonce de l'événement Revêtement Mental 5 (RM5).
+       
+       POUR MODIFIER : changer le texte et l'href du lien "Inscris-toi maintenant"
+       POUR DÉSACTIVER : supprimer ce bloc <div class="banniere-rm5">
+       =========================== -->
+  <div class="banniere-rm5" role="banner" aria-label="Annonce événement RM5">
+    <strong>Le RM5 arrive bientôt !</strong> Les inscriptions sont ouvertes !
+    <a href="#" class="lien-rm5" id="btn-banniere-rm5">Inscris-toi dès maintenant →</a>
+  </div>
+
+
+  <!-- ===========================
+       SECTION HERO — BANNIÈRE PRINCIPALE
+       Plein écran avec vidéo d'ambiance en arrière-plan.
+       
+       VIDÉO : remplacer l'attribut src de <video> par votre propre vidéo.
+              Si pas de vidéo : supprimer le .hero-video-conteneur et
+              ajouter background-image dans le CSS.
+       TEXTE : modifier le h1, le sous-titre et les boutons ci-dessous.
+       =========================== -->
+  <section id="hero" class="hero" aria-label="Section principale">
+
+    <!-- Conteneur de la boucle vidéo (masqué si la vidéo n'est pas fournie) -->
+    <div class="hero-video-conteneur">
+      <!--
+        BOUCLE VIDÉO D'AMBIANCE
+        Ajouter votre fichier vidéo dans le dossier /assets/videos/
+        et modifier le src ci-dessous :
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="assets/videos/wum-hero-loop.mp4" type="video/mp4">
+        </video>
+        
+        En attendant, un fond gradient est utilisé via CSS.
+      -->
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Contenu principal du Hero -->
+    <div class="hero-contenu">
+
+      <!-- Tag de catégorie (label) -->
+      <span class="hero-tagline">Awakened by the Word. Driven by Purpose.</span>
+
+      <!-- H1 principal de la page (SEO critique — un seul H1 par page) -->
+      <h1 class="hero-titre">
+        Le Réveil <span class="accent">Commence Ici</span>
+      </h1>
+
+      <!-- Sous-titre de description -->
+      <p class="hero-sous-titre">
+        Wake Up Mission est une structure engagée dans le réveil psycho-spirituel.<br>
+        C’est un phénomène qui touche tous les domaines de la vie.<br>
+        Un voyage d’expérience d’éveil spirituel et psychologique pour vivre la régénération et la guérison, afin d’entrer dans une ère nouvelle de découverte de soi et du monde en suivant les pas du Christ Jésus.<br><br>
+        <strong>Ésaïe 60:1-3 — Jean 8:12 — Romains 13:11-14</strong>
+      </p>
+
+      <!-- Appels à l'action principaux -->
+      <div class="hero-actions">
+
+        <a href="vision.html" class="btn btn-secondaire" id="btn-hero-decouvrir">
+          Découvrir notre vision →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : LES 5 SIGNES DU WAKE UP
+       Section centrale identitaire de WUM.
+       Présente les 5 signes qui caractérisent une âme en état de réveil.
+       
+       SOURCE CONTENU : Document PDF "How it Work - WUM 2024"
+       
+       POUR MODIFIER UN SIGNE :
+         - Trouver la .signe-carte correspondante
+         - Changer le .signe-titre et .signe-description
+       =========================== -->
+  <section id="signes" class="fond-sombre" aria-labelledby="titre-signes">
+    <div class="section-conteneur">
+
+      <span class="section-label">Identité du Réveil</span>
+      <h2 class="section-titre" id="titre-signes">
+        5 SIGNES DE L'ÉVEIL PSYCHOLOGIQUE
+      </h2>
+      <p class="section-intro">
+        LES LOIS SPIRITUELLES SURPASSENT LES LOIS PSYCHOLOGIQUES MAIS ELLES NE LES SUPPRIMENT PAS.
+      </p>
+
+      <!-- Grille des 5 signes — visuels photographiques -->
+      <div class="signes-grille-featured">
+
+        <div class="signe-carte-photo">
+          <div class="signe-carte-photo-visuel">
+            <img src="Image\Authenticité .png" alt="" class="signe-carte-photo-img" loading="lazy" />
+            <div class="signe-carte-photo-overlay"></div>
+          </div>
+          <div class="signe-carte-photo-contenu">
+            <div class="signe-numero">01</div>
+            <h3 class="signe-titre">L'AUTHENTICITÉ</h3>
+            <p class="signe-description">
+              Tu recherches ton essence profonde et la trouve en Lui. Tu t'enracines dans l'être plus que dans l'avoir. Tu t'éloignes de ce qui encombre le vrai toi. Tu vois la différence entre toi et les autres, le chemin de ta personne devient lumineux, tu l'acceptes et le cultive jusqu'à inspirer.
+              <br><br>
+              Philippiens 3:8
+            </p>
+          </div>
+        </div>
+
+        <div class="signe-carte-photo">
+          <div class="signe-carte-photo-visuel">
+            <img src="Image\SYSTÈME DE PENSÉ.png" alt="" class="signe-carte-photo-img" loading="lazy" />
+            <div class="signe-carte-photo-overlay"></div>
+          </div>
+          <div class="signe-carte-photo-contenu">
+            <div class="signe-numero">02</div>
+            <h3 class="signe-titre">LA TRANSFORMATION DU SYSTÈME DE PENSÉE</h3>
+            <p class="signe-description">
+              Tu saisis la pensée de Christ. Tu te lances dans une quête continuellement de redéfinition de soi, émotionnellement et mentalement tu suis la Vérité Éternelle.
+              <br><br>
+              2 Corinthiens 5:17<br>
+              Romain 12:2
+            </p>
+          </div>
+        </div>
+
+        <div class="signe-carte-photo">
+          <div class="signe-carte-photo-visuel">
+            <img src="Image\Les_RElations.png" alt="" class="signe-carte-photo-img" loading="lazy" />
+            <div class="signe-carte-photo-overlay"></div>
+          </div>
+          <div class="signe-carte-photo-contenu">
+            <div class="signe-numero">03</div>
+            <h3 class="signe-titre">HARMONIE INTERPERSONNELLE ET RELATIONNELLE</h3>
+            <p class="signe-description">
+              Fini le mal-être! Tu te sens de plus en plus connecté à toi-même, aux autres et au Père céleste. La joie de vivre te remplie, tu es reconnaissant pour chaque détail et loue le Seigneur qu'importe les circonstance.
+              <br><br>
+              Psaumes 1
+            </p>
+          </div>
+        </div>
+
+        <div class="signe-carte-photo">
+          <div class="signe-carte-photo-visuel">
+            <img src="Image\L'ALCHIMIE.png" alt="" class="signe-carte-photo-img" loading="lazy" />
+            <div class="signe-carte-photo-overlay"></div>
+          </div>
+          <div class="signe-carte-photo-contenu">
+            <div class="signe-numero">04</div>
+            <h3 class="signe-titre">L'ALCHIMIE</h3>
+            <p class="signe-description">
+              Tu perçois le mouvement de Dieu autour de toi. Tu ressens et vois l'alignement et providence divine dans ta vie. Tu remarques plusieurs heureuses coïncidences, la vie te réponds quoique tu fasses. Tu sais reconnaître la grâce de Dieu sur ta vie faisant réussir des choses spécifiques de manière spectaculaire. Tu fais des rencontres inattendues marquantes et bouleversantes.
+              <br><br>
+              1 Samuel 10:5
+            </p>
+          </div>
+        </div>
+
+        <div class="signe-carte-photo">
+          <div class="signe-carte-photo-visuel">
+            <img src="Image\LA_MAÎTRISE_DE_SOI.png" alt="" class="signe-carte-photo-img" loading="lazy" />
+            <div class="signe-carte-photo-overlay"></div>
+          </div>
+          <div class="signe-carte-photo-contenu">
+            <div class="signe-numero">05</div>
+            <h3 class="signe-titre">LA MAÎTRISE DE SOI</h3>
+            <p class="signe-description">
+              Lorsque tu soumets ton être tout entier à Adonai (le Maître de tout), Il te donne la capacité de reprendre le contrôle totale sur toi-même. Tu sais te montrer patient avec toi même et les autres, tu es au dessus des émotions et des petits esprits.
+              <br><br>
+              Galates 2:20,22
+            </p>
+          </div>
+        </div>
+
+      </div><!-- fin .signes-grille-featured -->
+
+      <!-- Lien vers la page ressources pour en savoir plus -->
+      <div style="text-align:center; margin-top: 3rem;">
+        <a href="ressources.html#les-20-signes" class="btn btn-secondaire" id="btn-voir-tous-signes">
+          Voir les 20 signes du réveil →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : NOS PROGRAMMES
+       Aperçu des programmes et activités de WUM.
+       
+       POUR AJOUTER UN PROGRAMME : dupliquer un bloc .carte ci-dessous.
+       POUR MODIFIER : changer le titre, l'icône et la description de chaque carte.
+       =========================== -->
+  <section id="programmes" class="fond-sombre-2" aria-labelledby="titre-programmes">
+    <div class="section-conteneur">
+
+      <span class="section-label">Écosystème WUM</span>
+      <h2 class="section-titre" id="titre-programmes">Nos Programmes</h2>
+      <p class="section-intro">
+        Un écosystème complet de ressources pour accompagner chaque étape
+        du voyage de l'éveil, de la révélation à l'action sociale.
+      </p>
+
+      <div class="grille-3">
+
+        <!-- Programme 1 : Revêtement Mental -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image\RM5_NEW.jpg" alt="Revêtement Mental" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>Revêtement Mental</h3>
+            <p>
+              Notre conférence phare de transformation du cadre mental et spirituel.
+              La 5ème édition (<strong>RM5</strong>) arrive très bientôt !
+            </p>
+            <br/>
+            <a href="#" class="btn btn-primaire lien-rm5" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-rm5-programme">
+              S'inscrire à RM5 →
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 2 : Awakening Experience Service -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image/AES.png" alt="Awakening Experience Service" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>Awakening Experience Service</h3>
+            <p>
+              Des temps de culte immersifs et de formation pour vivre une expérience
+              profonde de la présence de Dieu en communauté.
+            </p>
+            <br/>
+            <a href="activites.html#aes" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-aes">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 3 : Ronde de Veille -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image/Ronde.png" alt="Ronde de Veille" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>Ronde de Veille</h3>
+            <p>
+              Un programme de prière intercessive et de formation à la vie
+              de veille spirituelle pour les personnes pleinement engagées.
+            </p>
+            <br/>
+            <a href="activites.html#rdv" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-rdv">
+              Rejoindre la Ronde
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 4 : RM Le Podcast -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image/RM_Podcast.png" alt="RM Le Podcast" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>RM Le Podcast</h3>
+            <p>
+              Enseignements audio hebdomadaires pour nourrir votre vie spirituelle
+              et votre développement personnel en tant que leader.
+            </p>
+            <br/>
+            <a href="ressources.html#podcast" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-podcast">
+              Écouter le podcast
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 5 : Full Prayer Service -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image/FPS.png" alt="Full Prayer Service" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>Full Prayer Service</h3>
+            <p>
+              Des sessions de prière intenses pour l'intercession et la
+              transformation des nations, avec une communauté mondiale.
+            </p>
+            <br/>
+            <a href="activites.html#fps" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-fps">
+              Participer
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 6 : Revival Day Retreat -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image/WUM_ID_3.png" alt="Revival Day Retreat" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>Revival Day Retreat</h3>
+            <p>
+              Des retraites de transformation profonde dans un cadre de
+              dépouillement total pour rencontrer Dieu autrement.
+            </p>
+            <br/>
+            <a href="activites.html#rdr" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-rdr">
+              Voir les retraites
+            </a>
+          </div>
+        </div>
+
+        <!-- Programme 7 : RM Club -->
+        <div class="carte carte-avec-visuel">
+          <div class="carte-visuel">
+            <img src="Image\RM_Club_Artwork.jpg" alt="RM Club" class="carte-visuel-img" loading="lazy" />
+          </div>
+          <div class="carte-corps">
+            <h3>RM Club</h3>
+            <p>
+              La communauté vivante des membres engagés. Des Cercles de Croissance hebdomadaires pour partager, prier et grandir ensemble selon la vision de WUM.
+            </p>
+            <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <span style="display:inline-block; padding:0.35rem 0.7rem; border-radius:999px; background:rgba(77,65,217,0.12); color:#4D41D9; font-size:0.72rem; font-weight:700;">Hebdomadaire</span>
+              <span style="display:inline-block; padding:0.35rem 0.7rem; border-radius:999px; background:rgba(128,61,180,0.12); color:#803DB4; font-size:0.72rem; font-weight:700;">Présentiel</span>
+            </div>
+            <br/>
+            <a href="RM_Club.html" class="btn btn-contour-violet" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-rm-club">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+
+      </div><!-- fin .grille-3 -->
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : COMMUNAUTÉ & INSTAGRAM
+       Présente la communauté WUM et l'intégration des réseaux sociaux.
+       
+       POUR METTRE À JOUR : changer les chiffres, la description
+       et le handle Instagram ci-dessous.
+       =========================== -->
+  <section id="communaute" class="fond-clair" aria-labelledby="titre-communaute">
+
+      </div>
+
+      <!-- Appel à suivre sur Instagram -->
+      <div style="text-align:center; background:linear-gradient(135deg,#4D41D9,#803DB4); padding:2.5rem; border-radius:18px; color:white;">
+        <p style="font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:0.75rem;">
+          Suivez-nous sur Instagram
+        </p>
+        <h3 style="font-family:'Outfit',sans-serif; font-size:1.8rem; font-weight:900; margin-bottom:0.75rem; color:white;">
+          <span data-instagram-handle>@mywake_up</span>
+        </h3>
+        <p style="font-size:0.95rem; color:rgba(255,255,255,0.85); margin-bottom:1.75rem; max-width:500px; margin-left:auto; margin-right:auto;">
+          "So that every awakened life becomes socially useful for the Kingdom and society."
+        </p>
+        <a href="#"
+           class="btn btn-aqua lien-instagram"
+           id="btn-instagram-communaute">
+          Suivre <span data-instagram-handle>@mywake_up</span> →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION : REJOINDRE WUM — CTA FINAL
+       Appel à l'action pour devenir membre de WUM.
+       =========================== -->
+  <section id="rejoindre-cta" class="fond-sombre section-photo" style="background-image: url('Image/IMG_6030.JPG'); background-size: cover; background-position: center;" aria-label="Rejoindre WUM">
+    <div class="section-conteneur" style="text-align:center; max-width: 700px;">
+
+      <span class="section-label">Prêt à te réveiller ?</span>
+      <h2 class="section-titre">Rejoins le Mouvement</h2>
+      <p class="section-intro">
+        Que tu sois en phase de découverte, de formation, ou que tu sentes un appel profond
+        à servir, WUM a une place pour toi. L'aventure commence ici.
+      </p>
+
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="#" class="btn btn-aqua lien-adhesion" id="btn-rejoindre-cta">
+          Devenir Membre
+        </a>
+        <a href="mission.html" class="btn btn-secondaire" id="btn-mission-cta">
+          Notre Mission →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       FOOTER — PIED DE PAGE
+       Modifier les liens, l'adresse et les informations de contact ici.
+       Les réseaux sociaux se trouvent dans la section .footer-contact.
+       =========================== -->
+  <footer aria-label="Pied de page">
+    <div class="footer-grille">
+
+      <!-- Colonne 1 : Marque et description -->
+      <div class="footer-marque">
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+          <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
+      
+        </div>
+        <p>
+          Un mouvement mondial d'éveil spirituel, de formation de leaders
+          et de transformation sociale. Enracinés dans la Parole, engagés pour la société.
+        </p>
+        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+      </div>
+
+      <!-- Colonne 2 : Liens rapides -->
+      <div class="footer-liens">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="mission.html">Notre Mission</a></li>
+          <li><a href="activites.html">Activités & Événements</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="#" class="lien-adhesion">Rejoindre WUM</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Contact et réseaux sociaux -->
+      <div class="footer-contact">
+        <h4>Contact & Réseaux</h4>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="#" class="lien-instagram" data-instagram-handle>@mywake_up</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <a href="https://www.youtube.com/@wakeupmission" target="_blank" rel="noopener">YouTube WUM</a>
+        </p>
+        <p class="icone-reseau">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <a href="#" class="lien-whatsapp-footer">WhatsApp WUM</a>
+        </p>
+        <br/>
+        <p style="font-size:0.82rem;">
+          Pour toute question ou demande de partenariat,<br/>
+          contactez-nous via WhatsApp ou Instagram.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bas">
+      <p>© 2026 Wake Up Mission. Tous droits réservés.</p>
+      <p>
+        <a href="#" style="margin-right:1rem;">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ===========================
+       BOUTON WHATSAPP FLOTTANT
+       Toujours visible en bas à droite sur toutes les pages.
+       Le numéro et le message se configurent dans js/app.js.
+       =========================== -->
+  <a href="#" class="whatsapp-flottant" id="btn-whatsapp-flottant" aria-label="Contacter WUM sur WhatsApp" title="Contactez-nous sur WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+
+  <!-- ===========================
+       MODAL D'ANNONCE RM5
+       Fenêtre modale affichée automatiquement à l'arrivée sur la page.
+       (une seule fois par session grâce au sessionStorage)
+       
+       POUR DÉSACTIVER : mettre AFFICHER_MODAL_RM5 = false dans js/app.js
+       POUR CHANGER L'IMAGE : modifier l'attribut src de .modal-image
+       POUR CHANGER LE LIEN : modifier l'href du bouton "S'inscrire"
+       =========================== -->
+  <div class="modal-overlay" id="modal-rm5" role="dialog" aria-modal="true" aria-labelledby="modal-rm5-titre">
+    <div class="modal-boite" style="position:relative;">
+
+      <!-- Bouton de fermeture en haut à droite -->
+      <button class="btn-fermer-modal" data-fermer-modal aria-label="Fermer la fenêtre">✕</button>
+
+      <!-- Visuel RM5 dans la modal -->
+      <div class="modal-rm5-visuel">
+        <img src="Image/RM5_NEW.jpg" alt="Revêtement Mental 5" loading="lazy" />
+      </div>
+
+      <!-- Contenu de la modal -->
+      <div class="modal-contenu">
+        <span class="modal-label">Annonce Officielle</span>
+        <h3 class="modal-titre" id="modal-rm5-titre">RM5 arrive bientôt !</h3>
+        <p class="modal-texte">
+          La 5ème édition du <strong>Revêtement Mental</strong> est en préparation.
+          Les inscriptions sont maintenant ouvertes. Rejoignez des centaines d'âmes
+          pour une expérience de transformation et d'éveil sans précédent.
+          Ne manquez pas ce rendez-vous historique !
+        </p>
+
+        <!-- Actions de la modal -->
+        <div class="modal-actions">
+          <a href="#" class="btn btn-primaire lien-rm5" id="btn-modal-inscrire-rm5">
+            S'inscrire à RM5
+          </a>
+          <button class="btn btn-secondaire" data-fermer-modal id="btn-modal-fermer">
+            Plus tard
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===========================
+       SCRIPTS JAVASCRIPT
+       Charger en bas de page pour des performances optimales.
+       Ordre important : app.js en dernier car il utilise les autres modules.
+       =========================== -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
