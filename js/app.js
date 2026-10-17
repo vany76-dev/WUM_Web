@@ -54,6 +54,7 @@ function initMenuMobile() {
     const estOuvert = menuMobile.classList.contains('ouvert');
     toggleBtn.classList.toggle('ouvert', !estOuvert);
     menuMobile.classList.toggle('ouvert', !estOuvert);
+    toggleBtn.setAttribute('aria-expanded', String(!estOuvert));
     if (overlayMobile) overlayMobile.classList.toggle('actif', !estOuvert);
     document.body.style.overflow = estOuvert ? '' : 'hidden';
   }
@@ -61,6 +62,7 @@ function initMenuMobile() {
   function fermerMenu() {
     toggleBtn.classList.remove('ouvert');
     menuMobile.classList.remove('ouvert');
+    toggleBtn.setAttribute('aria-expanded', 'false');
     if (overlayMobile) overlayMobile.classList.remove('actif');
     document.body.style.overflow = '';
   }
@@ -79,7 +81,7 @@ function initWhatsApp() {
   const phone = config.WHATSAPP_PHONE || '+243991740858';
   const message = config.WHATSAPP_MESSAGE || 'Bonjour Wake Up Mission !';
 
-  const urlWA = `https://wa.me/${phone.replace(/\s/g, '')}?text=${encodeURIComponent(message)}`;
+  const urlWA = `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 
   const btnWA = document.querySelector('.whatsapp-flottant');
   if (btnWA) {

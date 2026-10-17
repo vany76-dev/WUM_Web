@@ -1,0 +1,43 @@
+.page-a-propos .header-container {
+  gap: 0.5rem;
+}
+
+.page-a-propos .logo-link {
+  flex: 0 0 auto;
+}
+
+.page-a-propos .nav-bureau {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.page-a-propos .nav-bureau .nav-lien {
+  flex: 0 0 auto;
+  padding-right: 0.42rem;
+  padding-left: 0.42rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.page-a-propos .nav-bureau .btn-nav-cta {
+  flex: 0 0 auto;
+  margin-left: 0.25rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 993px) and (max-width: 1150px) {
+  .page-a-propos .nav-bureau .nav-lien {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    font-size: 0.68rem;
+  }
+
+  .page-a-propos .nav-bureau .btn-nav-cta {
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.66rem;
+  }
+}

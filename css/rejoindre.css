@@ -1,0 +1,92 @@
+.page-rejoindre .header-container {
+  gap: 0.5rem;
+}
+
+.page-rejoindre .logo-link {
+  flex: 0 0 auto;
+}
+
+.page-rejoindre .nav-bureau {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.page-rejoindre .nav-bureau .nav-lien {
+  flex: 0 0 auto;
+  padding-right: 0.42rem;
+  padding-left: 0.42rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.page-rejoindre .nav-bureau .btn-nav-cta {
+  flex: 0 0 auto;
+  margin-left: 0.25rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.page-rejoindre .rejoindre-etapes .carte {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page-rejoindre .rejoindre-etapes .btn {
+  margin-top: auto;
+}
+
+.page-rejoindre .rejoindre-contact-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--bleu-principal);
+  font-weight: 700;
+}
+
+.page-rejoindre .rejoindre-distinction {
+  max-width: 850px;
+  margin: 2.5rem auto 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(113, 244, 179, 0.25);
+  border-left: 4px solid var(--aqua-marine);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.page-rejoindre .rejoindre-distinction h3 {
+  margin-bottom: 0.65rem;
+  color: var(--blanc);
+  font-family: var(--police-titre);
+  font-size: 1.3rem;
+}
+
+.page-rejoindre .rejoindre-distinction p {
+  margin-bottom: 1.25rem;
+  color: var(--texte-clair);
+}
+
+@media (min-width: 993px) and (max-width: 1150px) {
+  .page-rejoindre .nav-bureau .nav-lien {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    font-size: 0.68rem;
+  }
+
+  .page-rejoindre .nav-bureau .btn-nav-cta {
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-rejoindre .rejoindre-etapes .btn {
+    margin-top: 0.5rem;
+  }
+
+  .page-rejoindre .hero-actions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,143 @@
+.page-contact .contact-hero {
+  height: auto;
+  min-height: 570px;
+  padding-top: 9rem;
+  padding-bottom: 5rem;
+}
+
+.contact-grid,
+.contact-ressources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.contact-carte {
+  min-width: 0;
+  min-height: 260px;
+  padding: 1.75rem;
+}
+
+.contact-repere,
+.contact-ressource > span {
+  display: block;
+  margin-bottom: 1.25rem;
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.contact-carte h3,
+.contact-ressource h3 {
+  margin-bottom: 0.75rem;
+}
+
+.contact-carte p {
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-carte .contact-lien {
+  display: inline-block;
+  margin: 0.25rem 0 0.75rem;
+  color: var(--aqua-marine);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.contact-carte .contact-lien:hover {
+  color: var(--blanc);
+}
+
+.contact-carte .contact-note {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.contact-reseaux {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contact-localisation {
+  margin: 2rem auto 0;
+  text-align: center;
+  color: var(--texte-secondaire);
+  font-size: 0.9rem;
+}
+
+.contact-localisation strong {
+  color: var(--texte-clair);
+}
+
+.contact-ressource {
+  display: block;
+  min-width: 0;
+  padding: 1.75rem;
+  color: var(--texte-sombre);
+}
+
+.contact-ressource:hover {
+  border-color: var(--aqua-marine);
+  transform: translateY(-4px);
+}
+
+.contact-ressource > span {
+  color: var(--bleu-principal);
+}
+
+.contact-ressource p {
+  margin-bottom: 1.25rem;
+  color: #3F3F4A;
+}
+
+.contact-ressource b {
+  color: var(--bleu-principal);
+  font-size: 0.9rem;
+}
+
+.contact-ressource b span {
+  padding-left: 0.25rem;
+}
+
+.footer-logo {
+  width: auto;
+  height: 36px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .contact-grid,
+  .contact-ressources {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-carte:last-child,
+  .contact-ressource:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-contact .contact-hero {
+    min-height: 540px;
+    padding: 8rem 1.25rem 4rem;
+  }
+
+  .contact-grid,
+  .contact-ressources {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .contact-carte:last-child,
+  .contact-ressource:last-child {
+    grid-column: auto;
+  }
+
+  .contact-carte {
+    min-height: 0;
+  }
+}

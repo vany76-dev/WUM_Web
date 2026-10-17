@@ -1,0 +1,528 @@
+body.page-revetement-mental #hero-rm {
+  min-height: min(880px, 100svh);
+  height: auto;
+  justify-content: flex-start;
+  padding: clamp(9rem, 18vh, 12rem) 2rem clamp(6rem, 12vh, 8rem);
+  background-image: linear-gradient(90deg, rgba(7, 7, 10, 0.94) 0%, rgba(7, 7, 10, 0.78) 52%, rgba(7, 7, 10, 0.38) 100%), url('../Image/WUM_ID.png');
+  background-position: center;
+}
+
+body.page-revetement-mental #hero-rm .hero-overlay {
+  background: linear-gradient(0deg, rgba(7, 7, 10, 0.44), transparent 45%);
+}
+
+body.page-revetement-mental #hero-rm .hero-contenu {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  text-align: left;
+}
+
+body.page-revetement-mental #hero-rm .hero-titre {
+  max-width: 850px;
+  margin-bottom: 1rem;
+  font-size: clamp(2.8rem, 6.4vw, 5.4rem);
+}
+
+body.page-revetement-mental #hero-rm .hero-sous-titre {
+  max-width: 680px;
+  margin: 1.4rem 0 2rem;
+  color: rgba(240, 240, 246, 0.92);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+body.page-revetement-mental #hero-rm .hero-actions {
+  justify-content: flex-start;
+}
+
+.page-revetement-mental .header-container {
+  gap: 0.5rem;
+}
+
+.page-revetement-mental .logo-link {
+  flex: 0 0 auto;
+}
+
+.page-revetement-mental .nav-bureau {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.page-revetement-mental .nav-bureau .nav-lien {
+  flex: 0 0 auto;
+  padding-right: 0.42rem;
+  padding-left: 0.42rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.page-revetement-mental .nav-bureau .btn-nav-cta {
+  flex: 0 0 auto;
+  margin-left: 0.25rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.page-revetement-mental .rm-hero-slogan {
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+}
+
+.page-revetement-mental .rm-section {
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 2rem);
+  scroll-margin-top: 82px;
+}
+
+.page-revetement-mental .rm-section .section-conteneur {
+  max-width: 1160px;
+}
+
+.page-revetement-mental .rm-reading {
+  max-width: 850px !important;
+}
+
+.page-revetement-mental .rm-copy {
+  display: grid;
+  gap: 1rem;
+  color: #33333b;
+  font-size: 1.04rem;
+}
+
+.page-revetement-mental .rm-definition {
+  max-width: 940px;
+  margin: clamp(2.5rem, 6vw, 4.5rem) auto 0;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-left: 4px solid var(--bleu-principal);
+  background: #f4f5f8;
+}
+
+.page-revetement-mental .rm-definition .section-label {
+  text-align: left;
+  color: var(--bleu-principal);
+}
+
+.page-revetement-mental .rm-definition h3 {
+  margin-bottom: 1rem;
+  color: var(--texte-sombre);
+  font-size: clamp(1.4rem, 2.7vw, 2rem);
+}
+
+.page-revetement-mental .rm-definition p + p {
+  margin-top: 0.9rem;
+}
+
+.page-revetement-mental .rm-definition small {
+  display: block;
+  margin-top: 1.2rem;
+  color: #555560;
+  font-size: 0.88rem;
+}
+
+.page-revetement-mental .rm-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.page-revetement-mental .rm-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.page-revetement-mental .rm-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-revetement-mental .rm-card {
+  min-width: 0;
+  padding: clamp(1.3rem, 2.8vw, 2rem);
+  border: 1px solid rgba(77, 65, 217, 0.16);
+  border-radius: 8px;
+}
+
+.page-revetement-mental .rm-card-dark {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.page-revetement-mental .rm-card-index {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--bleu-principal);
+  font-family: var(--police-titre);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-revetement-mental .rm-card-dark .rm-card-index {
+  color: var(--aqua-marine);
+}
+
+.page-revetement-mental .rm-card h3,
+.page-revetement-mental .rm-camps h3,
+.page-revetement-mental .rm-format-body h3 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.page-revetement-mental .rm-card p + p {
+  margin-top: 0.9rem;
+}
+
+.page-revetement-mental .rm-card ul {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+
+.page-revetement-mental .rm-card li::marker {
+  color: var(--aqua-marine);
+}
+
+.page-revetement-mental .fond-sombre .rm-card,
+.page-revetement-mental .fond-sombre-2 .rm-card {
+  color: var(--texte-clair);
+}
+
+.page-revetement-mental .fond-sombre .rm-card h3,
+.page-revetement-mental .fond-sombre-2 .rm-card h3 {
+  color: var(--blanc);
+}
+
+.page-revetement-mental .rm-highlight {
+  max-width: 900px;
+  margin: 2.7rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(113, 244, 179, 0.5);
+  border-bottom: 1px solid rgba(113, 244, 179, 0.5);
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.page-revetement-mental .rm-format-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.page-revetement-mental .rm-format-card {
+  overflow: hidden;
+  border: 1px solid rgba(18, 18, 24, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(18, 18, 24, 0.09);
+}
+
+.page-revetement-mental .rm-format-card > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-revetement-mental .rm5-event {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+}
+
+.page-revetement-mental .rm5-event > img {
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #0b0b12;
+}
+
+.page-revetement-mental .rm5-event .rm-format-body {
+  height: auto;
+}
+
+.page-revetement-mental .rm5-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-bottom: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  background: rgba(77, 65, 217, 0.1);
+  color: var(--bleu-principal);
+  font-family: var(--police-titre);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.page-revetement-mental .rm5-event .rm-format-body h3 {
+  margin-bottom: 0.3rem;
+  font-size: clamp(1.65rem, 3vw, 2.3rem);
+}
+
+.page-revetement-mental .rm5-slogan {
+  color: var(--bleu-principal);
+  font-family: var(--police-titre);
+  font-size: 1.1rem;
+}
+
+.page-revetement-mental .rm5-date {
+  margin-top: 1.1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--bleu-principal);
+  background: #f3f3f8;
+}
+
+.page-revetement-mental .rm5-day-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.page-revetement-mental .rm5-day {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid rgba(77, 65, 217, 0.18);
+  border-radius: 6px;
+  background: #f8f8fb;
+}
+
+.page-revetement-mental .rm5-day-label {
+  margin-bottom: 0.35rem;
+  color: var(--bleu-principal);
+  font-family: var(--police-titre);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-revetement-mental .rm5-day h4 {
+  margin-bottom: 0.7rem;
+  color: var(--texte-sombre);
+  font-size: 1.1rem;
+}
+
+.page-revetement-mental .rm5-day p {
+  margin-bottom: 0.25rem;
+  color: #44444f;
+  font-size: 0.9rem;
+}
+
+.page-revetement-mental .rm5-day .btn {
+  width: 100%;
+  min-height: 52px;
+  margin-top: auto;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+}
+
+.page-revetement-mental .rm5-day .btn-secondaire {
+  border-color: #25243a;
+  background: #25243a;
+  color: #fff;
+}
+
+.page-revetement-mental .rm5-whatsapp {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--bleu-principal);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.page-revetement-mental .rm5-whatsapp:hover {
+  color: #3529b8;
+}
+
+.page-revetement-mental .rm-format-body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  color: var(--texte-sombre);
+}
+
+.page-revetement-mental .rm-format-body p + p {
+  margin-top: 0.85rem;
+}
+
+.page-revetement-mental .rm-format-body .btn {
+  margin-top: 1.35rem;
+}
+
+.page-revetement-mental .rm-camps {
+  margin-top: 2.5rem;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid rgba(18, 18, 24, 0.14);
+  color: var(--texte-sombre);
+}
+
+.page-revetement-mental .rm-text-link {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  color: var(--bleu-principal);
+  font-weight: 700;
+}
+
+.page-revetement-mental .rm-text-link:hover {
+  color: #3529b8;
+}
+
+.page-revetement-mental .rm-club-intro {
+  margin-bottom: 0.8rem;
+}
+
+.page-revetement-mental .rm-note {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--aqua-marine);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+}
+
+.page-revetement-mental .rm-club-axes {
+  margin-top: 2.2rem;
+}
+
+.page-revetement-mental .rm-club-actions,
+.page-revetement-mental .rm-final-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.page-revetement-mental .rm-objectifs {
+  margin-top: 2rem;
+}
+
+.page-revetement-mental .rm-final .section-intro {
+  max-width: 760px;
+}
+
+.page-revetement-mental .rm-signature {
+  margin: clamp(3rem, 7vw, 5rem) auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--texte-clair);
+  text-align: center;
+}
+
+.page-revetement-mental .rm-signature p + p {
+  margin-top: 0.4rem;
+}
+
+.page-revetement-mental .rm-signature strong {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: 1.2rem;
+}
+
+.page-revetement-mental a:focus-visible {
+  outline: 3px solid var(--aqua-marine);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  body.page-revetement-mental #hero-rm {
+    min-height: 720px;
+    padding: 8.5rem 1.25rem 5rem;
+    background-position: 58% center;
+  }
+
+  body.page-revetement-mental #hero-rm .hero-contenu {
+    text-align: center;
+  }
+
+  body.page-revetement-mental #hero-rm .hero-titre {
+    font-size: clamp(2.55rem, 11vw, 4rem);
+  }
+
+  body.page-revetement-mental #hero-rm .hero-sous-titre {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  body.page-revetement-mental #hero-rm .hero-actions {
+    justify-content: center;
+  }
+
+  .page-revetement-mental .rm-grid-3,
+  .page-revetement-mental .rm-grid-2,
+  .page-revetement-mental .rm-format-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-revetement-mental .rm5-event {
+    grid-template-columns: 1fr;
+  }
+
+  .page-revetement-mental .rm5-event > img {
+    width: min(100%, 380px);
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1280 / 1109;
+    margin: 0 auto;
+  }
+
+  .page-revetement-mental .rm5-day-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-revetement-mental .rm-club-actions,
+  .page-revetement-mental .rm-final-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .page-revetement-mental .rm-club-actions .btn,
+  .page-revetement-mental .rm-final-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1150px) {
+  .page-revetement-mental .nav-bureau .nav-lien {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    font-size: 0.68rem;
+  }
+
+  .page-revetement-mental .nav-bureau .btn-nav-cta {
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-revetement-mental *,
+  .page-revetement-mental *::before,
+  .page-revetement-mental *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

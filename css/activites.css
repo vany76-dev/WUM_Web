@@ -1,0 +1,120 @@
+.page-activites .header-container {
+  gap: 0.5rem;
+}
+
+.page-activites .logo-link {
+  flex: 0 0 auto;
+}
+
+.page-activites .nav-bureau {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.page-activites .nav-bureau .nav-lien {
+  flex: 0 0 auto;
+  padding-right: 0.42rem;
+  padding-left: 0.42rem;
+  font-size: 0.76rem;
+  white-space: nowrap;
+}
+
+.page-activites .nav-bureau .btn-nav-cta {
+  flex: 0 0 auto;
+  margin-left: 0.25rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.page-activites .activites-anchor-alias {
+  display: block;
+  height: 0;
+  scroll-margin-top: 90px;
+}
+
+.page-activites .entete-activites .entete-activites-visuel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.page-activites .entete-activites-visuel-1 {
+  left: 0;
+  background-image: url('../Image/IMG_6030.JPG');
+}
+
+.page-activites .entete-activites-visuel-2 {
+  right: 0;
+  background-image: url('../Image/IMG_1458.JPG.jpeg');
+}
+
+.page-activites #formats-phares {
+  padding-top: clamp(3.5rem, 6vw, 5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+}
+
+.page-activites #formats-phares .section-intro {
+  margin-bottom: 2rem;
+}
+
+.page-activites #formats-phares .activites-grille {
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.page-activites #formats-phares .activite-carte {
+  border-color: rgba(18, 18, 24, 0.12);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(15, 15, 24, 0.1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.page-activites #formats-phares .activite-carte-image {
+  height: 150px;
+}
+
+.page-activites #formats-phares .activite-carte-corps {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem;
+  color: var(--texte-sombre);
+}
+
+.page-activites #formats-phares .activite-badge {
+  background: rgba(77, 65, 217, 0.08);
+  color: var(--bleu-principal);
+}
+
+.page-activites #formats-phares .activite-titre {
+  color: var(--texte-sombre);
+}
+
+.page-activites #formats-phares .activite-description {
+  color: #44444f;
+}
+
+.page-activites #formats-phares .activite-description {
+  margin-bottom: 0.9rem;
+}
+
+@media (min-width: 993px) and (max-width: 1150px) {
+  .page-activites .nav-bureau .nav-lien {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    font-size: 0.68rem;
+  }
+
+  .page-activites .nav-bureau .btn-nav-cta {
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    font-size: 0.66rem;
+  }
+}
