@@ -3,7 +3,7 @@ body.page-revetement-mental #hero-rm {
   height: auto;
   justify-content: flex-start;
   padding: clamp(9rem, 18vh, 12rem) 2rem clamp(6rem, 12vh, 8rem);
-  background-image: linear-gradient(90deg, rgba(7, 7, 10, 0.94) 0%, rgba(7, 7, 10, 0.78) 52%, rgba(7, 7, 10, 0.38) 100%), url('../Image/WUM_ID.png');
+  background-image: linear-gradient(90deg, rgba(7, 7, 10, 0.94) 0%, rgba(7, 7, 10, 0.78) 52%, rgba(7, 7, 10, 0.38) 100%), url('../Image/IMG_6030.JPG');
   background-position: center;
 }
 
@@ -366,6 +366,25 @@ body.page-revetement-mental #hero-rm .hero-actions {
 
 .page-revetement-mental .rm-format-body .btn {
   margin-top: 1.35rem;
+}
+
+.page-revetement-mental .rm-pass-figure {
+  margin: 2rem auto 0;
+  max-width: 720px;
+  text-align: center;
+}
+
+.page-revetement-mental .rm-pass-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.page-revetement-mental .rm-pass-figure figcaption {
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  opacity: 0.85;
 }
 
 .page-revetement-mental .rm-camps {

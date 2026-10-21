@@ -31,12 +31,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Le Revêtement Mental, initiative de Wake Up Mission, association chrétienne basée à Kinshasa. La mentalité est le capital #1." />
+    content="Wake Up Mission, association chrétienne fondée à Kinshasa en 2020, accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société. La mentalité est le capital #1." />
   <meta name="keywords"
     content="Wake Up Mission, WUM, WUM Holding, éveil spirituel, formation leadership, RM5, Revêtement Mental, Ronde de Veille, communauté chrétienne" />
   <meta name="author" content="Wake Up Mission" />
-  <meta property="og:title" content="Le Revêtement Mental | Wake Up Mission" />
-  <meta property="og:description" content="La mentalité est le capital #1." />
+  <meta property="og:title" content="Wake Up Mission — Association chrétienne à Kinshasa" />
+  <meta property="og:description" content="Wake Up Mission accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société." />
   <meta property="og:type" content="website" />
 
   <!-- Favicon -->
@@ -49,9 +49,9 @@
   <!-- Feuille de style principale -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <title>Le Revêtement Mental — Wake Up Mission</title>
+  <title>Wake Up Mission — Association chrétienne à Kinshasa</title>
 </head>
-<body>
+<body class="page-accueil">
 
   <!-- ===========================
        HEADER — NAVIGATION PRINCIPALE
@@ -79,11 +79,10 @@
         <a href="activites.html" class="nav-lien">Nos activités</a>
         <a href="partenaires.html" class="nav-lien">Partenaires</a>
         <a href="contact.html" class="nav-lien">Contact</a>
-        <a href="rejoindre.html" class="btn-nav-cta" id="btn-rejoindre-nav">Rejoindre WUM</a>
       </nav>
 
       <!-- Bouton hamburger (visible uniquement en mobile) -->
-      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false">
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span>
         <span></span>
         <span></span>
@@ -101,42 +100,26 @@
     <a href="activites.html" class="nav-lien">Nos activités</a>
     <a href="partenaires.html" class="nav-lien">Partenaires</a>
     <a href="contact.html" class="nav-lien">Contact</a>
-    <a href="rejoindre.html" class="btn-nav-cta">Rejoindre WUM</a>
   </nav>
 
   <main id="contenu-principal">
 
   <!-- ===========================
        SECTION HERO — BANNIÈRE PRINCIPALE
-       Plein écran avec vidéo d'ambiance en arrière-plan.
+       Composition éditoriale avec photographie réelle.
        
-       VIDÉO : remplacer l'attribut src de <video> par votre propre vidéo.
-              Si pas de vidéo : supprimer le .hero-video-conteneur et
-              ajouter background-image dans le CSS.
+       PHOTO : remplacer le visuel de .hero-visuel ci-dessous.
        TEXTE : modifier le h1, le sous-titre et les boutons ci-dessous.
        =========================== -->
   <section id="hero" class="hero" aria-label="Section principale">
 
-    <!-- Conteneur de la boucle vidéo (masqué si la vidéo n'est pas fournie) -->
-    <div class="hero-video-conteneur">
-      <!--
-        BOUCLE VIDÉO D'AMBIANCE
-        Ajouter votre fichier vidéo dans le dossier /assets/videos/
-        et modifier le src ci-dessous :
-        <video class="hero-video" autoplay muted loop playsinline>
-          <source src="assets/videos/wum-hero-loop.mp4" type="video/mp4">
-        </video>
-        
-        En attendant, un fond gradient est utilisé via CSS.
-      -->
-    </div>
     <div class="hero-overlay"></div>
 
     <!-- Contenu principal du Hero -->
     <div class="hero-contenu">
 
       <!-- Tag de catégorie (label) -->
-      <span class="hero-tagline">Wake Up Mission</span>
+      <span class="hero-tagline">Une initiative de Wake Up Mission</span>
 
       <!-- H1 principal de la page (SEO critique — un seul H1 par page) -->
       <h1 class="hero-titre">
@@ -145,7 +128,7 @@
 
       <!-- Sous-titre de description -->
       <p class="hero-sous-titre">
-        Une initiative de Wake Up Mission, association chrétienne basée à Kinshasa.
+        Une initiative de Wake Up Mission — association chrétienne basée à Kinshasa, qui accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société.
         <br><strong>La mentalité est le capital #1.</strong>
       </p>
 
@@ -161,15 +144,20 @@
       </div>
 
     </div>
+    <figure class="hero-visuel">
+      <img src="Image/IMG_1458.JPG.jpeg" alt="Un intervenant prend la parole devant des participants lors d’une rencontre de Wake Up Mission." width="3519" height="5278" decoding="async" />
+    </figure>
   </section>
 
   <section id="a-propos" class="fond-clair" aria-labelledby="titre-a-propos">
     <div class="section-conteneur">
       <span class="section-label">Wake Up Mission</span>
-      <h2 class="section-titre" id="titre-a-propos">Qui est Wake Up Mission ?</h2>
+      <h2 class="section-titre" id="titre-a-propos">Derrière le Revêtement Mental, une mission.</h2>
       <p class="section-intro">
-        Wake Up Mission est une association chrétienne basée à Kinshasa, qui accompagne les jeunes
-        de 15 à 35 ans. Découvrez son histoire, son identité et ses valeurs.
+        Wake Up Mission est une association chrétienne fondée à Kinshasa en avril 2020. Sa vocation est d'accompagner les jeunes de 15 à 35 ans dans un processus d'éveil qui articule foi chrétienne, développement de soi et contribution à la société.
+      </p>
+      <p class="section-intro">
+        Le Revêtement Mental est né de cette vocation. Il en est aujourd'hui le visage le plus visible — et le cœur de notre travail.
       </p>
       <div style="text-align:center;">
         <a href="a-propos.html" class="btn btn-secondaire">En savoir plus sur WUM</a>
@@ -179,25 +167,32 @@
 
   <section id="dimensions-eveil" class="fond-sombre-2" aria-labelledby="titre-dimensions-eveil">
     <div class="section-conteneur">
-      <span class="section-label">Notre mission</span>
+      <span class="section-label">Qui est Wake Up Mission ?</span>
       <h2 class="section-titre" id="titre-dimensions-eveil">Les trois dimensions de l'éveil</h2>
       <p class="section-intro">
-        Wake Up Mission accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société.
+        L'éveil est un processus, pas un événement.
       </p>
       <div class="grille-3">
         <article class="carte">
           <div class="carte-icone" aria-hidden="true">01</div>
           <h3>S'éveiller à Dieu</h3>
+          <p>Découvrir les fondements de la foi chrétienne, en comprendre les valeurs et développer une relation personnelle et réfléchie avec Dieu.</p>
         </article>
         <article class="carte">
           <div class="carte-icone" aria-hidden="true">02</div>
           <h3>S'éveiller à soi-même</h3>
+          <p>Apprendre à se connaître, comprendre son caractère, développer sa maturité, identifier ses capacités et discerner sa vocation.</p>
+          <p><strong>La mentalité est le capital #1.</strong></p>
         </article>
         <article class="carte">
           <div class="carte-icone" aria-hidden="true">03</div>
-          <h3>S'éveiller à son utilité dans la société</h3>
+          <h3>S'éveiller à son utilité sociale</h3>
+          <p>Le développement de soi n'est pas une fin en soi. Il s'agit de développer ses capacités et son sens des responsabilités pour contribuer positivement à la société et servir les autres.</p>
         </article>
       </div>
+      <p class="section-intro" style="margin-top:2rem; text-align:center;">
+        Ces trois dimensions forment un seul parcours — celui que le Revêtement Mental rend accessible.
+      </p>
     </div>
   </section>
 
@@ -332,10 +327,9 @@
     <div class="section-conteneur">
 
       <span class="section-label">Pédagogie &amp; parcours</span>
-      <h2 class="section-titre" id="titre-revetement-mental-accueil">Le Revêtement Mental</h2>
+      <h2 class="section-titre" id="titre-revetement-mental-accueil">Une pédagogie. Un programme. Un parcours.</h2>
       <p class="section-intro">
-        Le Revêtement Mental est une pédagogie et un programme structuré dans la durée,
-        et non une simple conférence de motivation.
+        Le Revêtement Mental n'est pas une conférence de motivation. C'est une pédagogie — une manière structurée de penser la transformation intérieure — et un programme qui la met en œuvre dans la durée.
       </p>
 
       <div class="grille-2" style="max-width:620px; margin:0 auto;">
@@ -348,7 +342,7 @@
           <div class="carte-corps">
             <h3>Revêtement Mental</h3>
             <p>
-              Une initiative de Wake Up Mission et son concept signature.
+              Une pédagogie et un programme central de Wake Up Mission.
             </p>
             <br/>
             <a href="revetement-mental.html" class="btn btn-primaire" style="font-size:0.82rem; padding: 0.6rem 1.4rem;" id="btn-rm-programme">
@@ -365,22 +359,24 @@
     <div class="section-conteneur">
       <span class="section-label">Éveil &amp; apprentissage</span>
       <h2 class="section-titre" id="titre-activites-accueil">Nos activités</h2>
-      <p class="section-intro">
-        Découvrez le RM Club et consultez le catalogue des activités et rencontres de WUM.
-      </p>
-      <div class="grille-2">
-        <article class="carte carte-avec-visuel">
-          <div class="carte-visuel">
-            <img src="Image/RM_Club_Artwork.jpg" alt="Visuel du Club d'apprentissage" class="carte-visuel-img" loading="lazy" />
-          </div>
-          <div class="carte-corps">
-            <h3>RM Club</h3>
-            <p>Découvrez cet espace communautaire sur sa page dédiée.</p>
-            <a href="RM_Club.html" class="btn btn-secondaire">Découvrir le RM Club</a>
-          </div>
+      <div class="grille-3">
+        <article class="carte">
+          <h3>Conférence Revêtement Mental</h3>
+          <p>Le rendez-vous phare de Wake Up Mission, organisé deux fois par an.</p>
+          <a href="revetement-mental.html" class="btn btn-secondaire">Découvrir le Revêtement Mental</a>
+        </article>
+        <article class="carte">
+          <h3>Club d'apprentissage</h3>
+          <p>Un atelier mensuel pour approfondir le programme dans un cadre structuré et durable.</p>
+          <a href="RM_Club.html" class="btn btn-secondaire">Découvrir le RM Club</a>
+        </article>
+        <article class="carte">
+          <h3>Camps, rencontres et événements</h3>
+          <p>Des temps de retraite, de rencontre et de vie communautaire qui prolongent le parcours d'éveil.</p>
+          <a href="activites.html" class="btn btn-secondaire">Voir les activités</a>
         </article>
       </div>
-      <div style="text-align:center;">
+      <div style="text-align:center; margin-top:2rem;">
         <a href="activites.html" class="btn btn-secondaire">Voir toutes nos activités</a>
       </div>
     </div>
@@ -397,8 +393,12 @@
   <section id="chiffres-cles" class="fond-clair" aria-labelledby="titre-chiffres-cles">
     <div class="section-conteneur">
       <span class="section-label">Wake Up Mission</span>
-      <h2 class="section-titre" id="titre-chiffres-cles">Quelques chiffres clés</h2>
+      <h2 class="section-titre" id="titre-chiffres-cles">Nos chiffres clés</h2>
       <div class="grille-2">
+        <article class="carte">
+          <h3>2020</h3>
+          <p>Année de fondation, à Kinshasa</p>
+        </article>
         <article class="carte">
           <h3>Plus de 10</h3>
           <p>Événements organisés sur fonds propres</p>
@@ -409,7 +409,7 @@
         </article>
         <article class="carte">
           <h3>10 000+</h3>
-          <p>Personnes dans la communauté en ligne</p>
+          <p>Personnes dans notre communauté en ligne</p>
         </article>
       </div>
     </div>
@@ -418,9 +418,9 @@
   <section id="partenaires-accueil" class="fond-sombre-2" aria-labelledby="titre-partenaires-accueil">
     <div class="section-conteneur" style="text-align:center; max-width:800px;">
       <span class="section-label">Collaboration institutionnelle</span>
-      <h2 class="section-titre" id="titre-partenaires-accueil">Partenaires</h2>
+      <h2 class="section-titre" id="titre-partenaires-accueil">Nos partenaires</h2>
       <p class="section-intro">
-        Wake Up Mission est ouverte aux possibilités de collaboration institutionnelle.
+        Vous êtes une institution, une église, une école ou une entreprise ? Wake Up Mission collabore avec des partenaires qui partagent sa conviction : la transformation des mentalités de la jeunesse est un levier stratégique pour l'Afrique.
       </p>
       <a href="partenaires.html" class="btn btn-aqua">Découvrir les possibilités de partenariat</a>
     </div>
@@ -431,13 +431,13 @@
        SECTION : REJOINDRE WUM — CTA FINAL
        Appel à l'action pour devenir membre de WUM.
        =========================== -->
-  <section id="rejoindre-cta" class="fond-sombre section-photo" style="background-image: url('Image/IMG_6030.JPG'); background-size: cover; background-position: center;" aria-label="Rejoindre WUM">
+  <section id="rejoindre-cta" class="fond-sombre section-photo" aria-label="Rejoindre WUM" style="background-image: url('Image/IMG_6030.JPG'); background-size: cover; background-position: center;">
     <div class="section-conteneur" style="text-align:center; max-width: 700px;">
 
       <span class="section-label">Pour les jeunes</span>
       <h2 class="section-titre">Rejoindre Wake Up Mission</h2>
       <p class="section-intro">
-        Rejoins Wake Up Mission dans ton éveil, ton développement de soi et ta contribution à la société.
+        Que tu sois croyant ou en recherche, étudiant ou jeune professionnel, Wake Up Mission t'accompagne dans ton éveil à Dieu, à toi-même et à ton utilité dans la société.
       </p>
 
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
@@ -468,11 +468,8 @@
           <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
       
         </div>
-        <p>
-          Un mouvement mondial d'éveil spirituel, de formation de leaders
-          et de transformation sociale. Enracinés dans la Parole, engagés pour la société.
-        </p>
-        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+        <p>Wake Up Mission accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société.</p>
+        <span class="slogan">La mentalité est le capital #1.</span>
       </div>
 
       <!-- Colonne 2 : Liens rapides -->
@@ -484,12 +481,13 @@
           <li><a href="mission.html">Mission &amp; Vision</a></li>
           <li><a href="revetement-mental.html">Le Revêtement Mental</a></li>
           <li><a href="activites.html">Nos activités</a></li>
-          <li><a href="rejoindre.html">Rejoindre WUM</a></li>
           <li><a href="partenaires.html">Partenaires</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="formations.html">Formation</a></li>
           <li><a href="ressources.html">Ressources</a></li>
           <li><a href="RM_Club.html">RM Club</a></li>
-          <li><a href="formations.html">Formation</a></li>
+          <li><a href="rejoindre.html">Rejoindre WUM</a></li>
         </ul>
       </div>
 

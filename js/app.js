@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
+      // Chemin relatif : fonctionne sous /WUM_Web/ (GitHub Pages) comme à la racine.
+      navigator.serviceWorker.register('sw.js', { scope: './' })
         .then(() => console.log('[WUM] Service Worker enregistré ✓'))
         .catch(err => console.warn('[WUM] Échec du Service Worker :', err));
     });
@@ -50,27 +51,34 @@ function initMenuMobile() {
 
   if (!toggleBtn || !menuMobile) return;
 
+  function majEtat(ouvert) {
+    toggleBtn.classList.toggle('ouvert', ouvert);
+    menuMobile.classList.toggle('ouvert', ouvert);
+    toggleBtn.setAttribute('aria-expanded', String(ouvert));
+    toggleBtn.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+    if (overlayMobile) overlayMobile.classList.toggle('actif', ouvert);
+    document.body.style.overflow = ouvert ? 'hidden' : '';
+  }
+
   function basculerMenu() {
-    const estOuvert = menuMobile.classList.contains('ouvert');
-    toggleBtn.classList.toggle('ouvert', !estOuvert);
-    menuMobile.classList.toggle('ouvert', !estOuvert);
-    toggleBtn.setAttribute('aria-expanded', String(!estOuvert));
-    if (overlayMobile) overlayMobile.classList.toggle('actif', !estOuvert);
-    document.body.style.overflow = estOuvert ? '' : 'hidden';
+    majEtat(!menuMobile.classList.contains('ouvert'));
   }
 
   function fermerMenu() {
-    toggleBtn.classList.remove('ouvert');
-    menuMobile.classList.remove('ouvert');
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    if (overlayMobile) overlayMobile.classList.remove('actif');
-    document.body.style.overflow = '';
+    if (menuMobile.classList.contains('ouvert')) majEtat(false);
   }
 
   toggleBtn.addEventListener('click', basculerMenu);
   if (overlayMobile) overlayMobile.addEventListener('click', fermerMenu);
   menuMobile.querySelectorAll('a').forEach(lien => lien.addEventListener('click', fermerMenu));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fermerMenu(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuMobile.classList.contains('ouvert')) {
+      majEtat(false);
+      toggleBtn.focus();
+    }
+  });
+  window.matchMedia('(min-width: 993px)').addEventListener('change', (e) => { if (e.matches) fermerMenu(); });
+  window.addEventListener('pageshow', fermerMenu);
 }
 
 // =============================================================================
@@ -78,7 +86,8 @@ function initMenuMobile() {
 // =============================================================================
 function initWhatsApp() {
   const config = window.WUM_CONFIG || {};
-  const phone = config.WHATSAPP_PHONE || '+243991740858';
+  const phone = config.WHATSAPP_PHONE;
+  if (!phone) return;
   const message = config.WHATSAPP_MESSAGE || 'Bonjour Wake Up Mission !';
 
   const urlWA = `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
@@ -112,11 +121,17 @@ function initLiensExternes() {
     el.setAttribute('rel', 'noopener noreferrer');
   });
 
-  // Inscription RM5
-  document.querySelectorAll('.lien-rm5, [data-lien="rm5"]').forEach(el => {
-    el.href = config.LIEN_RM5;
-    el.setAttribute('target', '_blank');
-    el.setAttribute('rel', 'noopener noreferrer');
+  // Billetterie RM5 : conférence (24 octobre) et banquet (25 octobre)
+  [
+    ['.lien-rm5-conference, [data-lien="rm5-conference"]', config.RM5_CONFERENCE],
+    ['.lien-rm5-banquet, [data-lien="rm5-banquet"]', config.RM5_BANQUET]
+  ].forEach(([selecteur, url]) => {
+    if (!url) return;
+    document.querySelectorAll(selecteur).forEach(el => {
+      el.href = url;
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener noreferrer');
+    });
   });
 
   // Instagram

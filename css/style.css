@@ -37,7 +37,7 @@
    1. VARIABLES CSS - Charte graphique officielle WUM
    Modifier ici pour changer l'ensemble du design du site.
    ------------------------------------------------------------------ */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Nexa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
   /* --- Couleurs principales (officielle identité visuelle WUM) --- */
@@ -50,13 +50,13 @@
 
   /* --- Fonds des sections --- */
   --fond-sombre: #07070A;         /* Fond très sombre (dark mode) */
-  --fond-sombre-2: #0F0F18;      /* Fond légèrement plus clair pour les cartes */
+  --fond-sombre-2: #111116;      /* Fond légèrement plus clair pour les cartes */
   --fond-clair: #FFFFFF;          /* Fond blanc pour sections claires */
 
   /* --- Textes --- */
   --texte-clair: #F0F0F6;         /* Texte sur fond sombre */
   --texte-sombre: #121218;        /* Texte sur fond clair */
-  --texte-secondaire: #8A8A9A;    /* Légendes, sous-titres */
+  --texte-secondaire: #B6B6C2;    /* Légendes, sous-titres */
 
   /* --- Dégradés --- */
   --gradient-bleu-violet: linear-gradient(135deg, #4D41D9 0%, #803DB4 100%);
@@ -68,7 +68,7 @@
   --overlay-photo: rgba(7, 7, 10, 0.74);
   --verre-sombre: rgba(12, 12, 22, 0.48);
   --verre-clair: rgba(255, 255, 255, 0.58);
-  --texte-footer: #8A8A9A;
+  --texte-footer: #B6B6C2;
   --blanc: #FFFFFF;
   --bleu-principal: #4D41D9;
   --police-titre: 'Outfit', sans-serif;
@@ -76,8 +76,8 @@
   /* --- Typographies --- */
   /* Police display condensée pour les titres (SemiBold à Black) */
   --police-titre: 'Outfit', sans-serif;
-  /* Police douce pour le texte courant (Nexa selon charte WUM) */
-  --police-corps: 'Nexa', sans-serif;
+  /* Police douce pour le texte courant */
+  --police-corps: 'Manrope', sans-serif;
 
   /* --- Transitions --- */
   --transition-lisse: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -85,7 +85,7 @@
 
   /* --- Espacements standard --- */
   --max-largeur: 1200px;
-  --padding-section: 6rem 2rem;
+  --padding-section: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 2rem);
 }
 
 
@@ -142,11 +142,11 @@ ul {
 
 /* ------------------------------------------------------------------
    3. HEADER & NAVIGATION
-   Barre de navigation fixe avec effet glassmorphism.
+   Barre de navigation fixe, sobre et lisible.
    
    COMMENT MODIFIER :
    - Changer la hauteur : modifier padding dans .header-container
-   - Changer la couleur de fond : modifier --glass-bg
+   - Changer la couleur de fond : modifier la règle header
    - Ajouter/supprimer des liens : modifier les HTML des nav
    ------------------------------------------------------------------ */
 header {
@@ -155,11 +155,8 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: var(--glass-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(7, 7, 10, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition-lisse);
 }
 
@@ -223,13 +220,13 @@ header {
   color: var(--blanc) !important;
   font-weight: 700;
   padding: 0.55rem 1.3rem;
-  border-radius: 50px;
+  border-radius: 4px;
   border: 2px solid transparent;
   font-family: var(--police-titre);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(77, 65, 217, 0.35);
+  box-shadow: none;
   transition: var(--transition-lisse);
   margin-left: 0.5rem;
 }
@@ -238,8 +235,7 @@ header {
   background: transparent;
   border-color: var(--bleu-principal);
   color: var(--blanc) !important;
-  box-shadow: 0 4px 20px rgba(77, 65, 217, 0.5);
-  transform: translateY(-2px);
+  box-shadow: none;
 }
 
 /* --- Bouton bascule menu mobile --- */
@@ -284,12 +280,15 @@ header {
   flex-direction: column;
   gap: 0.5rem;
   box-shadow: -15px 0 40px rgba(0, 0, 0, 0.6);
-  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s linear 0.4s;
+  visibility: hidden;
   z-index: 999;
 }
 
 .menu-mobile.ouvert {
   right: 0;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 /* Overlay sombre derrière le menu mobile */
@@ -322,24 +321,24 @@ header {
 
 
 /* ------------------------------------------------------------------
-   4. HERO SECTION - Page d'accueil
-   Bannière principale de plein écran avec vidéo d'ambiance.
+   4. HERO SECTION
+   Bannière principale de page, photographique sur l'accueil.
    
    COMMENT MODIFIER :
-   - Remplacer la vidéo : changer l'attribut src dans <video>
-   - Modifier le texte : éditer le contenu dans index.html
-   - Ajuster l'opacité de la vidéo : modifier opacity dans .hero-video
+   - Modifier la photographie d'accueil : éditer .hero-visuel dans index.html
+   - Modifier le texte : éditer le contenu dans la page concernée
    ------------------------------------------------------------------ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 620px;
+  height: auto;
+  min-height: min(100svh, 860px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
   overflow: hidden;
-  background-image: url('../Image/WUM_ID.png');
+  background-color: var(--fond-sombre);
+  background-image: none;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -364,7 +363,7 @@ header {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(7, 7, 10, 0.72) 0%, rgba(7, 7, 10, 0.92) 100%);
+  background: linear-gradient(90deg, rgba(7, 7, 10, 0.92), rgba(7, 7, 10, 0.58));
   z-index: 2;
 }
 
@@ -398,10 +397,7 @@ header {
 }
 
 .hero-titre .accent {
-  background: var(--gradient-bleu-violet);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--aqua-marine);
 }
 
 .hero-sous-titre {
@@ -439,10 +435,136 @@ header {
 
 .hero-instagram a:hover { opacity: 0.8; }
 
+.page-accueil #hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  align-items: center;
+  justify-content: normal;
+  gap: clamp(2rem, 6vw, 5rem);
+  min-height: min(100svh, 900px);
+  padding: 8rem max(1rem, calc((100vw - var(--max-largeur)) / 2)) 5rem;
+  background: var(--fond-sombre);
+}
+
+.page-accueil #hero .hero-contenu {
+  max-width: 700px;
+  text-align: left;
+}
+
+.page-accueil #hero .hero-titre {
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.page-accueil #hero .hero-sous-titre {
+  max-width: 620px;
+  margin: 0 0 2rem;
+}
+
+.page-accueil #hero .hero-sous-titre strong {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--aqua-marine);
+  font-family: var(--police-titre);
+  font-size: 1.2rem;
+}
+
+.page-accueil #hero .hero-actions {
+  justify-content: flex-start;
+}
+
+.page-accueil #chiffres-cles .carte h3 {
+  margin-bottom: 0.35rem;
+  color: var(--bleu-principal);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-visuel {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-visuel img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: min(680px, 75svh);
+  object-fit: cover;
+  object-position: center 68%;
+}
+
+.photo-editoriale {
+  max-width: 860px;
+  margin: 2.5rem auto 3rem;
+  overflow: hidden;
+}
+
+.photo-editoriale img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.activites-cta-visuel {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  overflow: hidden;
+}
+
+.activites-cta-visuel img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--aqua-marine);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-accueil #hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: 0;
+    padding: 8rem 1rem 3rem;
+  }
+
+  .page-accueil #hero .hero-contenu {
+    max-width: 100%;
+  }
+
+  .hero-visuel img {
+    aspect-ratio: 1 / 1;
+    max-height: none;
+  }
+}
+
 
 /* ------------------------------------------------------------------
    5. SECTIONS & LAYOUT GÉNÉRAL
-   Chaque section alterne entre fond sombre et fond clair.
+   Les sections alternent entre fond sombre et fond clair.
    ------------------------------------------------------------------ */
 section {
   padding: var(--padding-section);
@@ -499,28 +621,9 @@ section {
 }
 
 .fond-sombre-2 {
-  position: relative;
-  isolation: isolate;
   background-color: var(--fond-sombre-2);
-  background-image: url('../Image/IMG_1357.JPG');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: none;
   color: var(--texte-clair);
-}
-
-.fond-sombre-2::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--overlay-photo);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.fond-sombre-2 > * {
-  position: relative;
-  z-index: 1;
 }
 
 .fond-clair {
@@ -555,7 +658,7 @@ section {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 2rem;
-  border-radius: 50px;
+  border-radius: 4px;
   font-weight: 700;
   font-family: var(--police-titre);
   font-size: 0.9rem;
@@ -590,6 +693,16 @@ section {
   transform: translateY(-2px);
 }
 
+.fond-clair .btn-secondaire {
+  border-color: rgba(18, 18, 24, 0.35);
+  color: var(--texte-sombre);
+}
+
+.fond-clair .btn-secondaire:hover {
+  border-color: var(--bleu-principal);
+  color: var(--bleu-principal);
+}
+
 .btn-aqua {
   background-color: var(--aqua-marine);
   color: #03030A;
@@ -620,20 +733,14 @@ section {
 
 /* ------------------------------------------------------------------
    6b. COMPOSANTS : CARTES (Cards)
-   Verre dépoli site-wide : le fond de la carte floute ce qui se trouve derrière.
    ------------------------------------------------------------------ */
 .carte {
   position: relative;
-  isolation: isolate;
-  overflow: hidden;
   padding: 2.25rem 2rem;
-  border-radius: 18px;
-  transition: var(--transition-lisse);
-  background: var(--verre-sombre);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px) saturate(1.35);
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  border-radius: 6px;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+  background: #17171d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .carte > * {
@@ -643,17 +750,15 @@ section {
 
 .fond-sombre .carte,
 .fond-sombre-2 .carte {
-  background: var(--verre-sombre);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--texte-clair);
 }
 
 .fond-sombre .carte:hover,
 .fond-sombre-2 .carte:hover {
-  transform: translateY(-6px);
-  background: rgba(18, 16, 36, 0.58);
-  border-color: rgba(113, 244, 179, 0.35);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(113, 244, 179, 0.45);
 }
 
 .fond-sombre .carte h3,
@@ -662,15 +767,13 @@ section {
 }
 
 .fond-clair .carte {
-  background: var(--verre-clair);
-  border: 1px solid rgba(77, 65, 217, 0.14);
-  box-shadow: 0 8px 28px rgba(15, 15, 24, 0.08);
+  background: #fff;
+  border: 1px solid rgba(18, 18, 24, 0.13);
+  box-shadow: none;
 }
 
 .fond-clair .carte:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(77, 65, 217, 0.12);
-  border-color: rgba(77, 65, 217, 0.28);
+  border-color: rgba(77, 65, 217, 0.48);
 }
 
 .carte-icone {
@@ -842,12 +945,10 @@ section {
 }
 
 .timeline-contenu {
-  background: var(--verre-sombre);
+  background: #17171d;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 1.5rem;
-  backdrop-filter: blur(16px) saturate(1.3);
-  -webkit-backdrop-filter: blur(16px) saturate(1.3);
 }
 
 .timeline-contenu h3 {

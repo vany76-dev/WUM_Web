@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="RM Club — Le cercle privé de croissance continue de Wake Up Mission. Transformez votre mentalité, clarifiez votre mission, déployez votre utilité sociale." />
+  <meta name="description" content="RM Club — Espace de Wake Up Mission prolongeant le Revêtement Mental, pédagogie centrale de WUM : mentalité, mission et utilité sociale." />
   <meta name="keywords" content="RM Club, Wake Up Mission, WUM, revêtement mental, utilité sociale, cercle de croissance, leadership, communauté" />
   <meta name="author" content="Wake Up Mission" />
   <meta property="og:title" content="RM Club | Wake Up Mission — Le cercle de croissance" />
-  <meta property="og:description" content="Le cercle privé de croissance continue de Wake Up Mission. Mentalité, Mission, Utilité sociale." />
+  <meta property="og:description" content="Espace de Wake Up Mission prolongeant le Revêtement Mental. Mentalité, Mission, Utilité sociale." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
   <link rel="manifest" href="manifest.json" />
@@ -80,19 +80,20 @@
       letter-spacing: 0.04em;
     }
     .logo-img {
-      width: 42px;
+      width: auto;
       height: 42px;
       object-fit: contain;
     }
     .nav-bureau {
       display: flex;
       align-items: center;
-      gap: 1.1rem;
-      flex-wrap: wrap;
+      gap: 0.35rem;
+      flex-wrap: nowrap;
     }
     .nav-lien {
       color: rgba(255,255,255,0.82);
-      font-size: 0.92rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
       font-weight: 600;
       transition: color 0.2s ease;
     }
@@ -102,7 +103,7 @@
       align-items: center;
       justify-content: center;
       padding: 0.9rem 1.35rem;
-      border-radius: 999px;
+      border-radius: 4px;
       font-weight: 700;
       font-family: 'Outfit', sans-serif;
       transition: 0.2s ease;
@@ -164,7 +165,8 @@
       flex-direction: column;
       gap: 0.7rem;
     }
-    .menu-mobile.show { display: flex; }
+    .menu-mobile.ouvert { display: flex; right: 1rem; }
+    .overlay-mobile { top: 76px; height: calc(100vh - 76px); z-index: 70; }
     .menu-mobile .nav-lien, .menu-mobile .btn-nav-cta {
       display: block;
       padding: 0.8rem 0.9rem;
@@ -176,71 +178,24 @@
       position: relative;
       margin-top: 0;
       padding: clamp(2.5rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 8vw, 5rem);
-      background:
-        linear-gradient(rgba(7,7,10,0.55), rgba(7,7,10,0.75)),
-        linear-gradient(180deg, #0a0a14 0%, #07070a 60%, #0a0a14 100%);
-      background-size: cover;
-      background-position: center;
+      background: #07070a;
       overflow: hidden;
-      border-bottom: 1px solid rgba(113,244,179,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .entete-rmclub::before,
-    .entete-rmclub::after,
-    .entete-rmclub .carousel-slide {
-      content: "";
+    .entete-photo {
       position: absolute;
       inset: 0;
-      background-size: cover;
-      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 43%;
+      opacity: 0.38;
       z-index: 0;
-      opacity: 0;
-      transform: scale(1);
-      will-change: opacity, transform;
-    }
-    .entete-rmclub::before {
-      background-image: url('Image/RM_Club_logo.jpeg');
-      background-position: center center;
-      animation: slide-1 17.64s ease-in-out infinite;
-      opacity: 1;
-    }
-    .entete-rmclub .carousel-slide {
-      background-image: url('Image/RM_Club_logo.jpeg');
-      background-position: center center;
-      animation: slide-2 17.64s ease-in-out infinite;
-      animation-delay: 5.88s;
-    }
-    .entete-rmclub::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('Image/RM_Club_logo.jpeg');
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      z-index: 0;
-      opacity: 0;
-      transform: scale(1);
-      animation: slide-3 17.64s ease-in-out infinite;
-      animation-delay: 11.76s;
-    }
-    .entete-rmclub .halo-aqua {
-      position: absolute;
-      bottom: -180px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 240px;
-      border-radius: 50%;
-      background: #71F4B3;
-      filter: blur(120px);
-      opacity: 0.10;
-      pointer-events: none;
-      z-index: 2;
     }
     .entete-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(7,7,10,0.78) 0%, rgba(7,7,10,0.55) 40%, rgba(7,7,10,0.32) 70%, rgba(7,7,10,0) 100%);
+      background: rgba(7, 7, 10, 0.64);
       pointer-events: none;
       z-index: 1;
     }
@@ -312,29 +267,6 @@
     }
     .rmclub-infoline svg { flex-shrink: 0; }
     .infoline-separateur { opacity: 0.5; }
-
-    @keyframes slide-1 {
-      0% { opacity: 1; transform: scale(1.00); }
-      50% { opacity: 1; transform: scale(1.08); }
-      66.67% { opacity: 0; transform: scale(1.10); }
-      97.22% { opacity: 0; transform: scale(1.00); }
-      100% { opacity: 1; transform: scale(1.00); }
-    }
-    @keyframes slide-2 {
-      0% { opacity: 0; transform: scale(1.00); }
-      16.67% { opacity: 1; transform: scale(1.06); }
-      50% { opacity: 1; transform: scale(1.10); }
-      66.67% { opacity: 0; transform: scale(1.10); }
-      100% { opacity: 0; transform: scale(1.00); }
-    }
-    @keyframes slide-3 {
-      0% { opacity: 0; transform: scale(1.00); }
-      16.67% { opacity: 1; transform: scale(1.06); }
-      33.33% { opacity: 1; transform: scale(1.10); }
-      50% { opacity: 0; transform: scale(1.10); }
-      97.22% { opacity: 0; transform: scale(1.00); }
-      100% { opacity: 0; transform: scale(1.00); }
-    }
 
     .section-fond-b {
       background: linear-gradient(180deg, #14131e 0%, #0d0d15 100%);
@@ -788,6 +720,11 @@
       .footer-grille { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 1100px) {
+      .nav-bureau { display: none; }
+      .toggle-mobile { display: inline-flex; }
+    }
+
     @media (max-width: 760px) {
       .nav-bureau { display: none; }
       .toggle-mobile { display: inline-flex; }
@@ -802,11 +739,6 @@
       .qr-bloc { flex-direction: column; }
       .qr-bloc img { width: 120px; height: 120px; }
       .footer-bas { flex-direction: column; }
-      .entete-rmclub::before,
-      .entete-rmclub::after,
-      .entete-rmclub .carousel-slide { animation-duration: 6.62s; }
-      .entete-rmclub .carousel-slide { animation-delay: 2.21s; }
-      .entete-rmclub::after { animation-delay: 4.41s; }
     }
   </style>
 
@@ -821,15 +753,15 @@
 
       <nav class="nav-bureau" aria-label="Navigation principale">
         <a href="index.html" class="nav-lien">Accueil</a>
-        <a href="vision.html" class="nav-lien">Vision</a>
-        <a href="mission.html" class="nav-lien">Notre Mission</a>
-        <a href="activites.html" class="nav-lien">Activités</a>
-        <a href="formations.html" class="nav-lien">Formation</a>
-        <a href="ressources.html" class="nav-lien">Ressources</a>
-        <a href="rejoindre.html" class="btn-nav-cta">S'inscrire au #RM5</a>
+        <a href="a-propos.html" class="nav-lien">À propos</a>
+        <a href="mission.html" class="nav-lien">Mission &amp; Vision</a>
+        <a href="revetement-mental.html" class="nav-lien actif">Le Revêtement Mental</a>
+        <a href="activites.html" class="nav-lien">Nos activités</a>
+        <a href="partenaires.html" class="nav-lien">Partenaires</a>
+        <a href="contact.html" class="nav-lien">Contact</a>
       </nav>
 
-      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false">
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">>
         <span></span>
         <span></span>
         <span></span>
@@ -837,22 +769,21 @@
     </div>
   </header>
 
+  <div class="overlay-mobile" id="overlay-mobile"></div>
   <nav class="menu-mobile" id="menu-mobile" aria-label="Navigation mobile">
     <a href="index.html" class="nav-lien">Accueil</a>
-    <a href="vision.html" class="nav-lien">Vision</a>
-    <a href="mission.html" class="nav-lien">Notre Mission</a>
-    <a href="activites.html" class="nav-lien">Activités</a>
-    <a href="formations.html" class="nav-lien">Formation</a>
-    <a href="ressources.html" class="nav-lien">Ressources</a>
-    <a href="rejoindre.html" class="btn-nav-cta">S'inscrire au #RM5</a>
+    <a href="a-propos.html" class="nav-lien">À propos</a>
+    <a href="mission.html" class="nav-lien">Mission &amp; Vision</a>
+    <a href="revetement-mental.html" class="nav-lien actif">Le Revêtement Mental</a>
+    <a href="activites.html" class="nav-lien">Nos activités</a>
+    <a href="partenaires.html" class="nav-lien">Partenaires</a>
+    <a href="contact.html" class="nav-lien">Contact</a>
   </nav>
 
-  <main>
+  <main id="contenu-principal">
     <section class="entete-rmclub" aria-labelledby="titre-rmclub">
-      <div class="carousel-slide" aria-hidden="true"></div>
-      <div class="halo-aqua" aria-hidden="true"></div>
+      <img class="entete-photo" src="Image/RM_Club_Img1.jpeg" alt="Un membre du RM Club présente son espace d’apprentissage lors d’une rencontre." width="1600" height="1066" decoding="async" />
       <div class="entete-overlay" aria-hidden="true"></div>
-      <div aria-hidden="true" style="position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(113,244,179,0.55) 20%, rgba(184,179,255,0.55) 50%, rgba(113,244,179,0.55) 80%, transparent 100%); box-shadow:0 0 12px rgba(113,244,179,0.35); z-index:4;"></div>
 
       <div class="section-conteneur">
         <span class="section-label">Le Clubhouse de WUM</span>
@@ -870,7 +801,7 @@
           <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-aqua-liquide">
             S'inscrire au RM Club →
           </a>
-          <a href="Wum_1.pdf" download class="btn btn-pdf">
+          <a href="What%20is%20the%20RM%20Club.pdf" download class="btn btn-pdf">
             Télécharger le guide PDF
           </a>
         </div>
@@ -972,7 +903,7 @@
             </div>
             <div class="espace-texte">
               <strong>Ateliers &amp; Masterclass</strong>
-              <span>Développement personnel, art oratoire, efficacité professionnelle : la pratique avant tout.</span>
+              <span>Développement de soi, art oratoire, efficacité professionnelle : la pratique avant tout.</span>
             </div>
           </div>
 
@@ -1234,7 +1165,7 @@
             <a href="https://forms.zohopublic.com/wakeupmission1/form/ClubMembershipForm/formperma/sBjpe2D2tMPluEPhTwTMXm3fXIa6DodfKpU9rxoXLg8" target="_blank" rel="noopener noreferrer" class="btn btn-aqua-liquide">
               Remplir le formulaire d’adhésion →
             </a>
-            <a href="Wum_1.pdf" download class="btn btn-pdf">
+            <a href="What%20is%20the%20RM%20Club.pdf" download class="btn btn-pdf">
               Télécharger le guide
             </a>
           </div>
@@ -1257,22 +1188,24 @@
         <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
           <img src="LOGO_WUM_PNG-01.png" alt="Logo WUM" style="height:36px; width:auto;" />
         </div>
-        <p>
-          Un mouvement mondial d'éveil spirituel, de formation de leaders
-          et de transformation sociale. Enracinés dans la Parole, engagés pour la société.
-        </p>
-        <span class="slogan">Awakened by the Word. Driven by Purpose.</span>
+        <p>Wake Up Mission accompagne chaque jeune dans son éveil à Dieu, à soi-même et à son utilité dans la société.</p>
+        <span class="slogan">La mentalité est le capital #1.</span>
       </div>
 
       <div class="footer-liens">
         <h4>Navigation</h4>
         <ul>
           <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="mission.html">Mission &amp; Vision</a></li>
+          <li><a href="revetement-mental.html">Le Revêtement Mental</a></li>
+          <li><a href="activites.html">Nos activités</a></li>
+          <li><a href="partenaires.html">Partenaires</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="vision.html">Vision</a></li>
-          <li><a href="mission.html">Notre Mission</a></li>
-          <li><a href="activites.html">Activités & Événements</a></li>
           <li><a href="formations.html">Formation</a></li>
           <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="RM_Club.html" aria-current="page">RM Club</a></li>
           <li><a href="rejoindre.html">Rejoindre WUM</a></li>
         </ul>
       </div>
@@ -1311,16 +1244,5 @@
 
   <script src="js/config.js"></script>
   <script src="js/app.js"></script>
-  <script>
-    const toggle = document.getElementById('toggle-menu-mobile');
-    const menu = document.getElementById('menu-mobile');
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('show');
-      });
-    }
-  </script>
 </body>
 </html>

@@ -5,14 +5,13 @@
     =========================================================================
     WAKE UP MISSION - PAGE ACTIVITÉS (activites.html)
     =========================================================================
-    Site vitrine : inscriptions via liens Google Forms externes (config.js).
-    Visuels : déposer les images dans assets/images/ (voir config.js → IMAGES)
+    Site vitrine : inscriptions via liens externes (config.js).
     =========================================================================
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Découvrez les activités et programmes de Wake Up Mission : conférence Revêtement Mental, RM Club, Awakening Experience, Ronde de Veille et RM5." />
+    content="Les activités de Wake Up Mission au service de l'éveil des jeunes à Dieu, à eux-mêmes et à leur utilité dans la société : Revêtement Mental, RM Club, Awakening Experience, Ronde de Veille et RM5." />
 
   <link rel="icon" href="LOGO_WUM_PNG-01.png" type="image/png" />
   <link rel="manifest" href="manifest.json" />
@@ -37,12 +36,11 @@
         <a href="mission.html" class="nav-lien">Mission &amp; Vision</a>
         <a href="revetement-mental.html" class="nav-lien">Le Revêtement Mental</a>
         <a href="activites.html" class="nav-lien actif" aria-current="page">Nos activités</a>
-        <a href="activites.html#titre-partenariat-rm5" class="nav-lien">Partenaires</a>
+        <a href="partenaires.html" class="nav-lien">Partenaires</a>
         <a href="contact.html" class="nav-lien">Contact</a>
-        <a href="rejoindre.html" class="btn-nav-cta">Rejoindre WUM</a>
       </nav>
 
-      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu">
+      <button class="toggle-mobile" id="toggle-menu-mobile" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -55,9 +53,8 @@
     <a href="mission.html" class="nav-lien">Mission &amp; Vision</a>
     <a href="revetement-mental.html" class="nav-lien">Le Revêtement Mental</a>
     <a href="activites.html" class="nav-lien actif" aria-current="page">Nos activités</a>
-    <a href="activites.html#titre-partenariat-rm5" class="nav-lien">Partenaires</a>
+    <a href="partenaires.html" class="nav-lien">Partenaires</a>
     <a href="contact.html" class="nav-lien">Contact</a>
-    <a href="rejoindre.html" class="btn-nav-cta">Rejoindre WUM</a>
   </nav>
 
   <main id="haut-page">
@@ -81,9 +78,9 @@
           <article class="activite-carte">
             <img src="Image/RM5_NEW.jpg" alt="Affiche de la conférence Revêtement Mental 5" class="activite-carte-image" loading="lazy" />
             <div class="activite-carte-corps">
-              <span class="activite-badge">Conférence</span>
+              <span class="activite-badge">Programme</span>
               <h3 class="activite-titre">Revêtement Mental</h3>
-              <p class="activite-description">La conférence Revêtement Mental aborde le renouvellement du mental et l’éveil spirituel. Chaque édition met en avant un thème particulier.</p>
+              <p class="activite-description">Le Revêtement Mental est une pédagogie et un programme central de WUM, dont les conférences abordent le renouvellement du mental et l’éveil spirituel. Chaque édition met en avant un thème particulier.</p>
               <a href="revetement-mental.html" class="btn btn-primaire" style="font-size:0.82rem; padding:0.6rem 1.4rem; width:100%;">Découvrir le Revêtement Mental →</a>
             </div>
           </article>
@@ -125,11 +122,36 @@
             <h2 id="titre-rm5">Revêtement Mental 5 (RM5)</h2>
             <p>La cinquième édition de la conférence Revêtement Mental propose une expérience de renouvellement du mental, d’activation spirituelle et de repositionnement de l’identité de l’âme éveillée, autour du thème « Réapprendre la psychologie de l’argent ».</p>
             <div class="activite-vedette-actions">
-              <a href="https://ticket.streameex.com/event/rm5-conference" target="_blank" rel="noopener noreferrer" class="btn btn-aqua">Billetterie · Conférence du 24 octobre →</a>
-              <a href="https://ticket.streameex.com/event/rm5-banquet-financier-jour2" target="_blank" rel="noopener noreferrer" class="btn btn-secondaire">Billetterie · Banquet du 25 octobre →</a>
+              <a href="https://ticket.streameex.com/event/rm5-conference" target="_blank" rel="noopener noreferrer" class="btn btn-aqua lien-rm5-conference">Billetterie · Conférence du 24 octobre →</a>
+              <a href="https://ticket.streameex.com/event/rm5-banquet-financier-jour2" target="_blank" rel="noopener noreferrer" class="btn btn-secondaire lien-rm5-banquet">Billetterie · Banquet du 25 octobre →</a>
               <a href="https://whatsapp.com/channel/0029VaKUHvOHwXbCToImi23K" target="_blank" rel="noopener noreferrer" class="btn btn-contour-violet">Suivre les actualités RM5 sur WhatsApp →</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rythme-activites" class="fond-clair" aria-labelledby="titre-rythme-activites">
+      <div class="section-conteneur">
+        <span class="section-label">Le rythme de nos activités</span>
+        <h2 class="section-titre" id="titre-rythme-activites">Conférences, Club, camps et engagement de proximité</h2>
+        <div class="grille-2">
+          <article class="carte">
+            <h3>La conférence Revêtement Mental</h3>
+            <p>Un rendez-vous organisé deux fois par an. La prochaine édition, RM5, aura lieu les 24 et 25 octobre 2026.</p>
+          </article>
+          <article class="carte">
+            <h3>Le Club d’apprentissage</h3>
+            <p>Un atelier mensuel pour approfondir les enseignements. Les dates et les modalités sont communiquées par WUM.</p>
+          </article>
+          <article class="carte">
+            <h3>Camps, rencontres et événements</h3>
+            <p>Des temps de recul, d’échanges et de vie communautaire, annoncés lorsqu’ils sont confirmés.</p>
+          </article>
+          <article class="carte">
+            <h3>Actions caritatives et ambassadeurs</h3>
+            <p>Des actions caritatives de proximité et des ambassadeurs qui soutiennent les églises locales, en complément de leur mission.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -185,10 +207,13 @@
       </div>
     </section>
 
-    <section class="fond-sombre section-photo" style="text-align:center; padding: 5rem 2rem; background: url('Image/IMG_6030.JPG'); background-size: cover; background-position: center;" aria-labelledby="titre-participer" data-animer>
+    <section class="fond-sombre" style="text-align:center;" aria-labelledby="titre-participer" data-animer>
       <span class="section-label">Participer</span>
       <h2 class="section-titre" id="titre-participer">Découvrir les espaces de WUM</h2>
       <p class="section-intro">Approfondissez le Revêtement Mental, découvrez le RM Club ou rejoignez Wake Up Mission.</p>
+      <figure class="activites-cta-visuel">
+        <img src="Image/IMG_2346.JPG.jpeg" alt="Des jeunes échangent autour d’une table lors d’un atelier de Wake Up Mission." width="8688" height="5792" loading="lazy" decoding="async" />
+      </figure>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
         <a href="revetement-mental.html" class="btn btn-aqua">Le Revêtement Mental</a>
         <a href="RM_Club.html" class="btn btn-secondaire">Découvrir le RM Club</a>
@@ -215,7 +240,12 @@
           <li><a href="mission.html">Mission &amp; Vision</a></li>
           <li><a href="revetement-mental.html">Le Revêtement Mental</a></li>
           <li><a href="activites.html" aria-current="page">Nos activités</a></li>
-          <li><a href="activites.html#titre-partenariat-rm5">Partenaires</a></li>
+          <li><a href="partenaires.html">Partenaires</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="formations.html">Formation</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="RM_Club.html">RM Club</a></li>
           <li><a href="rejoindre.html">Rejoindre WUM</a></li>
         </ul>
       </div>
