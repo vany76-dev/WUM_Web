@@ -182,6 +182,17 @@ header {
   object-fit: contain;
 }
 
+@media (max-width: 400px) {
+  .header-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .logo-img {
+    height: 36px;
+  }
+}
+
 /* Nom affiché à côté du logo — uniquement "Wake Up Mission" */
 .logo-texte {
   font-family: var(--police-titre);
@@ -204,7 +215,7 @@ header {
   font-weight: 500;
   padding: 0.45rem 0.9rem;
   color: var(--texte-clair);
-  border-radius: 6px;
+  border-radius: 10px;
   transition: var(--transition-rapide);
 }
 
@@ -220,7 +231,7 @@ header {
   color: var(--blanc) !important;
   font-weight: 700;
   padding: 0.55rem 1.3rem;
-  border-radius: 4px;
+  border-radius: 12px;
   border: 2px solid transparent;
   font-family: var(--police-titre);
   font-size: 0.8rem;
@@ -322,10 +333,10 @@ header {
 
 /* ------------------------------------------------------------------
    4. HERO SECTION
-   Bannière principale de page, photographique sur l'accueil.
+   Bannière principale de page d'accueil.
    
    COMMENT MODIFIER :
-   - Modifier la photographie d'accueil : éditer .hero-visuel dans index.html
+   - Modifier la photographie d'accueil : éditer l'image de fond de #hero
    - Modifier le texte : éditer le contenu dans la page concernée
    ------------------------------------------------------------------ */
 .hero {
@@ -436,19 +447,20 @@ header {
 .hero-instagram a:hover { opacity: 0.8; }
 
 .page-accueil #hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  display: flex;
   align-items: center;
-  justify-content: normal;
-  gap: clamp(2rem, 6vw, 5rem);
+  justify-content: center;
   min-height: min(100svh, 900px);
   padding: 8rem max(1rem, calc((100vw - var(--max-largeur)) / 2)) 5rem;
-  background: var(--fond-sombre);
+  background-color: var(--fond-sombre);
+  background-image: url('../Image/WUM_ID.png');
+  background-position: center 25%;
+  background-size: cover;
 }
 
 .page-accueil #hero .hero-contenu {
   max-width: 700px;
-  text-align: left;
+  text-align: center;
 }
 
 .page-accueil #hero .hero-titre {
@@ -458,7 +470,7 @@ header {
 
 .page-accueil #hero .hero-sous-titre {
   max-width: 620px;
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
 }
 
 .page-accueil #hero .hero-sous-titre strong {
@@ -470,7 +482,7 @@ header {
 }
 
 .page-accueil #hero .hero-actions {
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .page-accueil #chiffres-cles .carte h3 {
@@ -478,23 +490,6 @@ header {
   color: var(--bleu-principal);
   font-size: clamp(2rem, 4vw, 3rem);
   font-variant-numeric: tabular-nums;
-}
-
-.hero-visuel {
-  position: relative;
-  z-index: 3;
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.hero-visuel img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  max-height: min(680px, 75svh);
-  object-fit: cover;
-  object-position: center 68%;
 }
 
 .photo-editoriale {
@@ -545,20 +540,15 @@ textarea:focus-visible {
 
 @media (max-width: 768px) {
   .page-accueil #hero {
-    grid-template-columns: 1fr;
-    gap: 2rem;
     min-height: 0;
     padding: 8rem 1rem 3rem;
+    background-position: center 20%;
   }
 
   .page-accueil #hero .hero-contenu {
     max-width: 100%;
   }
 
-  .hero-visuel img {
-    aspect-ratio: 1 / 1;
-    max-height: none;
-  }
 }
 
 
@@ -658,7 +648,7 @@ section {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 2rem;
-  border-radius: 4px;
+  border-radius: 12px;
   font-weight: 700;
   font-family: var(--police-titre);
   font-size: 0.9rem;
@@ -737,7 +727,7 @@ section {
 .carte {
   position: relative;
   padding: 2.25rem 2rem;
-  border-radius: 6px;
+  border-radius: 16px;
   transition: border-color 0.18s ease, background-color 0.18s ease;
   background: #17171d;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -947,7 +937,7 @@ section {
 .timeline-contenu {
   background: #17171d;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  border-radius: 16px;
   padding: 1.5rem;
 }
 
@@ -1060,74 +1050,7 @@ section {
    Cartes avec visuels photographiques pour plus d'impact visuel.
    Design selon charte WUM : photos noir et blanc, incrustations de couleur.
    ------------------------------------------------------------------ */
-.signes-grille-featured {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.signe-carte-photo {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 320px;
-  cursor: default;
-  transition: var(--transition-lisse);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.signe-carte-photo:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(77, 65, 217, 0.25);
-}
-
-.signe-carte-photo-visuel {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.signe-carte-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.2);
-  transition: var(--transition-lisse);
-}
-
-.signe-carte-photo:hover .signe-carte-photo-img {
-  filter: grayscale(0%) contrast(1.1);
-  transform: scale(1.05);
-}
-
-.signe-carte-photo-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(7, 7, 10, 0.55) 0%,
-    rgba(7, 7, 10, 0.72) 42%,
-    rgba(7, 7, 10, 0.94) 100%);
-  transition: var(--transition-lisse);
-}
-
-.signe-carte-photo:hover .signe-carte-photo-overlay {
-  background: linear-gradient(180deg,
-    rgba(77, 65, 217, 0.38) 0%,
-    rgba(7, 7, 10, 0.72) 48%,
-    rgba(7, 7, 10, 0.94) 100%);
-}
-
-.signe-carte-photo-contenu {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 1.5rem;
-  z-index: 2;
-}
-
+/* Les cartes .signe-carte-photo sont définies une seule fois, en section 18. */
 .signe-numero {
   font-family: var(--police-titre);
   font-size: 3rem;
@@ -1386,40 +1309,9 @@ section {
   text-align: center;
 }
 
-.entete-activites .carousel-slide,
 .entete-activites .entete-overlay {
   position: absolute;
   inset: 0;
-}
-
-.entete-activites .carousel-slide {
-  z-index: -1;
-  background-position: center;
-  background-size: cover;
-  animation: activites-carousel 28s ease-in-out infinite;
-}
-
-.entete-activites .carousel-slide:first-child {
-  background-image: url('../Image/WUM_ID.png');
-  animation-delay: 0s;
-}
-
-.entete-activites .carousel-slide-2 {
-  background-image: url('../Image/RM5_NEW.jpg');
-  animation-delay: 7s;
-}
-
-.entete-activites .carousel-slide-3 {
-  background-image: url('../Image/RM_Club_Artwork.jpg');
-  animation-delay: 14s;
-}
-
-.entete-activites .carousel-slide-4 {
-  background-image: url('../Image/IMG_6030.JPG');
-  animation-delay: 21s;
-}
-
-.entete-activites .entete-overlay {
   z-index: 0;
   background: linear-gradient(180deg, var(--overlay-photo), var(--fond-sombre));
 }
@@ -1438,21 +1330,6 @@ section {
 .entete-activites-contenu .section-intro {
   margin: 0 auto;
   color: var(--texte-clair);
-}
-
-@keyframes activites-carousel {
-  0%, 4% { opacity: 1; transform: scale(1); }
-  25%, 100% { opacity: 0; transform: scale(1.08); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .entete-activites .carousel-slide {
-    animation: none;
-  }
-
-  .entete-activites .carousel-slide:not(:first-child) {
-    display: none;
-  }
 }
 
 .activites-section-entete {
@@ -1598,7 +1475,7 @@ section {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 0.3rem 0.8rem;
-  border-radius: 4px;
+  border-radius: 8px;
   margin-bottom: 1.25rem;
   width: fit-content;
 }
@@ -1635,7 +1512,7 @@ section {
 /* Grille des autres activités */
 .activites-grille {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
 }
 
@@ -1659,8 +1536,9 @@ section {
 }
 
 .activite-carte-image {
+  display: block;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -1680,7 +1558,7 @@ section {
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.25rem 0.7rem;
-  border-radius: 4px;
+  border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
@@ -2396,44 +2274,45 @@ body > footer a,
    ------------------------------------------------------------------ */
 .signes-grille-featured {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
   margin-top: 3rem;
 }
 
+/* Les visuels sont des affiches déjà composées (texte et logo inclus) :
+   on les montre entières au-dessus du texte, sans superposition. */
 .signe-carte-photo {
-  position: relative;
-  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  min-height: 430px;
   border: 1px solid rgba(77, 65, 217, 0.25);
-  transition: var(--transition-lisse);
+  border-radius: 12px;
   background: var(--fond-sombre-2);
+  transition: border-color var(--transition-lisse), box-shadow var(--transition-lisse);
 }
 
 .signe-carte-photo:hover {
-  transform: translateY(-6px);
   border-color: rgba(113, 244, 179, 0.45);
-  box-shadow: 0 20px 50px rgba(77, 65, 217, 0.25);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .signe-carte-photo-visuel {
-  position: absolute;
-  inset: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
   background: var(--gradient-bleu-violet);
 }
 
 .signe-carte-photo-img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
-  transition: opacity 0.5s ease, transform 0.6s ease;
+  object-position: center top;
+  transition: transform 0.6s ease;
 }
 
 .signe-carte-photo:hover .signe-carte-photo-img:not(.image-manquante) {
-  opacity: 0.7;
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .signe-carte-photo-img.image-manquante {
@@ -2441,25 +2320,20 @@ body > footer a,
 }
 
 .signe-carte-photo-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(7, 7, 10, 0.55) 0%, rgba(7, 7, 10, 0.74) 42%, rgba(7, 7, 10, 0.94) 100%);
+  display: none;
 }
 
 .signe-carte-photo-contenu {
-  position: relative;
-  z-index: 2;
-  height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.75rem 1.5rem;
+  padding: 1.5rem;
   text-align: left;
 }
 
 .signe-carte-photo .signe-numero {
   font-size: 2rem;
-  color: rgba(113, 244, 179, 0.35);
+  color: var(--aqua-marine);
   margin-bottom: 0.5rem;
 }
 
@@ -2825,7 +2699,7 @@ body > footer a,
 }
 
 .carte-visuel {
-  height: 160px;
+  aspect-ratio: 1 / 1;
   background: var(--gradient-bleu-violet);
   overflow: hidden;
 }

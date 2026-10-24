@@ -53,6 +53,26 @@
 .page-activites .entete-activites-visuel-2 {
   right: 0;
   background-image: url('../Image/IMG_1458.JPG.jpeg');
+  background-position: center 62%;
+}
+
+@media (max-width: 640px) {
+  .page-activites .entete-activites .entete-activites-visuel {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+  }
+
+  .page-activites .entete-activites .entete-activites-visuel-1 {
+    top: 0;
+    bottom: auto;
+  }
+
+  .page-activites .entete-activites .entete-activites-visuel-2 {
+    top: auto;
+    bottom: 0;
+  }
 }
 
 .page-activites #formats-phares {
@@ -78,7 +98,7 @@
 }
 
 .page-activites #formats-phares .activite-carte-image {
-  height: 150px;
+  aspect-ratio: 1 / 1;
 }
 
 .page-activites #formats-phares .activite-carte-corps {

@@ -1,7 +1,7 @@
 // Service worker WUM — compatible avec le sous-chemin /WUM_Web/ de GitHub Pages.
 // Les chemins sont résolus à partir du scope d'enregistrement (self.registration.scope).
 const CACHE_PREFIX = 'wum-cache-';
-const CACHE_NAME = CACHE_PREFIX + 'v5';
+const CACHE_NAME = CACHE_PREFIX + 'v7';
 
 const ASSETS = [
   './',
